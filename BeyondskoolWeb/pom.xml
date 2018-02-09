@@ -1,0 +1,245 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.beyondskool.web</groupId>
+	<artifactId>BeyondskoolWeb</artifactId>
+	<version>1.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>BeyondskoolWeb</name>
+	<url>http://www.beyondskool.com</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/com.owlike/genson -->
+		<dependency>
+			<groupId>com.owlike</groupId>
+			<artifactId>genson</artifactId>
+			<version>1.4</version>
+		</dependency>
+		<!-- <dependency> <groupId>javax.servlet</groupId> <artifactId>jstl</artifactId> 
+			<version>1.2</version> </dependency> -->
+		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jetty.aggregate/jetty-all-server -->
+		<!-- <dependency> <groupId>org.eclipse.jetty.aggregate</groupId> <artifactId>jetty-all-server</artifactId> 
+			<version>8.1.15.v20140411</version> <exclusions> <exclusion> <groupId>org.eclipse.jetty.orbit</groupId> 
+			<artifactId>javax.mail.glassfish</artifactId> </exclusion> </exclusions> 
+			</dependency> -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>javax.mail-api</artifactId>
+			<version>1.5.5</version>
+		</dependency>
+		<dependency>
+			<groupId>com.razorpay</groupId>
+			<artifactId>razorpay-java</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.eclipse.core/org.eclipse.core.resources -->
+		<dependency>
+			<groupId>org.eclipse.core</groupId>
+			<artifactId>org.eclipse.core.resources</artifactId>
+			<version>3.7.100</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20160212</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet-core</artifactId>
+			<version>2.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.core/jersey-server -->
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>2.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.core/jersey-client -->
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>2.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.media/jersey-media-multipart -->
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-multipart</artifactId>
+			<version>2.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.glassfish.jersey.media/jersey-media-json-jackson -->
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+			<version>2.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-core-asl -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>1.9.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-jaxrs -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-jaxrs</artifactId>
+			<version>1.9.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-mapper-asl -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.codehaus.jackson/jackson-xc -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-xc</artifactId>
+			<version>1.9.2</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.ws.rs/javax.ws.rs-api -->
+		<dependency>
+			<groupId>javax.ws.rs</groupId>
+			<artifactId>javax.ws.rs-api</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<scope>system</scope>
+			<version>0.8.0-SNAPSHOT</version>
+			<systemPath>${project.basedir}\src\main\webapp\WEB-INF\lib\jjwt-0.8.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>com.beyondskool.common</groupId>
+			<artifactId>BeyondskoolCommon</artifactId>
+			<version>1.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.beyondskool</groupId>
+			<artifactId>BeyondskoolDal</artifactId>
+			<version>1.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.beyondskool</groupId>
+			<artifactId>BeyondskoolService</artifactId>
+			<version>1.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+	<!-- <repositories>
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
+	</repositories> -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.10</version>
+				<configuration>
+					<skipTests>false</skipTests>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<packagingIncludes>WEB-INF/lib/*.*,WEB-INF/*.xml,META-INF/*.*,WEB-INF/classes/*.*</packagingIncludes>
+				</configuration>
+			</plugin>
+			<!-- assembly plugin used for creation of jvm jar -->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.2.2</version>
+				<executions>
+					<execution>
+						<id>execution1</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<finalName>${project.artifactId}</finalName>
+							<outputDirectory>${project.build.directory}</outputDirectory>
+							<descriptors>
+								<descriptor>src/main/assembly/WebDistribution.xml</descriptor>
+								<descriptor>src/main/assembly/WebCore.xml</descriptor>
+							</descriptors>
+						</configuration>
+					</execution>
+					<execution>
+						<id>execution2</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+						<configuration>
+							<finalName>${project.artifactId}</finalName>
+							<outputDirectory>${project.build.directory}/BeyondSkool/WEB-INF/lib</outputDirectory>
+							<descriptors>
+								<descriptor>src/main/assembly/WebCore.xml</descriptor>
+							</descriptors>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+			</resource>
+		</resources>
+		<finalName>BeyondSkool</finalName>
+	</build>
+	<description>Includes web components</description>
+</project>

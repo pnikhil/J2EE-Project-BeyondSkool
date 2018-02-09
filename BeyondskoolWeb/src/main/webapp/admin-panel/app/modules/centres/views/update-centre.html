@@ -1,0 +1,73 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="table-responsive">
+				<h3 class="title">Update Centre</h3>
+				<p style="float: right;">					
+					<a class="btn btn-success btn-fill" ng-click="goBack()">Go Back</a>
+				</p>
+				<div class="bs-center-form">
+							<div class="form-group field-bscenter-center_name required">
+						<label class="control-label" for="bscenter-center_name">Center Name <span class="label label-danger">Cannot Edit</span></label>
+							<input disabled ng-model="centreName" value="" type="text" id="bscenter-center_name"
+							class="form-control" maxlength="250">
+						<div class="help-block"></div>
+						</div>
+						<div class="form-group field-bscenter-owner_name required">
+						<label class="control-label" for="bscenter-owner_name">Owner Name</label> 
+							<input type="text" ng-model="ownerName" id="bscenter-owner_name"
+							class="form-control">
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group field-bscenter-mail_id required">
+						<label class="control-label" for="bscenter-mail_id">Email</label>
+						<input type="text" ng-blur="checkEmailExist()"  ng-model="emailId" id="bscenter-mail_id" class="form-control">
+						<h6 ng-show="email_exists" class="sc_title sc_title_regular" style="color: #ea624c;">Email already exists. Choose another one</h6>
+						<div class="help-block"></div>
+					</div>
+					
+					<div class="form-group field-bscenter-contact_no required">
+						<label class="control-label" for="bscenter-contact_no">Contact No </label> 
+							<input type="text" id="bscenter-contact_no" ng-model="contactNo" class="form-control">
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group field-bscenter-description">
+						<label class="control-label" for="bscenter-description">Description</label>
+						<textarea id="bscenter-description" ng-model="description" class="form-control" rows="6"></textarea>
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group field-bscenter-city_id">
+						<label class="control-label" for="bscenter-city_id">City</label> 
+						<select ng-change="getAreaNames(city)" ng-options="city.id as city.cityName for city in cityData" ng-model="city"
+									class="form-control">
+									<option style="display:none" value="">Select City</option>
+						</select>
+								
+								
+
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group field-bscenter-area_id">
+						<label class="control-label" for="bscenter-area_id">Area</label> 
+						<select ng-options="area.id as area.areaName for area in areaData" ng-model="area"
+									class="form-control">
+									<option style="display:none" value="">Select Area</option>
+						</select>
+
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group field-bscenter-address required">
+						<label class="control-label" for="bscenter-address">Address</label>
+						<textarea id="bscenter-address" ng-model="address" class="form-control" rows="6"></textarea>
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group">
+						
+						</div>
+						</div>
+				<button ng-click="updateCentreDetails()" class="btn btn-primary btn-fill">Update Details</button>
+				</div>
+
+			</div>
+		</div>
+	</div>

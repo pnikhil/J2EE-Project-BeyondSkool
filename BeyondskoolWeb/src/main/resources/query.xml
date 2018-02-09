@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="LOGIN_VALIDATION">
+		<![CDATA[
+			select admin_username from admin_login where admin_username = ?  and admin_password = ?;
+	]]>
+	</entry>
+	
+	<entry key="CENTRE_LOGIN_VALIDATION">
+		<![CDATA[
+			select owner_name from bs_center where mail_id = ? and password = ?;
+	]]>
+	</entry>
+	
+	<entry key="PARENT_LOGIN_VALIDATION">
+		<![CDATA[
+			select parent_name from bs_user where email = ? and password = ?;
+	]]>
+	</entry>
+
+	<entry key="FETCH_CITIES">
+	<![CDATA[
+			select * from bs_cities;
+	]]>
+	</entry>
+	
+	<entry key="FETCH_AREAS_FOR_CITY_NAME">
+	<![CDATA[
+			select a.id as areaid, c.id as cityid, a.area_name,a.updated_at, a.status, c.city_name 
+			from bs_area a, bs_cities c where a.city_id = c.id and c.city_name = ?;
+	]]>
+	</entry>
+
+	<entry key="ADD_CITY">
+	<![CDATA[
+			insert into bs_cities(city_name,updated_at,status) values(?,?,?);
+	]]>
+	</entry>
+
+	<entry key="DELETE_CITY">
+	<![CDATA[
+			delete from bs_cities where id = ?;
+	]]>
+	</entry>
+	
+	<entry key="DELETE_ACTIVITY">
+	<![CDATA[
+			delete from bs_activites where id = ?;
+	]]>
+	</entry>
+	
+	<entry key="UPDATE_ACTIVITY">
+	<![CDATA[
+			update bs_activites set activites_name = ?, img_path = ? where id = ?;
+	]]>
+	</entry>
+
+	<entry key="UPDATE_CITY">
+	<![CDATA[
+			update bs_cities set city_name = ? where id = ?;
+	]]>
+	</entry>
+
+	<entry key="FETCH_AREAS">
+	<![CDATA[
+			select a.id as areaid, c.id as cityid, a.area_name,a.updated_at, a.status, c.city_name 
+			from bs_area a, bs_cities c where a.city_id = c.id;
+	]]>
+	</entry>
+	
+	<entry key="FETCH_AREAS_FOR_CITY">
+	<![CDATA[
+			select a.id as areaid, c.id as cityid, a.area_name,a.updated_at, a.status, c.city_name 
+			from bs_area a, bs_cities c where a.city_id = c.id and a.city_id = ?;
+	]]>
+	</entry>
+	
+	<entry key="GET_CITIES_AS_LIST">
+	<![CDATA[
+			select city_name from bs_cities;
+	]]>
+	</entry>
+	
+	<entry key="ADD_AREA">
+	<![CDATA[
+			insert into bs_area(area_name,city_id,updated_at,status) values (?,?,?,?);
+	]]>
+	</entry>
+	
+	<entry key="DELETE_AREA">
+	<![CDATA[
+			delete from bs_area where id = ?;
+	]]>
+	</entry>
+	
+	<entry key="UPDATE_AREA">
+	<![CDATA[
+			update bs_area set area_name = ?, city_id=? where id = ?;
+	]]>
+	</entry>
+	
+	<entry key="FETCH_USER_DATA">
+	<![CDATA[				
+		select user_id, beyondskool_id, parent_name, child_name, age, gender, email, father_mobile_no, mother_mobile_no, address, standard, school, city, location, interested_activities, applicable_timings, Preference, updated_at, status from bs_user;
+	]]>
+	</entry>
+	
+	<entry key="DELETE_USER">
+	<![CDATA[
+			delete from bs_user where user_id = ?;
+	]]>
+	</entry>
+	
+	<entry key="FETCH_ACTIVITY_LIST">
+	<![CDATA[
+			select id, activites_name from bs_activites;
+	]]>
+	</entry>
+	
+	<entry key="FETCH_ACTIVITIES">
+	<![CDATA[
+			select id, activites_name,description,img_path,updated_at,status from bs_activites;
+	]]>
+	</entry>
+	
+	<entry key="ADD_USER">
+	<![CDATA[
+		insert into bs_user(parent_name,child_name,age,gender,email,password,father_mobile_no,
+		mother_mobile_no,address,standard,school,city,location,interested_activities,
+		applicable_timings,Preference,updated_at,status)
+		values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+	]]>
+	</entry>
+	
+	<entry key="UPDATE_PARENT">
+	<![CDATA[
+		update bs_user set parent_name = ?,child_name = ?, age= ?, gender = ?, email = ?, father_mobile_no = ?,
+		mother_mobile_no = ?, address = ?, standard = ?, school = ?,city = ?,location = ?, interested_activities = ?,
+		applicable_timings = ?, Preference = ?, updated_at = ?, status = ? where user_id = ?;
+	]]>
+	</entry>
+
+	<entry key="FETCH_CENTRE_DATA">
+	<![CDATA[
+	select c.id,c.center_name,c.owner_name,c.mail_id,c.description,c.contact_no,c.img_path, c.address,c.area_id,c.city_id, area.area_name, city.city_name, c.status, c.img_dir_id 
+from bs_center c, bs_area area, bs_cities city
+where c.area_id = area.id and c.city_id = city.id;
+	]]>
+	</entry>
+	
+	<entry key="FETCH_CENTRE_DATA_ACTIVE">
+	<![CDATA[
+	select c.id,c.center_name,c.owner_name,c.mail_id,c.description,c.contact_no,c.img_path, c.address,c.area_id,c.city_id, area.area_name, city.city_name, c.status, c.img_dir_id
+	from bs_center c, bs_area area, bs_cities city
+	where c.area_id = area.id and c.city_id = city.id and c.status='Active';
+	]]>
+	</entry>
+	
+	<entry key="FETCH_CENTRE_DATA_PENDING">
+	<![CDATA[
+	select c.id,c.center_name,c.owner_name,c.mail_id,c.description,c.contact_no,c.img_path, c.address,c.area_id,c.city_id, area.area_name, city.city_name, c.status, c.img_dir_id
+	from bs_center c, bs_area area, bs_cities city
+	where c.area_id = area.id and c.city_id = city.id and c.status='Moderation';
+	]]>
+	</entry>	
+	
+	<entry key="GET_CENTRE_ACTIVITY_DATA">	
+	<![CDATA[
+	select ca.id as center_activity_id, activity.id as activity_id,  ca.day,ca.in_time,ca.out_time, ca.start_date, ca.end_date, ca.from_age,ca.to_age, activity.activites_name,ca.amount,ca.total_slots, ca.slots_remaining, ca.class_description,ca.duration  
+	from bs_center_activity ca, bs_center center, bs_activites activity
+	where ca.center_id=center.id and ca.activity_id=activity.id and center.id= ? and center.center_name = ?;
+	]]>
+	</entry>
+	
+	<entry key="ADD_CENTRE">
+	<![CDATA[
+	insert into bs_center(owner_name,mail_id,password,center_name,description,contact_no,img_path,city_id,area_id,address,updated_at,status,img_dir_id) 
+	values (?,?,?,?,?,?,?,?,?,?,?,?,?);
+	]]>
+	</entry>
+	
+	<entry key="FETCH_CENTRE_ID">
+	<![CDATA[
+	select id from bs_center where center_name = ? and area_id = ? and address = ?;
+	]]>
+	</entry>
+		
+	<entry key="ADD_ACTIVITIES_FOR_CENTRE">
+	<![CDATA[
+	insert into bs_center_activity(center_id,day,in_time,out_time,activity_id,from_age,to_age,amount,total_slots,slots_remaining,duration,class_description,start_date,end_date) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+	]]>
+	</entry>
+	
+	<entry key="DELETE_CENTRE">
+	<![CDATA[
+		delete from bs_center where id = ?;
+	]]>
+	</entry>
+	
+	<entry key="DELETE_CENTRE_ACTIVITY">
+	<![CDATA[
+			delete from bs_center_activity where id = ?;
+	]]>
+	</entry>
+	
+	<entry key="APPROVE_CENTRE">
+	<![CDATA[
+			update bs_center set status = 'Active' where id = ?;
+	]]>
+	</entry>
+	
+	<entry key="ADD_ACTIVITY">
+	<![CDATA[
+			insert into bs_activites(activites_name,img_path,updated_at,status) values (?,?,?,?);
+	]]>
+	</entry>
+	
+	<entry key="GET_PAYMENT_DATA">
+	<![CDATA[
+		select pay.Id, pay.Amount, pay.Status,pay.Package,pay.Email,pay.Method, pay.Contact, pay.CreatedAt,user.parent_name,user.city from tbl_payment pay, bs_user user where user.email = pay.email;
+	]]>
+	</entry>
+	
+	<entry key="GET_PAYMENT_DATA_FOR_PARENT">
+	<![CDATA[
+		select pay.Id, pay.Amount, pay.Status,pay.Package,pay.Method, pay.Contact, pay.CreatedAt from tbl_payment pay where pay.email = ?;
+	]]>
+	</entry>
+	
+	
+	<entry key="GET_BOOKING_DATA">
+	<![CDATA[
+		select book.book_id, book.date, book.attended, ca.amount, c.center_name, u.email, u.parent_name, a.activites_name
+		from bs_booking book, bs_user u,  bs_center_activity ca, bs_activites a, bs_center c 
+		where book.user_id = u.user_id and ca.id = book.center_act_id and a.id = ca.activity_id and c.id = ca.center_id;
+	]]>
+	</entry>
+	
+	<entry key="GET_BOOKING_DATA_FOR_PARENT">
+	<![CDATA[
+		select book.book_id, book.date, book.attended, ca.amount, c.center_name, c.contact_no, c.address, a.activites_name
+		from bs_booking book, bs_user u,  bs_center_activity ca, bs_activites a, bs_center c 
+		where book.user_id = u.user_id and ca.id = book.center_act_id and a.id = ca.activity_id and c.id = ca.center_id and u.email = ?;
+	]]>
+	</entry>
+	
+	<entry key="REGISTER_CENTRE">
+	<![CDATA[
+			insert into bs_center(owner_name,mail_id,password,contact_no,updated_at,status,img_dir_id) values (?,?,?,?,?,?,?);
+	]]>
+	</entry>
+	
+	<entry key="CHECK_EMAIL">
+	<![CDATA[
+			select * from bs_center where mail_id = ?;
+	]]>
+	</entry>
+	
+	<entry key="CHECK_EMAIL_PARENT">
+	<![CDATA[
+			select * from bs_user where email = ?;
+	]]>
+	</entry>
+	
+	<entry key="MAX_USER_INDEX">
+	<![CDATA[
+			select max(user_id) from bs_user;
+	]]>
+	</entry>
+	
+	<entry key="REGISTER_USER">
+	<![CDATA[
+			insert into bs_user(parent_name,email,password,father_mobile_no,child_name,age,school,updated_at,status) values (?,?,?,?,?,?,?,?,?);
+	]]>
+	</entry>
+	
+	<entry key="FETCH_CENTRE_COMPLETE_DETAILS">
+	<![CDATA[
+		select c.id, c.owner_name, c.mail_id, c.center_name, c.description, c.contact_no, c.img_path, a.area_name, city.city_name, c.address,c.img_dir_id
+		from bs_center c, bs_cities city, bs_area a 
+		where a.id = c.area_id and city.id = c.city_id and center_name = ?
+		limit 1;			
+	]]>
+	</entry>
+	
+	<entry key="FETCH_CENTRE_COMPLETE_PROFILE">
+	<![CDATA[
+		select c.id, c.owner_name, c.mail_id, c.center_name, c.description, c.contact_no, c.img_path, c.status, a.area_name, city.city_name, c.address,c.img_dir_id
+		from bs_center c, bs_cities city, bs_area a 
+		where a.id = c.area_id and city.id = c.city_id and mail_id = ?
+		limit 1;			
+	]]>
+	</entry>
+	
+	<entry key="FETCH_COMPLETE_ACTIVITY_DETAILS">
+	<![CDATA[
+		select a.img_path, ca.id, ca.day, ca.in_time, ca.out_time, ca.from_age, ca.start_date,ca.end_date, ca.to_age, a.activites_name, ca.amount, ca.slots_remaining, ca.total_slots, ca.duration, ca.class_description 
+		from bs_activites a, bs_center c, bs_center_activity ca
+		where  c.id = ca.center_id and ca.activity_id = a.id and c.id = ? and c.center_name = ?;	
+	]]>
+	</entry>
+	
+	<entry key="FETCH_CENTRE_COMPLETE_DETAILS_WITH_ID">
+	<![CDATA[
+		select c.id, c.owner_name, c.mail_id, c.center_name, c.description, c.contact_no, c.img_path, a.area_name, city.city_name, c.address,c.img_dir_id
+		from bs_center c, bs_cities city, bs_area a 
+		where a.id = c.area_id and city.id = c.city_id and c.center_name = ? and c.id = ?;			
+	]]>
+	</entry>
+	
+	<entry key="FETCH_BASIC_CENTRE_DETAILS">
+	<![CDATA[
+		select c.id, c.owner_name, c.mail_id, c.contact_no, c.status,c.img_dir_id
+		from bs_center c where c.mail_id = ?;
+	]]>
+	</entry>
+	
+	<entry key="NEW_CENTRE_BY_OWNER">
+	<![CDATA[
+		update bs_center
+		set center_name = ?, description = ?, img_path = ?, city_id = ?, area_id = ?, address = ?, updated_at = ? ,status = ? 
+		where mail_id = ?
+	]]>
+	</entry>
+	
+	<entry key="UPDATE_CENTRE_DETAILS">
+	<![CDATA[
+		update bs_center set owner_name = ?, address = ?, description = ?, updated_at = ?, contact_no = ? where id = ? 
+	]]>
+	</entry>
+	
+	<entry key="UPDATE_CENTRE_DETAILS_BY_ADMIN">
+	<![CDATA[
+		update bs_center set owner_name = ?, address = ?, description = ?, updated_at = ?, contact_no = ?, city_id = ?, area_id = ?, mail_id = ? where id = ? 
+	]]>
+	</entry>
+	
+	<entry key="FETCH_PARENT_DETAILS_FOR_DASHBOARD">
+	<![CDATA[
+		select user_id,parent_name,email,child_name,age,gender,father_mobile_no,mother_mobile_no,address,standard,school,city,location,interested_activities,applicable_timings,Preference,status 
+		from bs_user where email  = ?;
+	]]>
+	</entry>
+	
+	<entry key="GET_WALLET_DATA_FOR_PARENT">
+	<![CDATA[
+		select total_purchase, balance_remaining from bs_user_wallet uw, bs_user u where uw.user_id = u.user_id and u.email = ?;
+	]]>
+	</entry>
+	
+	<entry key="GET_BOOKING_DATA_FOR_CENTRE">
+	<![CDATA[
+		select book.book_id, book.date, book.attended, ca.amount, u.email, u.child_name, u.father_mobile_no, u.location, u.parent_name, a.activites_name
+		from bs_booking book, bs_user u,  bs_center_activity ca, bs_activites a, bs_center c 
+		where book.user_id = u.user_id and ca.id = book.center_act_id and a.id = ca.activity_id and c.id = ca.center_id and c.mail_id = ?;
+	]]>
+	</entry>
+	
+	<entry key="CHANGE_BOOKING_STATUS">
+	<![CDATA[
+		update bs_booking set attended = ? where book_id = ?;
+	]]>
+	</entry>
+	
+	<entry key="CHECK_PARENT_BALANCE">
+	<![CDATA[
+		select uw.balance_remaining, u.user_id from bs_user_wallet uw, bs_user u where u.user_id = uw.user_id and u.email = ?;
+	]]>
+	</entry>
+	
+	<entry key="BOOK_SLOT_FOR_PARENT">
+	<![CDATA[
+		insert into bs_booking(date,center_act_id,user_id,updated_at,status) values(?,?,?,?,?);
+	]]>
+	</entry>
+	
+	<entry key="UPDATE_IMAGES">
+	<![CDATA[
+		update bs_center set img_path = ? where id = ?;
+	]]>
+	</entry>
+	
+	<entry key="DEDUCT_AMOUNT_FROM_WALLET">
+	<![CDATA[
+		update bs_user_wallet
+		set balance_remaining = balance_remaining - ? where user_id = ?;
+	]]>
+	</entry>
+	
+	<entry key="FETCH_SUMMARY_CENTRE_DATA_ACTIVE">
+	<![CDATA[
+	select c.center_name, c.id, substring(c.description, 1,150) as description,c.img_path, area.area_name, city.city_name, c.img_dir_id
+	from bs_center c, bs_area area, bs_cities city
+	where  c.area_id = area.id and c.city_id = city.id and c.status='Active';
+	]]>
+	</entry>
+	
+	<entry key="FILTER_CENTRE_BY_ACTIVITY">
+	<![CDATA[
+	select c.center_name, c.id, substring(c.description, 1,150) as description, c.img_path, c.img_dir_id, area.area_name, city.city_name
+	from bs_center c, bs_area area, bs_cities city, bs_center_activity ca, bs_activites act
+	where  c.area_id = area.id and c.city_id = city.id and c.status='Active' and ca.center_id = c.id and ca.activity_id = act.id and act.id = ?;
+	]]>
+	</entry>
+	
+	<entry key="FILTER_CENTRE_BY_AGE">
+	<![CDATA[	
+	select c.center_name, c.id, substring(c.description, 1,150) as description, act.activites_name, c.img_path, c.img_dir_id, area.area_name, city.city_name
+	from bs_center c, bs_area area, bs_cities city, bs_center_activity ca, bs_activites act
+	where  c.area_id = area.id and c.city_id = city.id and c.status='Active' and ca.center_id = c.id 
+	and ca.activity_id = act.id and ca.from_age <= ? and ca.to_age >= ?;	
+	]]>
+	</entry>
+	
+	<entry key="ADD_PAYMENT_DATA">
+	<![CDATA[	
+		insert into tbl_payment(PaymentId,Amount,Currency,Method,Status,Package,Email,Contact,CreatedAt) values (?,?,?,?,?,?,?,?,?);
+	]]>
+	</entry>
+	
+	<entry key="ADD_TO_PARENT_WALLET">
+	<![CDATA[	
+		update bs_user, bs_user_wallet
+		set bs_user_wallet.total_purchase=bs_user_wallet.total_purchase + ?,
+		bs_user_wallet.balance_remaining = bs_user_wallet.balance_remaining + ?
+		where bs_user.user_id = bs_user_wallet.user_id
+		and bs_user.email = ?;
+	]]>
+	</entry>
+	
+	<entry key="FETCH_UPCOMING_LIST">
+	<![CDATA[	
+		select ca.id, a.activites_name, a.img_path as activity_image, c.img_path, city.city_name, 
+		area.area_name, c.center_name,ca.day,ca.in_time,ca.out_time,ca.from_age,ca.to_age,ca.amount,c.id as centre_id,
+		ca.total_slots,ca.slots_remaining,ca.duration, ca.start_date,ca.end_date, substring(ca.class_description,1,150) as class_description
+		from bs_center_activity ca, bs_activites a, bs_center c,bs_cities city, bs_area area 
+		where ca.activity_id = a.id 
+		and ca.center_id = c.id 
+		and c.city_id = city.id 
+		and area.id = c.area_id and str_to_date(substring(start_date,5), '%b %d %Y') >= date(now());
+	]]>
+	</entry>
+	
+	<entry key="FETCH_UPCOMING_LIST_BY_AGE">
+	<![CDATA[	
+		select ca.id, a.activites_name, a.img_path as activity_image, c.img_path, city.city_name, 
+		area.area_name, c.center_name,ca.day,ca.in_time,ca.out_time,ca.from_age,ca.to_age,ca.amount,c.id as centre_id,
+		ca.total_slots,ca.slots_remaining,ca.duration, ca.start_date,ca.end_date, substring(ca.class_description,1,150) as class_description
+		from bs_center_activity ca, bs_activites a, bs_center c,bs_cities city, bs_area area 
+		where ca.activity_id = a.id 
+		and ca.center_id = c.id 
+		and c.city_id = city.id 
+		and area.id = c.area_id and ca.from_age <= ? and ca.to_age >= ? and str_to_date(substring(start_date,5), '%b %d %Y') >= date(now());
+	]]>
+	</entry>
+	
+	<entry key="FETCH_UPCOMING_LIST_BY_ACTIVITY">
+	<![CDATA[	
+		select ca.id, a.activites_name, a.img_path as activity_image, c.img_path, city.city_name, 
+		area.area_name, c.center_name,ca.day,ca.in_time,ca.out_time,ca.from_age,ca.to_age,ca.amount, c.id as centre_id,
+		ca.total_slots,ca.slots_remaining,ca.duration, ca.start_date,ca.end_date, substring(ca.class_description,1,150) as class_description
+		from bs_center_activity ca, bs_activites a, bs_center c,bs_cities city, bs_area area 
+		where ca.activity_id = a.id 
+		and ca.center_id = c.id 
+		and c.city_id = city.id 
+		and area.id = c.area_id and a.id = ? and str_to_date(substring(start_date,5), '%b %d %Y') >= date(now());
+	]]>
+	</entry>
+	
+	<entry key="FETCH_UPCOMING_LIST_BY_ACTIVITY_AND_AGE">
+	<![CDATA[	
+		select ca.id, a.activites_name, a.img_path as activity_image, c.img_path, city.city_name, 
+		area.area_name, c.center_name,ca.day,ca.in_time,ca.out_time,ca.from_age,ca.to_age,ca.amount, c.id as centre_id,
+		ca.total_slots,ca.slots_remaining,ca.duration, ca.start_date,ca.end_date, substring(ca.class_description,1,150) as class_description
+		from bs_center_activity ca, bs_activites a, bs_center c,bs_cities city, bs_area area 
+		where ca.activity_id = a.id 
+		and ca.center_id = c.id 
+		and c.city_id = city.id 
+		and area.id = c.area_id and a.id = ? and ca.from_age <= ? and ca.to_age >= ? and str_to_date(substring(start_date,5), '%b %d %Y') >= date(now());
+	]]>
+	</entry>
+	
+	<entry key="GET_CENTRE_DETAILS_FOR_ACTIVITY_MAIL">
+	<![CDATA[	
+		select c.mail_id as center_email, c.address, c.center_name, c.contact_no, c.owner_name, u.parent_name, a.activites_name
+		from bs_center c, bs_user u, bs_booking b, bs_center_activity ca, bs_activites a
+		where b.center_act_id = ca.id and ca.center_id = c.id and ca.activity_id = a.id and b.user_id = u.user_id 
+		and u.user_id = ? and center_act_id = ? and date = ?;
+	]]>
+	</entry>
+	
+	<entry key="GET_CENTRE_REVIEW">
+	<![CDATA[
+		select r.review, r.rating, u.parent_name, c.center_name, r.updated_at 
+		from bs_reviews r, bs_center c, bs_user u 
+		where r.user_id = u.user_id and c.id = r.centre_id and c.center_name = ?;
+	]]>
+	</entry>
+	
+	<entry key="CHECK_IF_REVIEW_EXISTS">
+	<![CDATA[
+		select r.review from bs_reviews r, bs_user u where r.user_id = u.user_id and u.email = ? and  r.centre_id = ?;
+	]]>
+	</entry>
+	
+	<entry key="GET_USER_ID">
+	<![CDATA[
+		select user_id from bs_user where email = ?;
+	]]>
+	</entry>
+	
+	<entry key="ADD_PARENT_REVIEW">
+	<![CDATA[
+		insert into bs_reviews(review,rating,user_id,updated_at,centre_id) values (?,?,?,?,?);
+	]]>
+	</entry>
+	
+	<entry key="GET_ALL_REVIEWS">
+	<![CDATA[
+		select r.id, r.rating, r.review, c.center_name, r.updated_at, u.parent_name
+		from bs_reviews r, bs_user u, bs_center c 
+		where r.centre_id = c.id and r.user_id = u.user_id;
+	]]>
+	</entry>
+	
+	<entry key="DELETE_REVIEW">
+	<![CDATA[
+		delete from bs_reviews where id = ?;
+	]]>
+	</entry>
+	
+	<entry key="UPDATE_CENTRE_ACTIVITY">
+	<![CDATA[
+		update bs_center_activity
+		set activity_id = ?, in_time = ?, out_time = ?, day = ?, from_age = ?, to_age = ?, total_slots = ?, slots_remaining = slots_remaining + ?, duration = ?, class_description = ?, amount = ?, start_date = ?, end_date = ? where id = ?;
+	]]>
+	</entry>
+	
+	<entry key="FETCH_UPCOMING_LIST_BY_ACTIVITY_AGE_AREA">
+	<![CDATA[	
+		select ca.id, a.activites_name, a.img_path as activity_image, c.img_path, city.city_name, 
+		area.area_name, c.center_name,ca.day,ca.in_time,ca.out_time,ca.from_age,ca.to_age,ca.amount,ca.start_date,ca.end_date, c.id as centre_id,
+		ca.total_slots,ca.slots_remaining,ca.duration, substring(ca.class_description,1,150) as class_description
+		from bs_center_activity ca, bs_activites a, bs_center c,bs_cities city, bs_area area 
+		where ca.activity_id = a.id 
+		and ca.center_id = c.id 
+		and c.city_id = city.id 
+		and area.id = c.area_id and a.id = ? and ca.from_age <= ? and ca.to_age >= ? and area.id = ?;
+	]]>
+	</entry>
+	
+	<entry key="REDUCE_SLOT">
+	<![CDATA[
+		update bs_center_activity set total_slots = total_slots - 1 where id = ?;
+	]]>
+	</entry>
+	
+</properties>

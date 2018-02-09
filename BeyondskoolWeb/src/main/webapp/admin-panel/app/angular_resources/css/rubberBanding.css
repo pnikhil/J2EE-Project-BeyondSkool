@@ -1,0 +1,48 @@
+
+.padding_crop {
+	position: relative;
+	width: 100%;
+	height:100%;	
+	z-index: 0;
+}
+
+.hj-cropify img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	/*
+	width: 100%;
+	height: 100%;
+	*/
+	pointer-events: none;
+	z-index: 1;
+}
+
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+/*commented by : Anoop Sunny
+  commented date : 27/02/2017
+  Reason : Was overriding the default bootstrap css due to naming conflict and there were founf not to be in use elsewhere.
+*/
+/*li {
+	display: inline-block;
+	margin: 10px 10px 0 0;
+	cursor: pointer;
+}
+*/
+pre {
+	font-size: 10px;
+}
+.selectedRubberBand{
+ -moz-box-shadow:    inset 0 0 10px #000000;
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 10px #000000;
+}
+.deselectedRubberBand{
+
+}

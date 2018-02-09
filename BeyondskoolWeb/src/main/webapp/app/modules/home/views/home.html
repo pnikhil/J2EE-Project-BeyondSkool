@@ -1,0 +1,170 @@
+<!-- <div ng-include src="'app/modules/commons/views/navbar.html'"></div> -->
+<!-- <header class="noFixMenu menu_right without_user_menu" home-frame template-path="app/modules/commons/views/navbar.html"></header>
+ --><!-- <div home-frame template-path="app/modules/commons/views/slider.html"></div> -->
+			<div class="mainWrap without_sidebar">
+				<div class="content">
+					<div class="">
+					
+					<!-- <section class="">
+							<img src="app/angular_resources/images/beyondskool.jpg"/>
+							</section> -->
+							<section class="beyondSkoolBackground">
+										<div class="container container_style_2" style="margin-top:-20%;">
+										<!-- <div style="width:50%;" class="columns1_2 sc_column_item sc_column_item_2 even">
+										<iframe width="560" height="315" src="https://www.youtube.com/embed/6Xr2p3oazrc" frameborder="0" allowfullscreen></iframe>
+																	<h3 style="color:darkblue;font-weight:700;font-size: 27px;" class="sc_title_regular font_ubuntu title_type_2">
+This 71st independence day, teach your child about financial independence!</h3>
+																	<div class="sc_button sc_button_style_global sc_button_size_huge curveButton right short squareButton global huge">
+																		<a href="#" class="">More</a>
+																	</div>
+																</div> -->
+										
+											<div class="">
+												<div class="sc_content main">
+                                                <h2 style="color:#ea624c;" class="sc_title style_5 sc_title_regular aligncenter">Find an activity class near you</h2>
+													<div class="columnsWrap sc_columns sc_columns_count_3">
+														
+														<div class="col-md-4 even">
+																<h6 class="sc_title sc_title_iconed style_1" style="margin-bottom: 10px;">LOCATION</h6>                                                                
+															<select ng-model="area" class="form-control">
+														<option value="">Select Area</option>																					 
+															<option ng-repeat="area in areaData" value="{{area.id}}">{{area.areaName}}</option>						
+														</select>
+                                                           </div>
+														<div class="col-md-3 odd">
+																<h6 class="sc_title sc_title_iconed style_1" style="margin-bottom: 10px;">KID'S AGE</h6>
+                                                           <select  ng-model="age" id="bscenteractivity-0-age_group_id" class="form-control col-md-10">
+															<option value="">Select Age</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+															<option value="6">6</option>
+															<option value="7">7</option>
+															<option value="8">8</option>
+															<option value="9">9</option>
+															<option value="10">10</option>
+															<option value="11">11</option>
+															<option value="12">12</option>
+															<option value="13">13</option>
+															<option value="14">14</option>
+															<option value="15">15</option>
+															<option value="16">16</option>
+														</select>
+                                                            </div>
+														<div class="col-md-4 even">
+															<h6 class="sc_title sc_title_iconed style_1" style="margin-bottom: 10px;">ACTIVITY</h6>
+                                                          <select ng-model="activity" style="width: 80%;" id="bscenteractivity-0-activity_id" class="form-control col-md-9">
+																<option value="">Select</option>
+																	<option ng-repeat="activity in activityData" value="{{activity.id}}">{{activity.activityName}}</option>
+															</select>
+                                                          <button ng-click="searchActivities()" class="btn btn-success pull-right">Find</button>
+                                                       </div>
+														
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- <button style="margin-top:-14%;" ui-sref="upcomingClasses" class="btn btn-success btn-lg col-md-offset-8">GET STARTED</button> -->
+									</section>
+						<section class="post post_format_standard postAlter no_margin page type-page">
+							<article class="post_content">
+								<div class="post_text_area">
+
+							<!-- <section class="green_section">
+										<div class="container container_style_1">
+											<div class="">
+												<div class="sc_section bg_tint_dark">
+													<div class="sc_content main">
+														<div class="columnsWrap sc_columns sc_columns_count_5">
+															<div class="columns3_5 sc_column_item sc_column_item_1 odd first span_3">
+																<h3 class="sc_title sc_title_regular style_1 font_ubuntu title_type_2">Let your child learn beyond books and classrooms with 1000+ activities that includes crafts, amusement parks, science projects, dance, arts, yoga and so on.</h3>
+															</div>															
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</section> -->
+									
+									
+
+									<section class="">
+										<div class="container container_style_2">
+											<div class="">
+												<div class="sc_content main">
+                                                <h2 class="sc_title style_5 sc_title_regular aligncenter">WHY BEYONDSKOOL</h2>
+													<div class="columnsWrap sc_columns sc_columns_count_3">
+														
+														<div class="columns1_3 sc_column_item sc_column_item_2 even">
+															<!-- <a ui-sref="activityCentres"> -->
+																<div class="sc_title_icon sc_title_top sc_size_huge">
+																	<img src="app/angular_resources/images/discover.png" alt=""/>
+																</div>
+																<h6 class="sc_title sc_title_iconed style_1" style="margin-bottom: 10px;">Life changing courses</h6>
+                                                                
+															<!-- </a> -->
+                                                            <p style="text-align:center;">We teach essential life skills to students through our 9 signature courses!</p>
+														</div>
+														<div class="columns1_3 sc_column_item sc_column_item_3 odd">
+															<!-- <a ui-sref="packages"> -->
+																<div class="sc_title_icon sc_title_top sc_size_huge">
+																	<img src="app/angular_resources/images/book.png" alt=""/>
+																</div>
+																<h6 class="sc_title sc_title_iconed style_1" style="margin-bottom: 10px;">Training methodology</h6>
+                                                                
+															<!-- </a> -->
+                                                            <p style="text-align:center;">We follow game based learning! All our sessions are super fun while facilitating learning!</p>
+														</div>
+														<div class="columns1_3 sc_column_item sc_column_item_4 even">
+															<!-- <a ui-sref="activityCentres"> -->
+																<div class="sc_title_icon sc_title_top sc_size_huge">
+																	<img style="border-radius: 80px;" src="app/angular_resources/images/progress.png" alt=""/>
+																</div>
+																<h6 class="sc_title sc_title_iconed style_1" style="margin-bottom: 10px;">Outcome based learning</h6>
+                                                                
+															<!-- </a> -->
+                                                            <p style="text-align:center;">Our courses have well defined benchmarking tools to measure your child's growth before & after attending the course.</p>
+														</div>
+														
+													</div>
+												</div>
+											</div>
+										</div>
+									</section>
+
+									<section class="no_padding skyblue_section">
+										<div class="container">
+											<div class="">
+												<div class="sc_parallax dark" data-parallax-speed="0.3" data-parallax-x-pos="50%" data-parallax-y-pos="50%">
+													<div class="sc_parallax_content parallax_image_1">
+														<div class="sc_content main">
+															<div class="columnsWrap sc_columns sc_columns_count_2">
+																<div class="columns1_2 sc_column_item sc_column_item_1 odd first">
+																</div>
+																<div class="columns1_2 sc_column_item sc_column_item_2 even">
+																	<h1 class="sc_title style_2 sc_title_regular font_ubuntu text_uppercase title_type_1">Our Mission</h1>
+																	<div class="text_md">
+																		<p>Most people try to learn critical life skills only after they graduate. Alas, it is too late. Unfortunately, schools don't teach this. The cost of education has gone up but the quality has remained the same. We firmly believe that these life skills should be learnt during the formative years of childhood to build a solid foundation.
+<br />BeyondSkool is on a mission to do just that - prepare children for tomorrow!</p>
+																	</div>
+																	<!-- <div style="height: 102px;width: 212px;"class="sc_button sc_button_style_global sc_button_size_huge curveButton squareButton global huge">
+																		<a style="font-size:20px;" ui-sref="upcomingClasses" class="">Search Activities</a>
+																	</div> -->
+																	<!--<div class="sc_button sc_button_style_global sc_button_size_huge curveButton right short squareButton global huge">
+																		<a href="#" class="">More</a>
+																	</div>-->
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</section>
+								</div>
+							</article>
+						</section>
+					</div>
+				</div>
+			</div>
+			<div ng-include src="'app/modules/commons/views/footer.html'"></div>

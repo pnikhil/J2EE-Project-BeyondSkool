@@ -1,0 +1,607 @@
+.main_Wrapper{
+	width: 95%;
+	margin: 0 auto;
+}
+.dia_Caseid{
+	
+    margin: 0 auto;
+    width: 100%;
+    font-size: 13px;
+    border-bottom: 1px solid #cef3fc;
+    padding-top: 10px;
+}
+
+.docId{
+	font-weight: bold; 
+}
+.inner_Wrapper{
+	width: 100%;
+	padding-right: 0px;
+    padding-left: 0px;
+}
+.floatright{
+	float: right;
+}
+.floatleft{
+	float: left;
+}
+.myClear{
+	clear: both;
+}
+.doc_Extract{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+@media only screen and (max-width: 840px){
+    .doc_Extract {
+        width: 100%;
+    }
+
+}
+.document_files{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.headline{
+	font-size:13px;
+	font-weight: bold;
+}
+
+.accord_Content{
+	margin: 0px;
+}
+
+.resize{
+	background: url('../images/resize.png');
+	height: 24px;
+	width: 24px;
+
+}
+.doc_Files_Content , .contents , .resize_Images{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.contents{
+	    font-size: 13px;
+            margin-top: 5px;
+}
+.link{
+	text-decoration: underline;
+    font-style: italic;
+}
+.tab_Slide_Content {
+	background-color: rgb(73,176,207);
+   
+    padding-top: 5px;
+    /*padding-bottom: 5px;*/
+	
+
+}
+.extract_Details , .headline_Extract , .tab_Slide_Content , .extract_images{
+	padding-right: 0px;
+	padding-left: 0px;
+}
+.extract_Details{
+	color: white;
+    padding-left: 7px;
+    font-size: 13px;
+ margin-top: 6px;
+     margin-bottom: 6px;
+
+}
+.resize_Images.floatright {
+    margin-top: 5px;
+}
+.error_Count{
+	border: 1px solid red;
+	background-color: rgb(252,220,221);
+	color: red;
+	padding-left: 5px;
+    padding-right: 5px;
+    font-size: 12px;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+.headline2 {
+	font-size: 13px
+}
+.shift_Arrow{
+	color: white;
+	padding-left: 2px;
+	padding-right: 2px;
+	font-size: 15px;
+	cursor: pointer;
+}
+.resize_Images{
+	background: url('../images/crop.png');
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+}
+.dualMonitor{
+	background: url('../images/dual_monitor.png');
+	width: 32px;
+	height: 29px;
+	cursor: pointer;
+	margin-top:6px;
+	margin-right:5px;
+}
+.tab_Header_Selected {
+    text-align: center;
+   	padding: 24px;
+    padding-top: 6px;
+
+    height: 35px;
+    border-style: solid;
+    border-width: 1px;
+    float: left;
+    border-color: #b7ecfb;
+    border-bottom: none;
+    margin-left: 2px;
+    background-color: #cff3fd;
+}
+.tab_Header_Selected_Color {
+    color: #d61400;
+    text-align: center;
+    padding: 24px;
+    padding-top: 6px;
+    float: left;
+    padding-left: 27px;
+    padding-right: 32px;
+    height: 35px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #b7ecfb;
+    border-bottom: none;
+    margin-left: 2px;
+    background-color: #e8f8fc;
+    font-size: 14px;
+}
+.select_Option{
+    background-color: #cff3fd;
+	
+}
+.tab_Header {
+  	text-align: center;
+    padding: 24px;
+    padding-top: 6px;
+    float: left;
+    padding-left: 27px;
+    padding-right: 32px;
+    height: 35px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #b7ecfb;
+    border-bottom: none;
+    margin-left: 2px;
+    background-color: #e8f8fc;
+    font-size: 13px;
+    color: #353535;
+}
+.scroll_Tab_Menu{
+    background-color: #cff3fd;
+	/*height: 530px;*/
+	border-radius: 1px solid red;
+	position: relative;
+}
+
+.arrow_Scroll , .scroll_Tab_Menu {
+	padding-right: 0px;
+	padding-left: 0px;
+}
+.tab_slider_Row
+{
+	width: 96%;
+	overflow: hidden; 
+	float: left;
+}	
+.table_Structure {
+    height: 37px;
+    white-space: nowrap;
+    width: 920px;
+    position: relative;
+    
+}
+.tab_Slider_Right_Arrow , .tab_Slider_Left_Arrow{
+	font-size: 26px;
+    background-color: orange;
+    overflow: hidden;
+    width: 2%;
+    cursor: pointer;
+    background-color: rgb(73,176,207);
+    color: white;
+}
+.table_Body_Content{
+
+    background-color: #cef3fc;
+    min-height: 293px;
+    margin-top: -2px;
+	 border-top: none;
+    border-bottom: 1px solid #b7ecfa;
+	border-left: 1px solid #b7ecfa;
+	border-right: 1px solid #b7ecfa;
+    padding-bottom: 18px;
+        margin-left: 10px;
+    margin-right: 10px;
+
+
+
+}
+.table_Body_Expand {
+    font-size: 13px;
+    margin-left: 20px;
+    margin-top: 11px;
+    color: #353535;
+}
+
+.table_Expand {
+    margin-left: 20px;
+    padding-top: 1px;
+    margin-top: 4px;
+}
+.button_Div{
+	margin-top: 2px;
+	outline-style: none;
+
+}
+.save_Button{
+	    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 7px;
+    padding-bottom: 5px;
+    border: none;
+    font-size: 12px;
+    background-color: #323b3e;
+        margin-top: 5px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+}
+.div_Wrapper{
+	margin-right: 4px;
+}
+.left_Banner_Name{
+	
+	font-size: 12px;
+	color: white;
+    padding-top: 5px;
+        padding-left: 6px;
+}
+.tab_Left_Content{
+    background-color: rgb(73,176,207);
+    padding-top: 4px;
+}
+.left_Banner_Image{
+	cursor: pointer;
+}
+.Left_Banner_Picture{
+	height: 408px;
+	background-color: white;
+    margin-left: 5px;
+    margin-right: 5px;
+	
+}
+.Left_Banner_Picture_img{
+overflow:auto;
+}
+.Left_Banner_Pagination {
+    margin-top: 4px;
+   
+}
+
+.slide_Padding{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.break_Headline {
+    margin-top: -20px;
+    width: 202px;
+}
+.col1_Details{
+   margin-top: 19px;
+}
+.break_Words{
+     margin-bottom: 3px;
+    width: 200px;
+}
+.para_Break{
+     margin-top: -17px;
+}
+.delete_Button{
+    margin-top: 2px;
+    color: #f4fafe;
+    background-color: #044e96;
+}
+.Left_Banner_Pagination.floatright {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size:12px;
+     padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 6px;
+
+}
+span.tab_Header_Selected.tab_Head {
+    margin-left: 0px;
+}
+/*
+input[type="text"] {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}*/
+.doc_Content {
+  padding-top:11px;
+  padding-bottom:10px;
+}
+.workflow_Div{
+    width: 95%;
+    margin: 0 auto;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.tab_header.tab_Head {
+    margin-left: 0px;
+}
+.dashboard_Container{
+    border-bottom: 1px solid #dfe4e7;
+
+}
+.bodyContainerWrapper{
+    border-top:1px solid #cef3fc;
+	background-color:#f5fafe;
+}
+.validationTabs{
+text-align: center;
+    padding: 24px;
+    padding-top: 6px;
+    float: left;
+    padding-left: 27px;
+    padding-right: 32px;
+    height: 35px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #b7ecfb;
+    border-bottom: none;
+    margin-left: 2px;
+    background-color: #e8f8fc;
+    font-size: 13px;
+    color: #353535;
+	cursor:pointer;
+
+}
+.selectedTab{
+background-color: #cef3fc;
+}
+.firstTab{
+margin-left:0px !important;
+}
+.adminDashBoardWrapper{
+width:100%;
+
+padding:10px;
+margin:0 auto;
+}
+.dashBoardChartWrapper{
+float:left;
+width:405px;
+height:285px;
+
+margin-right:10px;
+margin-top:3px;
+}
+.adminDashBoardRow{
+width:85%;
+margin:0 auto;
+
+}
+.DIMreportsWraper{
+	width:98%;
+
+	margin:0 auto;
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.reportTypeWrapper{
+	width:25%;
+	float:left;	
+	background-color:#e7f2f8;
+	height: 490px;
+	overflow : auto;
+	
+}
+.reportDisplayWrapper{
+	width:75%;
+	height:490px;
+	float:left;
+	overflow:auto;
+	background-color:#ffffff;
+}
+.reportButtonWrapper{
+	width:90%;
+	padding-top:5px;
+	padding-bottom:5px;
+	margin:0 auto;
+}
+.dimButton{
+	float:left;
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-left:5px;
+	padding-right:5px;
+	background-color:#323c3e;
+	color:white;
+	margin-left:3px;
+	cursor:pointer;
+	font-size:12px;
+	margin-top:3px;
+}
+.reportsInputWrapper{
+
+		width:90%;
+		margin:0 auto;
+		padding-bottom:10px;
+		
+}
+.reportTypeContainer{
+border-bottom:1px solid #d4e2ed;
+}
+.dimInputBoxWrapper{
+width:90%;
+
+
+}
+.dimReportSelect{
+width:100%;
+padding-top:3px;
+padding-bottom:3px;
+font-size:13px;
+}
+.dimTextName{
+padding-top:15px;
+padding-bottom:5px;
+font-size:13px;
+font-weight:bold;
+}
+.dimDateBox{
+width:100%;
+
+}
+.calender{
+background: url('../images/DIM-reports_callender.png');
+	width: 16px;
+	height: 16px;
+	position:absolute;
+	top:5px;
+	right:5px;
+}
+.calenderParent{
+position:relative;
+}
+.right_Side_tools{
+    width: 24%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.fullViewSpan{
+	float:right;
+	padding-right:10px;
+	padding-top:5px;
+}
+
+.fullViewLabel {
+  display: block;
+  padding-left: 15px;
+  text-indent: -15px;
+  font-weight:normal;
+  color:white;
+  font-size:12px;
+}
+.fullViewLabel input {
+  width: 13px;
+  height: 13px;
+  padding: 0;
+  margin:0;
+  vertical-align: bottom;
+  position: relative;
+  top: -3px;
+  *overflow: hidden;
+  cursor:pointer;
+}
+
+.fullScreenActive{
+	/*position: fixed;
+    z-index: 99999999;*/
+    width: 100%;
+    top: 0;
+    /*padding: 18px;*/
+    left: 0;
+    height: 100%;
+    background: white;
+}
+.navContent{
+	min-height:600px;
+}
+.contentHeight{
+	min-height:600px;
+	/*height: 300px;*/
+	border-bottom:2px solid #b7ecfb;
+	padding:5px;
+}
+.scrollContent{
+	height:355px;
+	overflow:scroll;
+	overflow-x: hidden;
+	background-color:#ffffff;
+}
+.expanded_Details_validation{
+    font-size: 12px;
+    margin-left: -1px;
+    margin-top: 11px;
+    /* padding: 9px; */
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    color: #353535;
+    background-color: #ffffff;    
+    width: 79%;
+    border: 1px solid #b7ecfb;
+    border-left: none;
+}
+.navigationTab{
+	margin-left:5px;
+	height:320px;
+	overflow:auto;
+	width: 100px;
+    margin-top: 9px;  
+}
+.validationPaddingStyle{
+	background-color: #cef3fc;
+    min-height: 293px;
+    /* margin-top: -2px; */
+    border-top: none;
+    border-bottom: 1px solid #b7ecfa;
+    border-left: 1px solid #b7ecfa;
+    border-right: 1px solid #b7ecfa;
+    padding-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.navigationPanel_subSectionWraper{
+	float:left;	
+	width:15%;
+	height:355px;
+	overflow:auto;
+	margin-top:-2px;
+}
+.navigationPanel_viewWraper{
+	float:left;	
+	width:85%;
+}
+.navigationPanelWraper{
+	padding-top:5px;
+	margin-top:-3px;
+}
+.bootStrapOveride{
+padding-left:0px !important;
+padding-right:0px !important;
+}
+.validation_accord_Info{
+	padding-bottom: 13px;
+    padding-top: 13px;
+    padding-left: 11px;
+    padding-right: 9px;   
+  
+   
+    /* border-bottom: none; */
+    background-color: #e8f8fc;
+    font-size: 12px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+.paginationFixedHeight{
+	height:35px;
+}

@@ -1,0 +1,190 @@
+<div class="widgetTabs ui-tabs ui-widget ui-widget-content ui-corner-all">
+	<div id="topOfPage" class="topTabsWrap">
+		<div class="main">
+			<div class="speedBar">
+				<a class="home" ui-sref="home">Home</a> <span class="breadcrumbs_delimiter"><i class="icon-right-open-mini"></i>
+				</span> <span class="current">Parent Dashboard</span>
+			</div>
+			<h3 class="pageTitle h3">Parent Dashboard</h3>
+		</div>
+	</div>
+	<div class="mainWrap without_sidebar" ng-show="parentState === 'display' && showDashboard">
+		<div class="main">
+			<div class="content">
+				<section class="no_padding">
+					<div class="container">
+					<div ng-show="parentData.status === 2" class="margin_top_middle alert alert-danger">
+ 							Some of your details are incomplete. Kindly fill them and update your profile.
+						</div>
+						<div ng-show="parentData.status === 2" class="columnsWrap col-md-5  margin_bottom_middle">
+						<h3 class="pageTitle h3">General Details</h3>				
+							<div class="columns2_3 sc_column_item sc_column_item_1 odd first span_2">
+								<div class="sc_contact_form">									
+									<div><b>Parent's Name: </b>{{parentData.parentName}}</div>
+									<div><b>Email ID: </b>{{parentData.email}}</div>
+									<div><b>Father's Mobile Number: </b>{{parentData.fatherMobileNo}}</div>
+									<div><b>Mother's Mobile Number: </b>{{parentData.motherMobileNo}}</div>
+									<div><b>Address: </b><span class="label label-danger">Not filled</span></div>
+									<div><b>City: </b><span class="label label-danger">Not filled</span></div>
+									<div><b>Area: </b><span class="label label-danger">Not filled</span></div>
+								</div>
+							</div>				
+						</div>
+						<div ng-show="parentData.status === 1" class="columnsWrap col-md-5  margin_bottom_middle">
+						<h3 class="pageTitle h3">General Details</h3>				
+							<div class="columns2_3 sc_column_item sc_column_item_1 odd first span_2">
+								<div class="sc_contact_form">									
+									<div><b>Parent's Name: </b>{{parentData.parentName}}</div>
+									<div><b>Email ID: </b>{{parentData.email}}</div>
+									<div><b>Father's Mobile Number: </b>{{parentData.fatherMobileNo}}</div>
+									<div><b>Mother's Mobile Number: </b>{{parentData.motherMobileNo}}</div>
+									<div><b>Address: </b>{{parentData.address}}</div>
+									<div><b>City: </b>{{parentData.city}}</div>
+									<div><b>Area: </b>{{parentData.area}}</div>
+								</div>
+							</div>				
+						</div>
+						<div ng-show="parentData.status === 2" class="columnsWrap col-md-6  margin_bottom_middle">
+						<h3 class="pageTitle h3">Child Details</h3>						
+							<div class="columns2_3 sc_column_item sc_column_item_1 odd first span_2">
+								<div class="sc_contact_form">									
+									<div><b>Name: </b>{{parentData.childName}}</div>
+									<div><b>Age: </b>{{parentData.age}}</div>
+									<div><b>Gender: </b>{{parentData.gender}}</div>
+									<div><b>Standard: </b><span class="label label-danger">Not filled</span></div>
+									<div><b>School: </b>{{parentData.school}}</div>
+									<div><b>Interested Activities: </b><span class="label label-danger">Not filled</span></div>
+									<div><b>Applicable Timings: </b><span class="label label-danger">Not filled</span></div>
+									<div><b>Preference: </b><span class="label label-danger">Not filled</span></div>									
+								</div>
+							</div>				
+						</div>
+						<div ng-show="parentData.status === 1" class="columnsWrap col-md-6  margin_bottom_middle">
+						<h3 class="pageTitle h3">Child Details</h3>						
+							<div class="columns2_3 sc_column_item sc_column_item_1 odd first span_2">
+								<div class="sc_contact_form">									
+									<div><b>Name: </b>{{parentData.childName}}</div>
+									<div><b>Age: </b>{{parentData.age}}</div>
+									<div><b>Gender: </b>{{parentData.gender}}</div>
+									<div><b>Standard: </b>{{parentData.standard}}</div>
+									<div><b>School: </b>{{parentData.school}}</div>
+									<div><b>Interested Activities: </b>{{parentData.interestedActivities}}</div>
+									<div><b>Applicable Timings: </b>{{parentData.applicableTimings}}</div>
+									<div><b>Preference: </b>{{parentData.preference}}</div>									
+								</div>
+							</div>				
+						</div>
+						<div class="sc_column_item sc_column_item_1 col-md-1 odd first span_2">
+								<button ng-click="updateButton()" type="button" style="margin-top: 20px; float:right;" class="btn btn-success">Update Profile</button>
+								<button ng-click="paymentButton()" type="button" style="margin-top: 20px; float:right;" class="btn btn-primary">Wallet & Payment Details</button>
+								<button ng-click="bookingsButton()" type="button" style="margin-top: 20px; float:right;" class="btn btn-primary">Booking Details</button>
+							</div>		
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	
+	<div class="mainWrap without_sidebar" ng-show="parentState === 'payment'">
+		<div class="main">
+			<div class="content">
+				<section class="no_padding">
+					<div class="container">
+						<div class="columnsWrap col-md-9 margin_bottom_middle">
+							<h3 class="pageTitle h3">Payment Details</h3>
+							<table ng-show="paymentData.length>0" class="table">
+								<thead>
+									<tr>
+										<th><a>Pay. Id</a></th>
+										<th><a>Made At</a></th>
+										<th><a>Package</a></th>
+										<th><a>Payment Method</a></th>
+										<th><a>Amount</a></th>
+										<th><a>Status</a></th>
+									</tr>
+
+								</thead>
+								<tbody
+									ng-repeat="payment in (paymentDataResults = (paymentData | filter: search : strict | limitTo: entryLimit : (currentPage-1)*entryLimit))">
+									<tr>
+										<td>{{payment.id}}</td>
+										<td>{{payment.date | date: 'mm/yy'}}</td>
+										<td>{{payment.packageName}}</td>
+										<td>{{payment.paymentMethod}}</td>
+										<td>Rs.{{payment.amount}}</td>
+										<td>{{payment.status}}</td>
+									</tr>
+								</tbody>
+							</table>
+							<p ng-show="paymentData.length == 0">No payments made so far</p>
+						</div>						
+						<div class="columnsWrap col-md-9 margin_bottom_middle">
+							<h3 class="pageTitle h3">Wallet Details</h3>
+							<div class="columns2_3 sc_column_item sc_column_item_1 odd first span_2" ng-show="walletData.totalPurchase >0">
+							<h4>Total Purchase Made: </h4><p>Rs.{{walletData.totalPurchase}}</p>
+							<h4>Total Spent: </h4><p>Rs.{{walletData.totalPurchase - walletData.balanceRemaining}}</p>
+							<h4>Balance Remaining: </h4><p>Rs.{{walletData.balanceRemaining}}</p>									
+							</div>
+							<p ng-show="walletData.totalPurchase === 0">No wallet data available</p>
+						</div>
+						<div
+							class="col-md-offset-2 col-md-1">
+							<button ng-click="goBack()" type="button"
+								style="margin-top: 20px; float: right;" class="btn btn-success">Go
+								Back</button>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	
+	<div class="mainWrap without_sidebar" ng-show="parentState === 'bookings'">
+		<div class="main">
+			<div class="content">
+				<section class="no_padding">
+					<div class="container">
+						<div class="columnsWrap col-md-9 margin_bottom_middle">
+							<h3 class="pageTitle h3">Booking Details</h3>
+							<table class="table" ng-show="bookingData.length>0">
+												<thead>
+													<tr>
+														<th><a>Booking ID</a></th>
+														<th><a>Booking Date</a></th>
+														<th><a>Activity Cost</a></th>
+														<th><a>Centre Name</a></th>
+														<th><a>Activity Name</a></th>
+														<th><a>Centre Address</a></th>
+														<th><a>Centre Phone</a></th>
+														<th><a>Already Attended</a></th>
+													</tr>													
+												</thead>
+												<tbody ng-repeat="booking in (bookingDataResults = (bookingData | filter: search : strict | limitTo: entryLimit : (currentPage-1)*entryLimit))">
+													<tr>
+														<td>{{booking.id}}</td>
+														<td>{{booking.bookingDate | date : 'dd/MM/yyyy hh:mm'}}</td>
+														<td>Rs. {{booking.activityCost}}</td>													
+														<td>{{booking.centreName}}</td>
+														<td>{{booking.activityName}}</td>
+														<td>{{booking.centreAddress}}</td>
+														<td>{{booking.centrePhoneNo}}</td>
+														<td>{{booking.alreadyAttended}}</td>
+													</tr>													
+												</tbody>
+											</table>
+							<p ng-show="bookingData.length == 0">No bookings made so far</p>
+						</div>
+						<div class="sc_column_item sc_column_item_1 col-md-1 odd first span_2">
+							<button ng-click="goBack()" type="button"
+								style="margin-top: 20px; float: right;" class="btn btn-success">Go
+								Back</button>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	
+	<div class="mainWrap without_sidebar" ng-show="parentState==='update'" parent-frame template-path="app/modules/parent-dashboard/views/update-profile.html"></div>
+</div>
+<div ng-include src="'app/modules/commons/views/footer.html'"></div>

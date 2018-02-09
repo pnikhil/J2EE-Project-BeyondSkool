@@ -1,0 +1,76 @@
+.panelWrapper{
+width:100%;
+
+padding:5px;
+}
+.panelWrapperTable{
+width:100%;
+padding:5px;
+overflow:auto;
+overflow-y:hidden;
+
+}
+.validationLabel{
+
+padding-bottom:3px;
+font-size:13px;
+}
+.validationTextarea{
+height:25px;
+font-size:12px;
+padding-top:3px;
+padding-bottom:3px;
+padding-left:3px;
+padding-right:3px;
+overflow:auto;
+width:180px;
+}
+.childNodes{
+width:33%;float:left;padding-top:3px;padding-bottom:3px;padding-left:5px;padding-right:5px;
+}
+.validationHeader{
+padding-top:5px;
+padding-bottom:5px;
+padding-left:10px;
+padding-right:10px;
+background-color: rgb(73,176,207);
+color:#ffffff;
+font-size:13px;
+}
+.validationRow{
+padding-top:3px;
+padding-bottom:3px;
+padding-left:10px;
+padding-right:10px;
+font-size:12px;
+}
+.mainRow{
+
+}
+.itemboxWraper{
+	overflow:auto;
+
+}
+.innertTextBoxWrapper{
+display: inline-block;
+vertical-align: top;
+padding:5px;
+}
+.filedLabel{
+margin-bottom:5px;
+font-size:12px;
+font-weight:bold
+}
+
+/*3-03-2017*/
+.sourceHilighterDiv{
+border:2px solid red;
+}
+.sorceImg{
+border: none;
+float:left;
+}
+.sourceHilighterWrapperDiv{
+border:1px solid white;
+position:relative;
+}

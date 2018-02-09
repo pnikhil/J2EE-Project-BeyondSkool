@@ -1,0 +1,120 @@
+<div
+	class="widgetTabs ui-tabs ui-widget ui-widget-content ui-corner-all">
+	<div id="topOfPage" class="topTabsWrap">
+		<div class="main">
+			<div class="speedBar">
+				<a class="home" href="index.html">Home</a> <span
+					class="breadcrumbs_delimiter"> <i
+					class="icon-right-open-mini"></i>
+				</span> <span class="current">Login</span>
+			</div>
+			<h3 class="pageTitle h3">Login</h3>
+		</div>
+	</div>
+	<div class="mainWrap without_sidebar">
+		<div class="main">
+			<div class="content">
+				<section class="no_padding">
+					<div class="container">
+						<div
+							class="columnsWrap sc_columns sc_columns_count_3 margin_bottom_middle">
+							<div
+								class="columns2_3 sc_column_item sc_column_item_1 odd first span_2">
+								<div
+									class="sc_contact_form sc_contact_form_contact contact_form_1">
+									<h1 class="title">Login to your account</h1>
+									<div class="work_days">
+										<p>Select account type</p>
+									</div>
+									<div id="exTab2" class="container col-md-8">
+										<ul class="nav nav-tabs">
+											<li style="cursor:pointer;" class="active"><a data-target="#parents" data-toggle="tab">Parents</a>
+											</li>
+											<li style="cursor:pointer;"><a data-target="#activity-centre" data-toggle="tab">Activity
+													Centre</a></li>
+										</ul>
+
+										<div class="tab-content ">
+											<div class="tab-pane active" id="parents">
+												<h3>Parents Login Form</h3>
+												<form ng-submit="parentLogin()" name="userLoginForm"
+													novalidate>
+												<div class="columnsWrap">
+													<div class="columns1_1">
+														<label class="required" for="contact_form_username">E-mail</label>
+														<input type="text" ng-model="parent_userName" name="email" id="contact_form_username"
+															required>
+													</div>
+												</div>
+												<div class="columnsWrap">
+													<div class="columns1_1">
+														<label class="required" for="contact_form_email">Password</label>
+														<input type="password" ng-model="parent_password" name="password"
+															id="contact_form_email" required>
+													</div>
+												</div>
+												<div class="errorRedClass text-center" ng-show="incorrectLogin"
+															ng-model="incorrectLogin">Invalid Username or Password</div>
+												<div class="columnsWrap">
+														<div class="squareButton sc_button_size sc_button_style_global global ico">
+															<input type="submit" name="contact_submit" value="Login"
+																class="contact_form_submit" />
+														</div>
+													</div>
+												</form>
+											</div>
+											<div class="tab-pane" id="activity-centre">
+												<h3>Activity Centre Login Form</h3>
+												<form ng-submit="centreLogin()" name="userLoginForm"
+													novalidate>
+													<div class="columnsWrap">
+														<div class="columns1_1">
+															<label class="required" for="contact_form_username">E-mail</label>
+															<input type="text" name="email"
+																ng-model="centre_userName" id="contact_form_username"
+																required>
+														</div>
+													</div>
+													<div class="columnsWrap">
+														<div class="columns1_1">
+															<label class="required" for="contact_form_email">Password</label>
+															<input type="password" ng-model="centre_password"
+																name="password" id="contact_form_email" required>
+														</div>
+													</div>
+													<div class="errorRedClass text-center" ng-show="incorrectLogin"
+															ng-model="incorrectLogin">Invalid Username or Password</div>
+													<div class="columnsWrap">
+														<div class="squareButton sc_button_size sc_button_style_global global ico">
+															<input type="submit" name="contact_submit" value="Login"
+																class="contact_form_submit" />
+														</div>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div
+								class="columns1_3 sc_column_item sc_column_item_3 odd after_span_2">
+								<h1 class="sc_title sc_title_regular">Signup</h1>
+								<div class="work_days">
+									<p>BeyondSkool is a novel way to engage your children in
+										after school activities.</p>
+								</div>
+								<div class="columnsWrap">
+									<div class="squareButton sc_button_size sc_button_style_global global ico">
+										<a ui-sref="signup" class="contact_form_submit">Click
+											Here</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</div>
+<div ng-include src="'app/modules/commons/views/footer.html'"></div>

@@ -1,0 +1,209 @@
+<div id="topOfPage" class="topTabsWrap">
+	<div class="main">
+		<div class="speedBar">
+			<a class="home" ui-sref="home">Home</a> <span
+				class="breadcrumbs_delimiter"> <i
+				class="icon-right-open-mini"></i>
+			</span> <span class="current">Center Details</span>
+		</div>
+		<h3 class="pageTitle h3">Center Details</h3>
+	</div>
+</div>
+
+		<div ng-controller="viewCentre" class="mainWrap without_sidebar">
+				<div class="main">
+					<div class="content">
+						<section class="post post_format_standard postAlter hrShadow no_padding">
+							<div class="container">
+								<article class="post_content">									
+									<h1 class="post_title entry-title">{{centreData.centreName}}</h1>
+									<div class="post_text_area">
+										<p>{{centreData.description}}</p>										
+									</div>
+                                    <div>Location: <b>{{centreData.cityName}}</b></div>
+                                    <div>Area: <b>{{centreData.areaName}}</b></div>
+								</article>
+							</div>
+						</section>
+
+			<section
+				class="post post_format_standard postAlter hrShadow no_padding">
+				<div class="container">
+					<article class="post_content">
+						<h1 class="post_title entry-title">Centre Images</h1>
+						<div ng-show="imageArray[0] !=''">
+						<div ng-repeat="image in imageArray"
+							class="col-lg-4 col-md-6 col-xs-6 thumb">
+							<a class="thumbnail"> <img ng-show="image != ''" class="img-responsive"
+								ng-src="uploads/{{centreData.centreName}}/{{image}}" alt="{{centreData.centreName}}"><!-- _{{centreData.imageDirId}} -->
+								<img ng-show="image == ''" class="img-responsive"
+								ng-src="uploads/no_image.jpg">								
+							</a>
+						</div>
+					</div>
+					<div ng-show="imageArray[0] ==''">
+						<div class="col-lg-4 col-md-6 col-xs-6 thumb">
+							<a class="thumbnail"> <img class="img-responsive"
+								ng-src="uploads/no_image.jpg" alt="{{centreData.centreName}}">								
+							</a>
+						</div>
+					</div>
+					</article>
+				</div>
+			</section>
+
+			<section class="post post_format_standard postAlter hrShadow no_padding">
+				<div class="sc_content main">
+					<h2 class="sc_title style_6 sc_title_regular">Activities</h2>
+					<div class="woocommerce columns-6">
+						<div ng-repeat="activityData in centreData.activityList" class="col-lg-3 col-md-4 col-xs-6 thumb">
+							<a class="thumbnail" data-toggle="modal" data-target="#myModal_{{activityData.id}}"> <img ng-show="activityData.imagePath != ''" class="img-responsive"
+								style="width: 200px;height: 200px;" ng-src="uploads/{{activityData.imagePath}}" alt="{{activityData.activityName}}">
+								<img ng-show="activityData.imagePath == ''" class="img-responsive" style="width: 200px;height: 200px;" ng-src="uploads/no_image.jpg">
+								<div class="caption text-center" style="text-decoration: none;cursor: default;">{{activityData.activityName}} <button type="button" class="btn btn-success">Book</button></div>
+							</a>
+						</div>
+						<h6 class="text-center" ng-show="centreData.activityList.length == 0">No Activities Added</h6>
+					</div>
+				</div>
+			</section>
+			
+			<section ng-init="getCentreReviews(centreData.centreName)" class="post post_format_standard postAlter hrShadow no_padding">
+				<div class="sc_content main">
+					<h2 class="sc_title style_6 sc_title_regular">Centre Reviews</h2>
+					<div class="woocommerce columns-6">							 										
+							<div ng-repeat="review in reviewData" class="post_text_area">
+									<blockquote class="blockquote">	<p>{{review.review}}</p> <uib-rating ng-model="review.rating" max="max" data-read-only="true" aria-labelledby="default-rating"></uib-rating></blockquote>
+									<p>Review Added by - {{review.userName}} on {{review.date | date :  "dd.MM.y"}}</p>								
+							</div>							
+					</div>
+					
+					<button class="btn btn-warning" ng-show="!isCentreLoggedIn && !reviewBox" ng-click="addReviewButton()" style="margin-bottom:10px;margin-top:20px;">Add a Review</button>
+					
+					<form ng-show="!isParentLoggedIn && reviewBox" name="userLoginForm" novalidate="" class="ng-pristine ng-invalid ng-invalid-required">
+					<div class=" alert alert-danger"> You have to be logged in for reviewing.</div>
+												<h3 class="modal-title">Parent Login</h3>
+												<div class="columnsWrap" style="margin-bottom:20px;">
+													<div class="columns1_1">
+														<label class="required" for="contact_form_username">E-mail ID </label>
+														<input type="text" ng-model="parent_userName" name="email" id="contact_form_username" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
+													</div>
+												</div>
+												<div class="columnsWrap" style="margin-bottom:20px;">
+													<div class="columns1_1">
+														<label class="required" for="contact_form_email">Password</label>
+														<input type="password" ng-model="parent_password" name="password" id="contact_form_email" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
+													</div>
+												</div>
+												<div class="errorRedClass ng-pristine ng-untouched ng-valid ng-not-empty ng-hide" ng-show="incorrectLogin" ng-model="incorrectLogin">Invalid Username or Password</div>
+												<div class="columnsWrap">
+														<div class="squareButton sc_button_size sc_button_style_global global ico">
+															<input ng-click="parentLogin(parent_userName,parent_password)" type="button" value="Login" name="contact_submit" class="contact_form_submit">
+														</div>
+													</div>
+												</form>
+					<div ng-show="reviewBox && isParentLoggedIn">
+					<h5>Add your review</h5>
+					<textarea class="form-control noresize" ng-model="userReview" style="margin-bottom:10px;" placeholder="Add your review here"></textarea>
+					Add a rating - <uib-rating style="margin-bottom:10px;" ng-model="userRating" max="max" read-only="false" aria-labelledby="default-rating"></uib-rating>
+					<br /><br />
+					<button class="btn btn-success" ng-click="submitReview()" style="margin-bottom:10px;">Submit Review</button> <button class="btn btn-danger" ng-click="reviewBox = false" style="margin-bottom:10px;">Close</button>
+					</div>
+					
+					<h6 class="text-center" ng-show="reviewData.length == 0">No Reviews Added for this Centre</h6>
+				</div>
+			</section>
+
+				<h2 class="sc_title style_6 sc_title_regular">Location</h2>
+										<h3>Venue</h3>
+										<p>{{centreData.address}}</p>
+										<h2>Organizer</h2>
+										<dl>
+											<dd>{{centreData.ownerName}}</dd>
+											<dt>Email:</dt>
+											<dd class="email">
+												<a href="mailto:{{centreData.mailId}}">{{centreData.mailId}}</a>
+											</dd>
+											<dt>Contact No:</dt>
+											<dd class="url">{{centreData.contactNo}}</dd>
+										</dl>
+									</div>
+								</div>
+							</div>
+
+<div ng-include src="'app/modules/commons/views/footer.html'"></div>
+<div ng-controller="viewCentre">
+<div ng-repeat="activityData in centreData.activityList" id="myModal_{{activityData.id}}" class="modal fade" style="margin-top:50px;" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">   
+    <!--  <div class="modal-header">
+          <img id="model-img" src="uploads/{{activityData.imagePath}}" width="50px" style="margin-top: 8px;">  
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3 class="modal-title">{{activityData.activityName}}</h3>
+       </div> -->
+      <div class="modal-body">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3 style="margin-bottom: -40px;" class="modal-title">{{activityData.activityName}}</h3>
+          <hr />
+      <div class="sc_contact_form sc_contact_form_contact contact_form_1">
+									<div class="container col-md-12">
+     	<h6>Class Description:</h6> <p>{{activityData.classDescription}}</p>
+     	<h6>Start Date: {{activityData.startDate}}</h6>
+     	<h6>End Date: {{activityData.endDate}}</h6>
+        <h6>Timings: {{activityData.inTime  | date:'hh:mm a'}} - {{activityData.outTime  | date:'hh:mm a'}}</h6>
+        <h6>Slots Remaining: {{activityData.totalSlots}}</h6>
+        <h6>Age Group: {{activityData.fromAge}} - {{activityData.toAge}}</h6>
+        <h6>Days on which offered - {{activityData.day}}</h6>
+        <h6>Class Duration - {{activityData.duration}}</h6>
+        <h6>Class Charge - Rs. {{activityData.amount}}</h6>
+        <div ng-show="activityData.totalSlots === 0" class=" alert alert-danger">
+ 			No Slots remaining for this class!!!
+		</div>
+		<div ng-show="!isParentLoggedIn && !isCentreLoggedIn" class=" alert alert-danger">
+ 			You have to be logged in to purchase.
+		</div>
+		
+       <div ng-show="isParentLoggedIn">
+       <button class="btn btn-success" ng-hide="bookClick" ng-click="bookSlotButton()" ng-disabled="activityData.totalSlots === 0">Book your slot</button></div> 
+      
+      <div ng-show="bookClick">
+      <label for="date">Choose date
+      <input type="datetime-local" id="date" placeholder="dd-mm-yyyy --:--" ng-model="bookingDate" style="margin-top:20px;" class="form-control"></label>
+      </div>
+      <form ng-hide="isParentLoggedIn" name="userLoginForm" novalidate="" class="ng-pristine ng-invalid ng-invalid-required">
+												<h3 class="modal-title">Parent Login</h3>
+												<div class="columnsWrap">
+													<div class="columns1_1">
+														<label class="required" for="contact_form_username">E-mail</label>
+														<input type="text" ng-model="parent_userName" name="email" id="contact_form_username" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
+													</div>
+												</div>
+												<div class="columnsWrap">
+													<div class="columns1_1">
+														<label class="required" for="contact_form_email">Password</label>
+														<input type="password" ng-model="parent_password" name="password" id="contact_form_email" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
+													</div>
+												</div>
+												<div class="errorRedClass text-center ng-pristine ng-untouched ng-valid ng-not-empty ng-hide" ng-show="incorrectLogin" ng-model="incorrectLogin">Invalid Username or Password</div>
+												<div class="columnsWrap">
+														<div class="squareButton sc_button_size sc_button_style_global global ico">
+															<input ng-click="parentLogin(parent_userName,parent_password)" type="button" value="Login" name="contact_submit" class="contact_form_submit">
+															<!-- <input style="margin-bottom:10px;" type="button" ng-show="isParentLoggedIn"
+															value="Buy Now" class="js-pay-bundle" data-amount="100000" data-qty="1" name="hidden" /> -->
+														</div>
+													</div>
+												</form>
+												<button type="button" ng-show="bookClick" style="margin-top: 30px;"  ng-click="bookSlot(activityData.id, bookingDate, activityData.amount)" class="btn btn-primary" data-dismiss="modal">Book</button>
+       											<button type="button" ng-click="reset()"  style="margin-top: 30px;" class="btn btn-default" data-dismiss="modal">Close</button>
+												</div>
+								</div>
+      </div>
+      <div class="modal-footer" style="border-top:none!important;">
+      	
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>

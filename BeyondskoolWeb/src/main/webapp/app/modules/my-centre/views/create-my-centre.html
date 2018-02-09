@@ -1,0 +1,313 @@
+<div class="mainWrap without_sidebar">
+		<div class="main">
+			<div class="content">
+				<section class="no_padding">
+					<div class="container">								
+						<div class="columnsWrap col-md-11  margin_bottom_middle">
+						<p style="float: right;">
+								<button class="btn btn-success btn-fill" style="margin-top:20px;"ng-click="goBack()">Go Back</button>
+						</p>
+						<h3 class="pageTitle h3">Create Centre</h3>
+						<form name="userForm2" ng-submit="createCentre()" novalidate>
+						<div class="bs-center-form">
+							<div class="form-group field-bscenter-center_name required" ng-class="{ 'has-error' : (userForm2.centreName.$invalid && !userForm2.centreName.$pristine) || (userForm2.$submitted && userForm2.centreName.$invalid) }">
+						<label class="control-label" for="bscenter-center_name">Center
+							Name</label> <input ng-model="centreName" name="centreName" type="text" id="bscenter-center_name"
+							class="form-control" maxlength="250" required>
+							<p ng-show="(userForm2.centreName.$invalid && !userForm2.centreName.$pristine) || (userForm2.$submitted && userForm2.centreName.$invalid)" class="help-block">Centre name is required.</p>
+
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group field-bscenter-description" ng-class="{ 'has-error' : (userForm2.description.$invalid && !userForm2.description.$pristine) || (userForm2.$submitted && userForm2.description.$invalid) }">
+						<label class="control-label" for="bscenter-description">Description</label>
+						<textarea id="bscenter-description" ng-model="description" name="description" class="form-control" rows="6" required></textarea>
+						<p ng-show="(userForm2.description.$invalid && !userForm2.description.$pristine) || (userForm2.$submitted && userForm2.description.$invalid)" class="help-block">Description is required.</p>
+						<div class="help-block"></div>
+					</div>
+					<div ng-show="centreName.length > 0" class="form-group field-bscenter-img">
+						<label class="control-label" for="bscenter-img">Upload Image(s) <span class="errorRedClass">(LESS THAN 1 MB SIZE)</span></label>
+						<form>							
+							<div class="form-group">
+								<button class="btn btn-primary" ngf-select="uploadFiles($files)"
+									multiple accept="image/*" ngf-max-size="1MB">
+									<i class="glyphicon glyphicon-folder-open"></i>&nbsp;&nbsp;Browse Files</button>
+							</div>
+							<div class="container">
+						<div class="row">
+							<div ng-repeat="image in fileNames"
+							class="col-lg-4 col-md-6 col-xs-6 thumb">
+							<img class="img-responsive"
+								ng-src="uploads/{{centreName}}_{{imageId}}/{{image}}">
+							</div>
+							</div>
+							</div>
+							<!-- <div ng-repeat="file in files">
+								<img ngf-thumbnail="file" class="thumb"
+									ngf-size="{width: 100, height: 100, quality: 0.9}">
+							</div> -->
+							<div ng-show="files.length>0">Files uploaded:</div>
+							<div class="uploadedfile" ng-repeat="f in files"
+								style="font: smaller">
+								<!-- FILE -->
+								<i class="glyphicon glyphicon-file"></i><span
+									ng-class="{removed: f.removed}">{{f.name}}
+									{{f.$errorParam}}</span>
+								<!-- PROGRESS -->
+								<!-- <div class="progress" ng-show="f.progress >= 0">
+									<div class="progress-bar progress-bar-success"
+										role="progressbar" aria-valuenow="{{f.progress}}"
+										aria-valuemin="0" aria-valuemax="100"
+										style="width: {{f.progress">
+										<span class="sr-only">{{f.progress}}% Complete</span>
+										{{f.progress}}%
+									</div>
+								</div> -->
+							</div>
+							{{errorMsg}}
+						</form>
+						<div class="help-block"></div>
+					</div>
+
+					<div class="panel panel-default" style="width: 950px;">
+						<div class="panel-heading">
+							<h2 class="panel-title pull-left">Activities</h2>
+							<div class="clearfix"></div>
+						</div>
+						<div class="panel-body">
+							<div class="dynamicform_wrapper">
+								<div class="container-items" data-ng-repeat="activity in activities">
+									<!-- widgetContainer -->
+									<div ng-modal="{{activity.id}}" class="item panel panel-default">
+										<!-- widgetBody -->
+										<div class="panel-heading">
+											<h3 class="panel-title pull-left">Activity</h3>
+											<div class="pull-right">
+												<button type="button" ng-click="addNewActivity()"
+													class="add-item btn btn-success btn-xs">
+													<i class="glyphicon glyphicon-plus"></i>
+												</button>
+												<button type="button" ng-click="removeNewActivity()"
+													class="remove-item btn btn-danger btn-xs">
+													<i class="glyphicon glyphicon-minus"></i>
+												</button>
+											</div>
+											<div class="clearfix"></div>
+										</div>
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-sm-3">
+													<div class="form-group field-bscenteractivity-0-day" ng-class="{ 'has-error' : (userForm2.day.$invalid && !userForm2.day.$pristine) || (userForm2.$submitted && userForm2.day.$invalid) }">
+														<label class="control-label" for="bscenteractivity-0-day">Days Offered <span style="color:red;font-weight:bold;">(Use Ctrl for selecting multiple)</span></label>
+														<select multiple required name="day" ng-model="activity.day" id="bscenteractivity-0-day" class="form-control">
+															<option value="">Select Day</option>
+															<option value="Monday">Monday</option>
+															<option value="Tuesday">Tuesday</option>
+															<option value="Wednesday">Wednesday</option>
+															<option value="Thursday">Thursday</option>
+															<option value="Friday">Friday</option>
+															<option value="Saturday">Saturday</option>
+															<option value="Sunday">Sunday</option>
+															<option value="Weekends">Weekends</option>
+															<option value="All Weekdays">All Weekdays</option>
+															<option value="All Days">All Days</option>
+														</select>
+														<p ng-show="(userForm2.day.$invalid && !userForm2.day.$pristine) || (userForm2.$submitted && userForm2.day.$invalid)" class="help-block">Day is required.</p>
+						
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="form-group field-bscenteractivity-0-in_time" ng-class="{ 'has-error' : (userForm2.fromTime.$invalid && !userForm2.fromTime.$pristine) || (userForm2.$submitted && userForm2.fromTime.$invalid) }">
+														<label class="control-label"
+															for="bscenteractivity-0-in_time">(Timings) From</label> 
+															<input required name="fromTime" ng-model="activity.fromTime" type="time"  placeholder="yyyy-MM-dd HH:mm:ss" min="2001-01-01T00:00:00" max="2013-12-31T00:00:00" class="form-control">
+														<p ng-show="(userForm2.fromTime.$invalid && !userForm2.fromTime.$pristine) || (userForm2.$submitted && userForm2.fromTime.$invalid)" class="help-block">From time is required.</p>
+						
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="form-group field-bscenteractivity-0-out_time" ng-class="{ 'has-error' : (userForm2.toTime.$invalid && !userForm2.toTime.$pristine) || (userForm2.$submitted && userForm2.toTime.$invalid) }">
+														<label class="control-label" for="bscenteractivity-0-out_time">Until</label> 
+														<input required name="toTime" ng-model="activity.toTime" type="time" class="form-control"  placeholder="yyyy-MM-ddTHH:mm:ss" min="2001-01-01T00:00:00" max="2018-12-31T00:00:00" >
+														<p ng-show="(userForm2.toTime.$invalid && !userForm2.toTime.$pristine) || (userForm2.$submitted && userForm2.toTime.$invalid)" class="help-block">To time is required.</p>
+						
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="form-group field-bscenteractivity-0-activity_id required" ng-class="{ 'has-error' : (userForm2.activityId.$invalid && !userForm2.activityId.$pristine) || (userForm2.$submitted && userForm2.activityId.$invalid) }">
+														<label class="control-label" for="bscenteractivity-0-activity_id">Activity</label> 
+															<select required name="activityId" ng-model="activity.activityId" id="bscenteractivity-0-activity_id" class="form-control">
+																<option value="">Select</option>
+																	<option ng-repeat="activity in activityData" value="{{activity.id}}">{{activity.activityName}}</option>
+															</select>
+															<p ng-show="(userForm2.activityId.$invalid && !userForm2.activityId.$pristine) || (userForm2.$submitted && userForm2.activityId.$invalid)" class="help-block">Activity Name is required.</p>
+						
+														<div class="help-block"></div>
+													</div>
+												</div>												
+												<div class="col-sm-3">
+													<div class="form-group field-bscenteractivity-0-age_group_id" ng-class="{ 'has-error' : (userForm2.fromAge.$invalid && !userForm2.fromAge.$pristine) || (userForm2.$submitted && userForm2.fromAge.$invalid) }">
+														<label class="control-label" for="bscenteractivity-0-age_group_id">From Age</label> 
+														<select required name="fromAge"  ng-model="activity.fromAge" id="bscenteractivity-0-age_group_id" class="form-control">
+															<option value="">Select Age</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+															<option value="6">6</option>
+															<option value="7">7</option>
+															<option value="8">8</option>
+															<option value="9">9</option>
+															<option value="10">10</option>
+															<option value="11">11</option>
+															<option value="12">12</option>
+															<option value="13">13</option>
+															<option value="14">14</option>
+															<option value="15">15</option>
+															<option value="16">16</option>
+														</select>
+														<p ng-show="(userForm2.fromAge.$invalid && !userForm2.fromAge.$pristine) || (userForm2.$submitted && userForm2.fromAge.$invalid)" class="help-block">From age is required.</p>
+						
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="form-group field-bscenteractivity-0-to_age_group_id" ng-class="{ 'has-error' : (userForm2.toAge.$invalid && !userForm2.toAge.$pristine) || (userForm2.$submitted && userForm2.toAge.$invalid) }">
+														<label class="control-label" for="bscenteractivity-0-to_age_group_id">To Age</label> 
+														<select required name="toAge" ng-model="activity.toAge" id="bscenteractivity-0-to_age_group_id"
+															class="form-control">
+															<option value="">Select Age</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+															<option value="6">6</option>
+															<option value="7">7</option>
+															<option value="8">8</option>
+															<option value="9">9</option>
+															<option value="10">10</option>
+															<option value="11">11</option>
+															<option value="12">12</option>
+															<option value="13">13</option>
+															<option value="14">14</option>
+															<option value="15">15</option>
+															<option value="16">16</option>
+														</select>
+														<p ng-show="(userForm2.toAge.$invalid && !userForm2.toAge.$pristine) || (userForm2.$submitted && userForm2.toAge.$invalid)" class="help-block">To Age is required.</p>
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="form-group field-bscenteractivity-0-amount" ng-class="{ 'has-error' : (userForm2.amount.$invalid && !userForm2.amount.$pristine) || (userForm2.$submitted && userForm2.amount.$invalid) }">
+														<label class="control-label">Amount</label>
+														<input required name="amount" ng-model="activity.amount" type="number" class="form-control">
+														<p ng-show="(userForm2.amount.$invalid && !userForm2.amount.$pristine) || (userForm2.$submitted && userForm2.amount.$invalid)" class="help-block">Amount is required.</p>
+						
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="form-group field-bscenteractivity-0-amount" ng-class="{ 'has-error' : (userForm2.totalSlots.$invalid && !userForm2.totalSlots.$pristine) || (userForm2.$submitted && userForm2.totalSlots.$invalid) }">
+														<label class="control-label">Total Slots</label>
+														<input required name="totalSlots" ng-model="activity.totalSlots" type="number" class="form-control">
+														<p ng-show="(userForm2.totalSlots.$invalid && !userForm2.totalSlots.$pristine) || (userForm2.$submitted && userForm2.totalSlots.$invalid)" class="help-block">Total slots is required.</p>
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-4">
+													<div class="form-group field-bscenteractivity-0-duration" ng-class="{ 'has-error' : (userForm2.duration.$invalid && !userForm2.duration.$pristine) || (userForm2.$submitted && userForm2.duration.$invalid) }">
+														<label class="control-label">Duration</label>
+														<select required name="duration" ng-model="activity.duration" id="bscenteractivity-0-to_age_group_id"
+															class="form-control">
+															<option value="">Select Duration</option>
+															<option value="1 Day">1 Day</option>
+															<option value="1 Week">1 Week</option>
+															<option value="2 Weeks">2 Weeks</option>
+															<option value="3 Weeks">3 Weeks</option>
+															<option value="1 Month">1 Month</option>
+															<option value="2 Months">2 Months</option>
+															<option value="3 Months">3 Months</option>
+															<option value="4 Months">4 Months</option>
+															<option value="5 Months">5 Months</option>
+															<option value="6 Months">6 Months</option>
+															<option value="9 Months">9 Months</option>
+															<option value="1 Year">1 Year</option>
+														</select>
+														<p ng-show="(userForm2.duration.$invalid && !userForm2.duration.$pristine) || (userForm2.$submitted && userForm2.duration.$invalid)" class="help-block">Total slots is required.</p>
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-4">
+													<div
+														class="form-group field-bscenteractivity-0-activity_id required" ng-class="{ 'has-error' : (userForm2.startDate.$invalid && !userForm2.startDate.$pristine) || (userForm2.$submitted && userForm2.startDate.$invalid) }">
+														<label class="control-label" for="bscenteractivity-0-activity_id">Start Date</label> 
+															<input required ng-model="activity.startDate" name="startDate" type="date" class="form-control" >
+														<p ng-show="(userForm2.startDate.$invalid && !userForm2.startDate.$pristine) || (userForm2.$submitted && userForm2.startDate.$invalid)" class="help-block">Start Date is required.</p>
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-4">
+													<div
+														class="form-group field-bscenteractivity-0-activity_id required" ng-class="{ 'has-error' : (userForm2.classDescription.$invalid && !userForm2.classDescription.$pristine) || (userForm2.$submitted && userForm2.classDescription.$invalid) }">
+														<label class="control-label" for="bscenteractivity-0-activity_id">End Date</label> 
+														<input required ng-model="activity.endDate" name="endDate" type="date" class="form-control">															
+														<p ng-show="userForm2.endDate.$invalid && !userForm2.endDate.$pristine" class="help-block">End Date is required.</p>
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-10">
+													<div class="form-group field-class-description" ng-class="{ 'has-error' : (userForm2.classDescription.$invalid && !userForm2.classDescription.$pristine) || (userForm2.$submitted && userForm2.classDescription.$invalid) }">
+														<label class="control-label">Class Description</label>
+														<textarea required class="form-control" rows="3" name="classDescription"  ng-model="activity.classDescription"></textarea>
+														<p ng-show="(userForm2.classDescription.$invalid && !userForm2.classDescription.$pristine) || (userForm2.$submitted && userForm2.classDescription.$invalid)" class="help-block">Class description is required.</p>
+														<div class="help-block"></div>														
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group field-bscenter-city_id" ng-class="{ 'has-error' : (userForm2.city.$invalid && !userForm2.city.$pristine) || (userForm2.$submitted && userForm2.city.$invalid) }">
+						<label class="control-label" for="bscenter-city_id">City</label> 
+						<select ng-change="getAreaNames(city)" name="city" ng-model="city" class="form-control" required>
+						<option value="">Select City</option>
+							<option ng-repeat="city in cityData" value="{{city.id}}">{{city.cityName}}</option>
+						</select>
+						<p ng-show="(userForm2.city.$invalid && !userForm2.city.$pristine) || (userForm2.$submitted && userForm2.city.$invalid)" class="help-block">City is required.</p>
+						
+
+						<div class="help-block"></div>
+					</div>
+					<div ng-show="city.length> 0" class="form-group field-bscenter-area_id" ng-class="{ 'has-error' : (userForm2.area.$invalid && !userForm2.area.$pristine) || (userForm2.$submitted && userForm2.area.$invalid) }">
+						<label class="control-label" for="bscenter-area_id">Area</label> 
+						<select ng-model="area" name="area" class="form-control" required>
+						<option value="">Select Area</option>
+							<option ng-repeat="area in areaData" value="{{area.id}}">{{area.areaName}}</option>
+						</select>
+						<p ng-show="(userForm2.area.$invalid && !userForm2.area.$pristine) || (userForm2.$submitted && userForm2.area.$invalid)" class="help-block">Area is required.</p>
+						
+
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group field-bscenter-address required" ng-class="{ 'has-error' : (userForm2.address.$invalid && !userForm2.address.$pristine) || (userForm2.$submitted && userForm2.address.$invalid) }">
+						<label class="control-label" for="bscenter-address">Address</label>
+						<textarea id="bscenter-address" ng-model="address" name="address" class="form-control" rows="6" required></textarea>
+						<p ng-show="(userForm2.address.$invalid && !userForm2.address.$pristine) || (userForm2.$submitted && userForm2.address.$invalid)" class="help-block">Address is required.</p>
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group">
+						<input type="submit" value="Create" class="btn btn-success btn-fill" />
+					</div>
+					<div style="margin-top:15px;" class="col-md-5 alert alert-warning">All details must be filled before submitting</div>
+															
+						</div>
+						</form>
+					</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>

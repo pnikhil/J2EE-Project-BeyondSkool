@@ -1,0 +1,238 @@
+<div ng-include src="'app/modules/commons/views/sidebar.html'"></div>
+<div class="main-panel">
+	<div ng-include src="'app/modules/commons/views/topbar.html'"></div>
+	<div class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card" ng-show="areaState==='display'">
+						<div class="header">
+							<h3 class="title">Areas</h3>
+							<p style="float: right; margin-top: -25px;">
+								<button ng-click="createAreaButton()" class="btn btn-success btn-fill">Create Area</button>
+							</p>
+						</div>
+						<div class="content">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="table-responsive">
+										<div id="w0" class="grid-view">
+										<div ng-show="currentPage === 1 && areaData.length < entryLimit">
+												Showing <b>{{currentPage}}</b> to <b>{{areaData.length}}</b>
+												items of total <b>{{areaData.length}}</b> items.
+										</div>
+											<div ng-show="currentPage === 1 && areaData.length >= entryLimit">
+												Showing <b>{{currentPage}}</b> to <b>{{entryLimit}}</b>
+												items of total <b>{{areaData.length}}</b> items.
+											</div>
+											<div ng-show="currentPage !== 1 && currentPage !== noOfPages"
+												class="summary">
+												Showing <b>{{(entryLimit*(currentPage-1)) + 1}}</b> to <b>{{(entryLimit*(currentPage))%totalItems}}</b>
+												items of total <b>{{areaData.length}}</b> items.
+											</div>
+
+											<div ng-show="currentPage === noOfPages && currentPage !== 1" class="summary">
+												Showing <b>{{(entryLimit*(currentPage-1)) + 1}}</b> to <b>{{totalItems}}</b>
+												items of total <b>{{areaData.length}}</b> items.
+											</div>
+											<div class="slide pull-right">
+												<ul uib-pagination total-items="totalItems"
+													items-per-page="entryLimit" ng-model="currentPage"
+													max-size="maxSize" class="pagination-sm paginationMargin"
+													boundary-links="true"></ul>
+											</div>
+											<div class="myClear"></div>
+											<table class="table">
+												<thead>
+													<tr>
+														<th>#</th>
+														<th><a>Area Name</a></th>
+														<th>City Name</th>
+														<th><a>Updated At</a></th>
+														<th><a>Status</a></th>
+														<th class="action-column">&nbsp;</th>
+													</tr>
+													<tr id="w0-filters" class="filters">
+														<td>&nbsp;</td>
+														<td><input type="text" ng-model="search.areaName" class="form-control"></td>
+														<td>&nbsp;</td>
+														<td><input type="text" ng-model="search.updatedAt" class="form-control"></td>
+														<td><input type="text" ng-model="search.status" class="form-control"></td>
+														<td>&nbsp;</td>
+													</tr>
+												</thead>
+												<tbody ng-repeat="area in (areaDataResults = (areaData | filter: search : strict | limitTo: entryLimit : (currentPage-1)*entryLimit))">
+													<tr data-key="1">													
+														<td>{{area.id}}</td>
+														<td>{{area.areaName}}</td>
+														<td>{{area.cityName}}</td>
+														<td>{{area.updatedAt}}</td>
+														<td>{{area.status}}</td>
+														<td><a title="View" ng-click="view(area)" aria-label="View"><button
+																	class="btn btn-success btn-simple btn-xs">
+																	<i class="fa fa-eye"></i>
+																</button></a> <a title="Update" ng-click="updateArea(area.id, area.areaName)" aria-label="Update"><button
+																	class="btn btn-info btn-simple btn-xs">
+																	<i class="fa fa-edit"></i>
+																</button></a> <a data-toggle="modal" data-target="#myModal_{{area.id}}" 
+																title="Delete" aria-label="Delete" >
+																<button class="btn btn-danger btn-simple btn-xs">
+																	<i class="fa fa-times"></i>
+																</button></a></td>
+													</tr>																									
+												</tbody>
+											</table><h4 ng-show="areaDataResults.length == 0" class="text-center">
+											No Result Found</h4>
+											<div class="slide pull-right">
+												<ul uib-pagination total-items="totalItems"
+													items-per-page="entryLimit" ng-model="currentPage"
+													max-size="maxSize" class="pagination-sm paginationMargin"
+													boundary-links="true"></ul>
+											</div>
+											<div class="myClear"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card" ng-show="areaState==='create'" id="createArea">
+					<div class="header">
+						<h3 class="title">Create Area</h3>
+						<p style="float: right;">
+							<a class="btn btn-success btn-fill" ng-click="goBack()">Go Back</a>
+						</p>
+					</div>
+					<div class="content">
+						<div class="row">
+							<div class="col-md-5">
+								<div class="table-responsive">
+									<div class="bs-area-form">
+											<div class="form-group field-bsarea-city_id required">
+												<label class="control-label" for="bsarea-city_id">City</label>
+												<select ng-model="cityId" class="form-control">
+												<option value="">Select City</option>																					 
+													<option ng-repeat="city in cityData" value="{{city.id}}">{{city.cityName}}</option>						
+												</select>
+
+												<div class="help-block"></div>
+											</div>
+											<div class="form-group required">
+												<label class="control-label" for="bsarea-area_name">Area
+													Name</label> <input type="text" ng-model="newArea" id="bsarea-area_name"
+													class="form-control"
+													maxlength="250">
+												<div class="help-block"></div>
+											</div>											
+											<div class="form-group">
+												<button ng-click="addArea()" class="btn btn-success btn-fill">Create</button>
+											</div>										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card" ng-show="areaState==='view'" id="viewArea">
+					<div class="content">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="table-responsive">
+									<h3 class="title">View Area</h3>
+									<p style="float: right;">
+										<a ng-click="updateArea(areaInfo.id, areaInfo.areaName)" class="btn btn-primary btn-fill">Update</a>
+										<a class="btn btn-success btn-fill" ng-click="goBack()">Go Back</a>
+									</p>
+									<table id="w0" class="table">
+										<tbody>
+											<tr>
+												<th>ID</th>
+												<td>{{areaInfo.id}}</td>
+											</tr>
+											<tr>
+												<th>Area Name</th>
+												<td>{{areaInfo.areaName}}</td>
+											</tr>
+											<tr>
+												<th>City Name</th>
+												<td>{{areaInfo.cityName}}</td>
+											</tr>
+											<tr>
+												<th>Updated At</th>
+												<td>{{areaInfo.updatedAt}}</td>
+											</tr>
+											<tr>
+												<th>Status</th>
+												<td>{{areaInfo.status}}</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card" ng-show="areaState==='update'" id="updateArea">
+					<div class="header">
+						<h3 class="title">Update Area</h3>
+						<p style="float: right;">
+							<a class="btn btn-success btn-fill" ng-click="goBack()">Go Back</a>
+						</p>
+					</div>
+					<div class="content">
+						<div class="row">
+							<div class="col-md-5">
+								<div class="table-responsive">
+									<div class="bs-area-form">
+											<div
+												class="form-group field-bsarea-city_id">
+												<label class="control-label" for="bsarea-city_id">City</label>
+												<select ng-model="cityId" class="form-control">
+												<option value="">Select City</option> 
+													<option ng-repeat="city in cityData" value="{{city.id}}">{{city.cityName}}</option>						
+												</select>
+												<div class="help-block"></div>
+											</div>
+											<div
+												class="form-group field-bsarea-area_name">
+												<label class="control-label" for="bsarea-area_name">Area
+													Name</label> <input type="text" id="bsarea-area_name"
+													class="form-control"  value="{{editArea}}" ng-model="editArea" maxlength="250">
+												<div class="help-block"></div>
+											</div>											
+											<div class="form-group">
+												<button ng-click="updateAreaName(editArea)" class="btn btn-primary btn-fill">Update</button>
+											</div>									
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div ng-include src="'app/modules/commons/views/footer.html'"></div>
+</div>
+<div ng-repeat="area in areaData">
+		<div class="modal fade" id="myModal_{{area.id}}" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Delete Area</h4>
+					</div>
+					<div class="modal-body">
+						<p>Do you want to delete {{area.areaName}}?</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="deleteArea(area.id)">Yes</button>
+						<button type="button" 
+							class="btn btn-default" data-dismiss="modal">No</button>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>

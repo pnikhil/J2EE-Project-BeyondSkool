@@ -1,0 +1,55 @@
+<div class="mainWrap without_sidebar">
+		<div class="main">
+			<div class="content">
+				<section class="no_padding">
+					<div class="container">
+						<div class="columnsWrap col-md-11 margin_bottom_middle">
+							<h3 class="pageTitle h3">Booking Details</h3>
+							<table class="table" ng-show="bookingData.length>0">
+												<thead>
+													<tr>
+														<th><a>Booking ID</a></th>
+														<th><a>Booking Date</a></th>
+														<th><a>Activity Cost</a></th>
+														<th><a>Parent Name</a></th>
+														<th><a>Parent Email</a></th>
+														<th><a>Child Name</a></th>
+														<th><a>Father Mobile No</a></th>
+														<th><a>Stay Area</a></th>
+														<th><a>Activity Name</a></th>
+														<th><a>Already Attended</a></th>
+														<th><a>Change status</a></th>
+													</tr>													
+												</thead>
+												<tbody ng-repeat="booking in (bookingDataResults = (bookingData | filter: search : strict | limitTo: entryLimit : (currentPage-1)*entryLimit))">
+													<tr>
+														<td>{{booking.id}}</td>
+														<td>{{booking.bookingDate | date : 'dd/MM/yyyy hh:mm a'}}</td>
+														<td>Rs. {{booking.activityCost}}</td>													
+														<td>{{booking.userName}}</td>
+														<td>{{booking.userEmail}}</td>
+														<td>{{booking.childName}}</td>
+														<td>{{booking.fatherMobileNo}}</td>
+														<td>{{booking.area}}</td>
+														<td>{{booking.activityName}}</td>
+														<td>{{booking.alreadyAttended}}</td>
+														<td><a ng-click="changeStatus('YES',booking.id)" title="Yes"><button class="btn btn-success btn-simple btn-xs">
+																	<i class="icon-ok"></i>YES
+																</button></a> <a ng-click="changeStatus('NO',booking.id)" title="No"><button class="btn btn-danger btn-simple btn-xs">
+																	<i class="icon-cancel"></i> NO
+																</button></a></td>
+													</tr>													
+												</tbody>
+											</table>
+							<p ng-show="bookingData.length == 0">No bookings made so far</p>
+						</div>
+						<div class="sc_column_item sc_column_item_1 col-md-1 odd first span_2">
+							<button ng-click="goBack()" type="button"
+								style="margin-top: 20px; float: right;" class="btn btn-success">Go
+								Back</button>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>

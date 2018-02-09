@@ -1,0 +1,359 @@
+<div ng-include src="'app/modules/commons/views/sidebar.html'"></div>
+<div class="main-panel">
+	<div ng-include src="'app/modules/commons/views/topbar.html'"></div>
+	<div class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card" ng-show="activityState==='display'">
+						<div class="header">
+							<h3 class="title">Activities</h3>
+							<p style="float: right; margin-top: -25px;">
+								<button class="btn btn-success btn-fill"
+									ng-click="createActivityButton()">Create Activity</button>
+							</p>
+						</div>
+						<div class="content">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="table-responsive">
+										<div id="w0" class="grid-view">
+											<div ng-show="currentPage === 1">
+												Showing <b>{{currentPage}}</b> to <b>{{entryLimit}}</b>
+												items of total <b>{{activityData.length}}</b> items.
+											</div>
+											<div ng-show="currentPage !== 1 && currentPage !== noOfPages"
+												class="summary">
+												Showing <b>{{(entryLimit*(currentPage-1)) + 1}}</b> to <b>{{(entryLimit*(currentPage))%totalItems}}</b>
+												items of total <b>{{activityData.length}}</b> items.
+											</div>
+
+											<div ng-show="currentPage === noOfPages && currentPage !== 1" class="summary">
+												Showing <b>{{(entryLimit*(currentPage-1)) + 1}}</b> to <b>{{totalItems}}</b>
+												items of total <b>{{activityData.length}}</b> items.
+											</div>
+
+											<div class="slide pull-right">
+												<ul uib-pagination total-items="totalItems"
+													items-per-page="entryLimit" ng-model="currentPage"
+													max-size="maxSize" class="pagination-sm paginationMargin"
+													boundary-links="true"></ul>
+											</div>
+											<div class="myClear"></div>
+											<table class="table">
+												<thead>
+													<tr>
+														<th><a>#</a></th>
+														<th><a>Activity Name</a></th>
+														<!-- <th><a>Description</a></th> -->
+														<th><a>Image</a></th>
+														<th><a>Updated At</a></th>
+														<th class="action-column">&nbsp;</th>
+													</tr>
+													<tr id="w0-filters" class="filters">
+														<td>&nbsp;</td>
+														<td><input ng-model="search.activityName" type="text"
+															class="form-control"></td>
+														<!-- <td><input ng-model="search.description" type="text"
+															class="form-control"></td> -->
+														<td>&nbsp;</td>
+														<td><input type="text" ng-model="search.updatedAt"
+															class="form-control"></td>
+
+													</tr>
+												</thead>
+												<tbody
+													ng-repeat="activity in (activityDataResults = (activityData | filter: search : strict | limitTo: entryLimit : (currentPage-1)*entryLimit))">
+													<tr data-key="4">
+														<td>{{activity.id}}</td>
+														<td>{{activity.activityName}}</td>
+														<!-- <td>{{activity.description}}</td> -->
+														<td><img ng-show="activity.imagePath == ''" ng-src="../uploads/no_image.jpg"
+															width="200px">
+															<img ng-show="activity.imagePath != ''" ng-src="../uploads/{{activity.imagePath}}"
+															width="200px" alt="{{activity.activityName}}"></td>
+														<td>{{activity.updatedAt | date : 'dd/MM/yyyy hh:mm a'}}</td>
+														<td><a ng-click="view(activity)" title="View"
+															aria-label="View"><button
+																	class="btn btn-success btn-simple btn-xs">
+																	<i class="fa fa-eye"></i>
+																</button></a> <a title="Update" ng-click="updateButton(activity)" aria-label="Update"><button
+																	class="btn btn-info btn-simple btn-xs">
+																	<i class="fa fa-edit"></i>
+																</button></a> <a title="Delete" data-toggle="modal"
+															data-target="#myModal_delete_{{activity.id}}"
+															aria-label="Delete"><button
+																	class="btn btn-danger btn-simple btn-xs">
+																	<i class="fa fa-times"></i>
+																</button></a></td>
+													</tr>
+												</tbody>
+											</table>
+											<h4 ng-show="activityDataResults.length == 0"
+												class="text-center">No Result Found</h4>
+											<div class="slide pull-right">
+												<ul uib-pagination total-items="totalItems"
+													items-per-page="entryLimit" ng-model="currentPage"
+													max-size="maxSize" class="pagination-sm paginationMargin"
+													boundary-links="true"></ul>
+											</div>
+											<div class="myClear"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card" id="viewActivity" ng-show="activityState==='view'">
+						<div class="content">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="table-responsive">
+										<h3 class="title">View Activity</h3>
+										<p style="float: right;">
+											<button class="btn btn-primary btn-fill" ng-click="updateButton(activityInfo)">Update</button>
+											<a class="btn btn-success btn-fill" ng-click="goBack()">Go
+												Back</a>
+										</p>
+										<table id="w0" class="table">
+											<tbody>
+												<tr>
+													<th>ID</th>
+													<td>{{activityInfo.id}}</td>
+												</tr>
+												<tr>
+													<th>Activites Name</th>
+													<td>{{activityInfo.activityName}}</td>
+												</tr>
+												<!-- <tr>
+													<th>Description</th>
+													<td>{{activityInfo.description}}</td>
+												</tr> -->
+												<tr>
+													<th>Image</th>
+													<td ng-show="activityInfo.imagePath != ''"><img 
+														ng-src="../uploads/{{activityInfo.imagePath}}"
+														height="100" alt="{{activityInfo.activityName}}">
+														</td>
+														<td ng-show="activityInfo.imagePath == ''"><img
+														ng-src="../uploads/no_image.jpg"
+														height="100"></td>
+														
+												</tr>
+												<tr>
+													<th>Updated At</th>
+													<td>{{activityInfo.updatedAt}}</td>
+												</tr>
+												<!-- <tr>
+													<th>Status</th>
+													<td>{{activityInfo.status}}</td>
+												</tr> -->
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card" id="createActivity"
+						ng-show="activityState==='create'">
+						<div class="header">
+							<h3 class="title">Create Activites</h3>
+							<p style="float: right;">
+								<a class="btn btn-success btn-fill" ng-click="goBack()">Go Back</a>
+							</p>
+						</div>
+						<div class="content">
+							<div class="row">
+								<div class="col-md-5">
+									<div class="table-responsive">
+										<div class="bs-activites-form">											
+											<div
+												class="form-group field-bsactivites-activites_name required">
+												<label class="control-label"
+													for="bsactivites-activites_name">Activity Name</label> <input
+													type="text" ng-model="activityName" id="bsactivites-activites_name"
+													class="form-control"
+													maxlength="250">
+
+												<div class="help-block"></div>
+											</div>
+
+											<div class="form-group field-bsactivites-img">
+												<label class="control-label" for="bsactivites-img">Upload
+													Image</label>
+												<form name="myForm">
+													<!-- BROWSE -->
+													<div class="form-group">
+														<input type="file" ngf-select ng-model="picFile"
+															name="file" accept="image/*" ngf-max-size="1MB" required>
+														<i style="color:red;font-size:15px;"ng-show="myForm.file.$error.maxSize">File too large
+															{{picFile.size / 1000000|number:1}}MB: maximum allowed size is 1 mb file</i>
+													</div>
+													<!-- PREVIEW -->
+													<div class="form-group">
+														<img class="thumb" ng-show="myForm.file.$valid"
+															ngf-thumbnail="picFile" ngf-size="{width: 100, height: 100, quality: 0.9}">
+														<button class="btn btn-danger btn-xs"
+															ng-click="picFile = null" ng-show="picFile">
+															<i class="glyphicon glyphicon-remove"></i> Remove
+														</button>
+													</div>
+													<!-- SUBMIT -->
+													<button class="btn btn-success"
+														ng-disabled="!myForm.$valid" ng-click="uploadPic(picFile)">
+														<i class="glyphicon glyphicon-ok"></i> Upload Image
+													</button>
+													<!-- ALERT -->
+													<p>
+													<div class="alert alert-danger" ng-show="errorMsg">Upload
+														Error!</div>
+													<div class="alert alert-success" ng-show="picFile.result">Upload
+														Successful.</div>
+													</p>
+												</form>
+
+												<div class="help-block"></div>
+											</div>
+											<br />
+											<br />
+											<!-- <div class="form-group field-bsactivites-description">
+												<label class="control-label" for="bsactivites-description">Activity Description</label>
+												<textarea id="bsactivites-description" ng-model="description" class="form-control"
+													rows="6"></textarea>
+
+												<div class="help-block"></div>
+											</div>	 -->										
+											<div class="form-group">
+												<button ng-disabled="picFile.length == 0" ng-click="createActivity()" class="btn btn-success btn-fill">Create Activity</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="card" id="updateActivity"
+						ng-show="activityState==='update'">
+						<div class="header">
+							<h3 class="title">Update Activity</h3>
+							<p style="float: right;">
+								<a class="btn btn-success btn-fill" ng-click="goBack()">Go Back</a>
+							</p>
+						</div>
+						<div class="content">
+							<div class="row">
+								<div class="col-md-5">
+									<div class="table-responsive">
+										<div class="bs-activites-form">											
+											<div
+												class="form-group field-bsactivites-activites_name required">
+												<label class="control-label"
+													for="bsactivites-activites_name">Activity Name</label> <input
+													type="text" ng-model="updateName" id="bsactivites-activites_name"
+													class="form-control"
+													maxlength="250">
+
+												<div class="help-block"></div>
+											</div>
+											
+											<div ng-hide="hideOrig"
+												class="form-group field-bsactivites-activites_name required">
+												<label class="control-label"
+													for="bsactivites-activites_name">Current Image</label> 
+												<img ng-show="currentImagePath != ''" ng-src="../uploads/{{currentImagePath}}"
+														height="100" alt="{{activityInfo.activityName}}">
+												<div class="help-block"></div>
+												<h4 ng-show="currentImagePath == ''">NO IMAGE UPLOADED</h4>
+											</div>
+
+											<div class="form-group field-bsactivites-img">
+												<label class="control-label" for="bsactivites-img">Upload
+													a new Image?</label>
+												<form name="myForm">
+													<!-- BROWSE -->
+													<div class="form-group">
+														<input type="file" ngf-select ng-model="picFile"
+															name="file" accept="image/*" ngf-max-size="1MB" required>
+														<i style="color:red;font-size:15px;"ng-show="myForm.file.$error.maxSize">File too large
+															{{picFile.size / 1000000|number:1}}MB: maximum allowed size is 1 mb file</i>
+													</div>
+													<!-- PREVIEW -->
+													<div class="form-group">
+														<img class="thumb" ng-show="myForm.file.$valid"
+															ngf-thumbnail="picFile" ngf-size="{width: 300, height: 200, quality: 0.9}">
+														<button class="btn btn-danger btn-xs"
+															ng-click="picFile = null" ng-show="picFile">
+															<i class="glyphicon glyphicon-remove"></i> Remove
+														</button>
+													</div>
+													<!-- SUBMIT -->
+													<button class="btn btn-success"
+														ng-disabled="!myForm.$valid" ng-click="uploadPic(picFile)">
+														<i class="glyphicon glyphicon-ok"></i> Upload Image
+													</button>
+													<!-- ALERT -->
+													<p>
+													<div class="alert alert-danger" ng-show="errorMsg">Upload
+														Error!</div>
+													<div class="alert alert-success" ng-show="picFile.result">Upload
+														Successful.</div>
+													</p>
+												</form>
+
+												<div class="help-block"></div>
+											</div>
+											<br />
+											<br />
+											<!-- <div class="form-group field-bsactivites-description">
+												<label class="control-label" for="bsactivites-description">Activity Description</label>
+												<textarea id="bsactivites-description" ng-model="description" class="form-control"
+													rows="6"></textarea>
+
+												<div class="help-block"></div>
+											</div>	 -->										
+											<div class="form-group">
+												<button ng-disabled="picFile.length == 0" ng-click="updateActivity()" class="btn btn-success btn-fill">Update Activity</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		<div ng-include src="'app/modules/commons/views/footer.html'"></div>
+	</div>
+</div>
+<div ng-repeat="activity in activityData">
+	<div class="modal fade" data-backdrop="false"
+		id="myModal_delete_{{activity.id}}" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Delete the Activity
+						{{activity.activityName}}</h4>
+				</div>
+				<div class="modal-body">
+					<h4>Activity Details</h4>
+					<ul class="list-group">
+						<li class="list-group-item">Activity Description:
+							{{activity.description}}</li>
+					</ul>
+					<p>Do you want to delete {{activity.activityName}}?</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-danger" data-dismiss="modal"
+						ng-click="deleteActivity(activity.id)">Yes</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,106 @@
+<div id="topOfPage" class="topTabsWrap">
+	<div class="main">
+		<div class="speedBar">
+			<a class="home" ui-sref="home">Home</a> <span
+				class="breadcrumbs_delimiter"> <i
+				class="icon-right-open-mini"></i>
+			</span> <span class="current">Pricing</span>
+		</div>
+		<h3 class="pageTitle h3">Pricing</h3>
+	</div>
+</div>
+<div class="mainWrap without_sidebar">
+	<div class="main">
+		<div class="content">
+			<section
+				class="post no_margin post_format_standard postAlter page type-page">
+				<article class="post_content">
+					<div class="post_text_area">
+
+						<section class="no_padding">
+							<div class="container">
+
+								<div
+									class="columnsWrap sc_columns custom_columns sc_columns_count_2">
+									<div
+										class="columns1_2 sc_column_item sc_column_item_1 odd first">
+										<figure class="sc_image  sc_image_shape_square">
+											<img src="app/angular_resources/images/packages-banner.jpg"
+												alt="">
+											<!--<figcaption>
+															<span class="icon inherit">Packages</span>
+														</figcaption>-->
+										</figure>
+									</div>
+									<div class="columns1_2 sc_column_item sc_column_item_2 even">
+										<h3 class="sc_title sc_title_regular">Financial knowledge course only for <span style='color:red;text-decoration:line-through'>Rs. 3000</span> Rs. 750. Enroll NOW</h3>
+										<div>
+											<p>BeyondSkool's mission is to prepare children for tomorrow. We assure you that with every BeyondSkool course your child attends, he/she will move closer towards building a successful career. If at any point, you feel BeyondSkool isn't adding value to your child, we'll initiate a full refund with no questions asked. Go ahead, give your child the 'BeyondSkool Advantage'!</p>
+
+											<div class="msg">
+												<div>
+												<input style="margin-bottom:10px;margin-top:15px;" type="button" ng-hide="isParentLoggedIn"
+															value="Buy Now" data-toggle="modal" data-target="#myModal_login" ng-click="loginForPayment()" />
+												<input style="margin-bottom:10px;margin-top:15px;" type="button" ng-show="isParentLoggedIn"
+															value="Buy Now" class="js-pay-bundle" data-amount="75000" data-qty="1" name="hidden" />													
+													<div ng-show="processing" class="col-md-6 alert alert-info">Processing Payment. Please wait.</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</article>
+			</section>
+		</div>
+	</div>
+</div>
+<div ng-include src="'app/modules/commons/views/footer.html'"></div>
+<div ng-hide="isParentLoggedIn" id="myModal_login"  data-backdrop="false" class="modal fade" style="margin-top:50px;" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">   
+     <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3 class="modal-title">Parent Login</h3>
+       </div>
+      <div class="modal-body">
+				<div class="sc_contact_form sc_contact_form_contact contact_form_1">
+				<div class="alert alert-danger">
+ 							You must be logged in to purchase a package.
+						</div>
+									<div class="container col-md-7">				
+												<form ng-submit="parentLogin()" name="userLoginForm" novalidate="" class="ng-pristine ng-invalid ng-invalid-required">
+												<div class="columnsWrap">
+													<div class="columns1_1">
+														<label class="required" for="contact_form_username">E-mail</label>
+														<input type="text" ng-model="parent_userName" name="email" id="contact_form_username" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
+													</div>
+												</div>
+												<div class="columnsWrap">
+													<div class="columns1_1">
+														<label class="required" for="contact_form_email">Password</label>
+														<input type="password" ng-model="parent_password" name="password" id="contact_form_email" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
+													</div>
+												</div>
+												<div class="errorRedClass text-center ng-pristine ng-untouched ng-valid ng-not-empty ng-hide" ng-show="incorrectLogin" ng-model="incorrectLogin">Invalid Username or Password</div>
+												<div class="columnsWrap">
+														<div class="squareButton sc_button_size sc_button_style_global global ico">
+															<input type="submit" value="Login" name="contact_submit" class="contact_form_submit">
+															<!-- <input style="margin-bottom:10px;" type="button" ng-show="isParentLoggedIn"
+															value="Buy Now" class="js-pay-bundle" data-amount="100000" data-qty="1" name="hidden" /> -->
+														</div>
+													</div>
+												</form>
+									</div>
+								</div>
+			</div>
+      <div class="modal-footer" style="border-top:none!important;">
+      	
+      </div>
+    </div>
+
+  </div>
+</div>

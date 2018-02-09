@@ -1,0 +1,306 @@
+<div id="topOfPage" class="topTabsWrap">
+	<div class="main">
+		<div class="speedBar">
+			<a class="home" ui-sref="home">Home</a> <span
+				class="breadcrumbs_delimiter"> <i
+				class="icon-right-open-mini"></i>
+			</span> <span class="current"> Activity Centres</span>
+		</div>
+		<h3 class="pageTitle h3">Activity Centres</h3>
+	</div>
+</div>
+
+<div class="mainWrap without_sidebar" ng-hide="dataLoaded">
+	<div class="main">
+		<div class="content">
+			<section class="no_padding">
+				<div class="container">
+					<h4 class="text-center">Loading Activity Centres...</h4>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
+<div ng-show="dataLoaded" class="mainWrap with_sidebar sideBarLeft">
+
+	<div class="main">
+
+		<div id="sidebar_main" class="widget_area sidebar_main sidebar">
+
+			<aside
+				class="widgetWrap hrShadow widget woocommerce widget_product_search">
+				<h3 class="title">Search by Centre Name</h3>
+				<input type="text" style="width: 200px; height: 40px;"
+					class="search-field" ng-model="search" placeholder="Search for Centre" id="search_key"
+					title="Search for center:"> <span
+					class="search-button squareButton light ico"> <a
+					class="search-field icon-search"
+					onclick="filterCenter();return false;"></a>
+				</span>
+			</aside>
+			
+			<aside class="widgetWrap hrShadow widget widget_subcategories">
+				<h3 class="title">Search by City</h3>
+				<div class="widget_subcategories_inner">
+					<select ng-change="getAreaNames(search.cityName)" ng-model="search.cityName" class="form-control">
+						<option value="">Select City</option>
+							<option ng-repeat="city in cityData" value="{{city.cityName}}">{{city.cityName}}</option>
+						</select>
+				</div>
+			</aside>
+			<aside ng-show="search.cityName.length> 0" class="widgetWrap hrShadow widget widget_subcategories">
+				<h3 class="title">Search by Area</h3>
+				<div class="widget_subcategories_inner">
+					<select ng-model="search.areaName" class="form-control">
+					<option value="">Select Area</option>
+							<option ng-repeat="area in areaData" value="{{area.areaName}}">{{area.areaName}}</option>
+					</select>
+				</div>
+			</aside>
+
+			<aside class="widgetWrap hrShadow widget widget_subcategories">
+				<h3 class="title">Search By Age</h3>
+				<div class="widget_subcategories_inner">
+					<select ng-change="filterByAge(age)" ng-model="age" id="age">
+						<option value="">Select Age</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+					</select>
+				</div>
+			</aside>
+			<aside class="widgetWrap hrShadow widget widget_subcategories">
+				<h3 class="title">Activities</h3>				
+				<button ng-show="removeFilter" style="margin-bottom:10px;" ng-click="removeActivityFilter()" class="btn btn-danger">Remove activity Filter</button>
+				<div class="tagcloud">					
+				<select ng-model="activity.id" ng-change="filterByActivity(activity.id)" id="bscenteractivity-0-activity_id" class="form-control">
+						<option value="">Select Activity</option>
+						<option ng-repeat="activity in activityData" value="{{activity.id}}">{{activity.activityName}}</option>
+				</select>
+				</div>
+			</aside>
+		</div>
+		<div class="content">
+			<section class="post post_format_standard postAlter page type-page">
+				<article class="post_content">
+					<div class="post_text_area">
+						<section class="no_padding">
+						
+							<div class="container">
+							<div style="margin-top:20px;"class="slide pull-right">
+									<ul ng-hide="centreDataResults.length == 0" uib-pagination total-items="totalItems"
+													items-per-page="entryLimit" ng-model="currentPage"
+													max-size="maxSize" class="pagination-sm paginationMargin"
+													boundary-links="true"></ul>
+											</div>
+									<h2 class="sc_title sc_title_regular aligncenter" style="margin-top:10px;">Activity Centres</h2>
+									
+									<div class="col-md-offset-3 sc_blogger sc_blogger_horizontal style_image style_image_classes">
+										<div class="columnsWrap">
+											<div class="columns1_2 column_item_{{$index+1}}"  ng-repeat="centre in (centreDataResults = (centreData | filter: search : strict | limitTo: entryLimit : (currentPage-1)*entryLimit))">
+												<article class="sc_blogger_item">
+													<div class="thumb">
+														<a target="_blank" ui-sref="viewCentre({ centreId: centre.id, centreName: centre.centreName.split(' ').join('-').toLowerCase()})">														
+															<img ng-show="centre.imagePath[0] != ''" width="100%"
+															style="overflow: hidden; height: 224px;" alt="{{centre.centreName}}"
+															ng-src="uploads/{{centre.centreName}}/{{centre.imagePath[0]}}" /><!-- _{{centre.imageDirId}} -->
+															<img ng-show="centre.imagePath[0] == ''" width="100%"
+															style="overflow: hidden; height: 224px;"
+															ng-src="uploads/no_image.jpg" />
+															<div class="sc_blogger_content">
+																<div class="sc_blogger_content_inner">{{ centre.description | limitTo: 160 }}{{centre.description.length > 160 ? '...' : ''}}</div>
+															</div>
+														</a>
+													</div>
+													<h4 class="sc_blogger_title sc_title">														
+														<a target="_blank" ng-style="centre.centreName.length > 40 ? {'font-size': '12px'} :  {'font-size': '15px'} " ui-sref="viewCentre({ centreId: centre.id, centreName: centre.centreName.split(' ').join('-').toLowerCase()})">{{centre.centreName}} - {{centre.areaName}}</a>
+													</h4>
+												</article>
+											</div>																					
+										</div>
+										<h4 class="text-center" ng-show="centreDataResults.length == 0">No centres found</h4>
+									</div>
+							</div>
+							<div style="margin-top:20px;"class="slide pull-right">
+												
+									<ul ng-hide="centreDataResults.length == 0" uib-pagination total-items="totalItems"
+													items-per-page="entryLimit" ng-model="currentPage"
+													max-size="maxSize" class="pagination-sm paginationMargin"
+													boundary-links="true"></ul>
+											</div> 
+						</section>
+					</div>
+				</article>
+			</section>
+		</div>
+
+	</div>
+</div>
+
+<!-- <div class="mainWrap without_sidebar"
+	style="margin-top: 20px; margin-bottom: 20px;">
+	<div class="main">
+		<div class="content">
+			<article class="post_content columnsWrap">
+				<div class="post_text_area">
+
+					<section class="no_padding">
+						<div class="container">
+							<div
+								class="sc_blogger sc_blogger_horizontal style_image style_image_classes">
+								<div class="columnsWrap">
+									<div class="col-md-4 column_item">
+										<article class="sc_blogger_item">
+											<div class="thumb">
+												<img width="100%" style="overflow: hidden; height: 224px;"													
+													src="uploads/courses/public_speaking.jpg">
+											</div>
+											<h4 style="color: white;font-weight: 700;" class="sc_blogger_title sc_title">
+												Public Speaking</h4>
+											<div class="sc_blogger_title"
+												style="margin-top: -27%; margin-bottom: -10%;">
+												<p>Does your child suffer from stage fright? Make your
+													child confident & assertive!</p>
+											</div>
+										</article>
+									</div>
+									<div class="col-md-4 column_item">
+										<article class="sc_blogger_item">
+											<div class="thumb">
+												<img width="100%" style="overflow: hidden; height: 224px;"													
+													src="uploads/courses/postitive_thinking.jpg">
+											</div>
+											<h4 style="color: white;font-weight: 700;" class="sc_blogger_title sc_title">
+												Positive Thinking</h4>
+											<div class="sc_blogger_title"
+												style="margin-top: -27%; margin-bottom: -10%;">
+												<p>Negative emotions can ruin your child's life. This course makes your child develop a positive mindset early on!</p>
+											</div>
+										</article>
+									</div>
+									<div class="col-md-4 column_item">
+										<article class="sc_blogger_item">
+											<div class="thumb">
+												<img width="100%" style="overflow: hidden; height: 224px;"													
+													src="uploads/courses/biographies.jpg">
+											</div>
+											<h4 style="color: white;font-weight: 700;" class="sc_blogger_title sc_title">
+											Biography reading</h4>
+											<div class="sc_blogger_title"
+												style="margin-top: -27%; margin-bottom: -10%;">
+												<p>Biographies of successful people can inspire your child to strive for greatness. This course chronicles biographies of 12 successful people!</p>
+											</div>
+										</article>
+									</div>
+								</div>
+								<div class="columnsWrap" style="margin-top:10px;">
+									
+									<div class="col-md-4 column_item">
+										<article class="sc_blogger_item">
+											<div class="thumb">
+												<img width="100%" style="overflow: hidden; height: 224px;"													
+													src="uploads/courses/creative_thinking.jpg">
+											</div>
+											<h4 style="color: white;font-weight: 700;" class="sc_blogger_title sc_title">
+												Creative Thinking</h4>
+											<div class="sc_blogger_title"
+												style="margin-top: -27%; margin-bottom: -10%;">
+												<p>Modern education has curbed a child's natural creative thinking process. It's time to bring back innovative ideas!</p>
+											</div>
+										</article>
+									</div>
+									<div class="col-md-4 column_item">
+										<article class="sc_blogger_item">
+											<div class="thumb">
+												<img width="100%" style="overflow: hidden; height: 224px;"													
+													src="uploads/courses/financial_literacy.jpg">
+											</div>
+											<h4 style="color: white;font-weight: 700;" class="sc_blogger_title sc_title">
+												Financial Literacy</h4>
+											<div class="sc_blogger_title"
+												style="margin-top: -27%; margin-bottom: -10%;">
+												<p>This is the most ignored subject yet the most crucial one. Teaching your child money fundamentals changes the way they deal with money.</p>
+											</div>
+										</article>
+									</div>
+									<div class="col-md-4 column_item">
+										<article class="sc_blogger_item">
+											<div class="thumb">
+												<img width="100%" style="overflow: hidden; height: 224px;"													
+													src="uploads/courses/entrepreneurship.jpg">
+											</div>
+											<h4 style="color: white;font-weight: 700;" class="sc_blogger_title sc_title">
+												Entrepreneurship</h4>
+											<div class="sc_blogger_title"
+												style="margin-top: -27%; margin-bottom: -10%;">
+												<p>What does it take to be a successful entrepreneur?. This course will help your child develop an entrepreneurial bent of mind!</p>
+											</div>
+										</article>
+									</div>
+									<div class="col-md-4 column_item">
+										<article class="sc_blogger_item">
+											<div class="thumb">
+												<img width="100%" style="overflow: hidden; height: 224px;"													
+													src="uploads/courses/digital_u.jpg">
+											</div>
+											<h4 style="color: white;font-weight: 700;" class="sc_blogger_title sc_title">
+												Digital disruption</h4>
+											<div class="sc_blogger_title"
+												style="margin-top: -27%; margin-bottom: -10%;">
+												<p>Digital has become a way of life. This course will expose your child to the latest cutting edge technologies which are changing the world!</p>
+											</div>
+										</article>
+									</div>
+								</div>
+								<div class="columnsWrap" style="margin-top:10px;">
+									
+									<div class="col-md-4 column_item">
+										<article class="sc_blogger_item">
+											<div class="thumb">
+												<img width="100%" style="overflow: hidden; height: 224px;"													
+													src="uploads/courses/goal_setting.png">
+											</div>
+											<h4 style="color: white;font-weight: 700;" class="sc_blogger_title sc_title">
+												Goal Setting</h4>
+											<div class="sc_blogger_title"
+												style="margin-top: -27%; margin-bottom: -10%;">
+												<p>Only 3% of the world's population sets goals. No wonder only 3% of the people in this world are successful. Make your child part of that 3%!</p>
+											</div>
+										</article>
+									</div>
+									<div class="col-md-4 column_item">
+										<article class="sc_blogger_item">
+											<div class="thumb">
+												<img width="100%" style="overflow: hidden; height: 224px;"													
+													src="uploads/courses/relationship_management.jpg">
+											</div>
+											<h4 style="color: white;font-weight: 700;" class="sc_blogger_title sc_title">
+												Relationship management</h4>
+											<div class="sc_blogger_title"
+												style="margin-top: -27%; margin-bottom: -10%;">
+												<p>Children are often clueless when it comes to managing relationships either with peers or parents. This course clears the air!</p>
+											</div>
+										</article>
+									</div>						
+								</div>
+							</div>
+						</div>
+					</section>
+				</div>
+			</article>
+		</div>
+	</div>
+</div> -->
+<!-- -->
+<div ng-include src="'app/modules/commons/views/footer.html'"></div>

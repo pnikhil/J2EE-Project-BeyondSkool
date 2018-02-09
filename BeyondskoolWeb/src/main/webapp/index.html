@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="beyondSkool">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="format-detection" content="telephone=no">
+	<title update-title></title>
+    <meta name="keywords" content="beyondskool, kidsschool, activities, Kidstore, coimbatore" />
+    <meta name="description" content="beyondskool, kidsschool, activities, Kidstore, Coimbatore" />
+	<link rel="icon" type="image/x-icon" href="favicon.ico"/>
+	<!--[if lt IE 9]>
+		<script src="js/vendor/html5.js" type="text/javascript"></script>
+	<![endif]-->
+	<link rel='stylesheet' href="app/angular_resources/css/toaster.min.css" type='text/css' media='all'/>
+	<link rel='stylesheet' href="app/angular_resources/vendor/revslider/settings.css" type='text/css' media='all'/>
+	<!-- <link rel='stylesheet' href="app/angular_resources/css/__packed.css" type='text/css' media='all'/>
+	 --><link rel='stylesheet' href="app/angular_resources/fontello/fontello.css" type='text/css' media='all'/>
+	<link rel='stylesheet' href="app/angular_resources/fontello/animation.css" type='text/css' media='all'/>
+	<link rel='stylesheet' href="app/angular_resources/css/style.css" type='text/css' media='all'/>
+	<!-- <link rel='stylesheet' href="app/angular_resources/css/woocommerce.css" type='text/css' media='all'/>
+	<link rel='stylesheet' href="app/angular_resources/css/woocommerce-layout.css" type='text/css' media='all'/>
+	<link rel='stylesheet' href="app/angular_resources/css/woocommerce-smallscreen.css" type='text/css' media='all'/>
+	 <link rel='stylesheet' href="app/angular_resources/css/woo-style.css" type='text/css' media='all'/>
+	--><link rel='stylesheet' href="app/angular_resources/css/shortcodes.css" type='text/css' media='all'/>
+	<link rel='stylesheet' href="app/angular_resources/css/bootstrap.min.css" type='text/css' media='all'/>
+	<!-- <link rel='stylesheet' href="app/angular_resources/css/custom.css" type='text/css' media='all'/>
+	 --><link id="theme-skin-css" rel='stylesheet' href="app/angular_resources/css/kidscare.css" type='text/css' media='all'/>
+	<style id='theme-skin-inline-css' type='text/css'></style>
+	<link rel='stylesheet' href="app/angular_resources/css/responsive.css" type='text/css' media='all'/>
+
+<style>
+span.sc_icon.icon-home.theme_accent {
+	color: #d8e300;
+}
+
+span.sc_icon.icon-phone.theme_accent {
+	color: #d8e300;
+}
+
+span.sc_icon.icon-email.theme_accent {
+	color: #d8e300;
+}
+
+.theme_accent {
+	color: #d8e300;
+}
+</style>
+
+<!-- End Google analytics code -->
+</head>
+<body class="home page themerex_body fullscreen top_panel_above theme_skin_kidscare" ng-controller="appController" ng-keyup="keyup($event)">
+	<toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'position-class':'toast-top-full-width'}">
+	</toaster-container>
+
+	<div class="main_content">		
+		<div class="boxedWrap">
+		<header class="noFixMenu menu_right without_user_menu">
+				<div class="topWrapFixed"></div>
+				<div class="topWrap">
+					<div class="mainmenu_area">
+						<div class="main with_logo_left">
+							<div class="logo logo_left">
+								<a ui-sref="home">
+									<img src="app/angular_resources/images/logo-top2.png" class="logo_main" alt="">
+									<img src="app/angular_resources/images/logo-top2.png" class="logo_fixed" alt="">
+									<span class="logo_slogan"></span>
+								</a>
+							</div>							
+							<a href="#" class="openResponsiveMenu">Menu</a>
+							<nav role="navigation" class="menuTopWrap topMenuStyleLine">
+								<ul id="mainmenu" class="">
+									<li class="menu-item" ui-sref-active="current-menu-ancestor">
+										<a ui-sref="home" data-target="#home">Home</a>
+										
+									</li>
+									<li class="menu-item" ui-sref-active="current-menu-ancestor">
+										<a ui-sref="packages">Pricing</a>										
+									</li>
+									
+									
+									<li class="menu-item" ui-sref-active="current-menu-ancestor">
+										<a ui-sref="upcomingClasses" data-target="#upcomingClasses">Upcoming Classes</a>										
+									</li>
+				                    
+                                    <li class="menu-item" ui-sref-active="current-menu-ancestor">
+										<a ui-sref="activityCentres" data-target="#activityCentres">Activity Centres</a>										
+									</li>
+									
+									
+									<li class="menu-item" ng-show="isLoggedIn && isCentreLoggedIn" ui-sref-active="current-menu-ancestor">
+										<a data-target="#myCentre" ui-sref="myCentre">My Centre</a>										
+									</li>
+									
+									<li class="menu-item" ng-show="isLoggedIn && isParentLoggedIn" ui-sref-active="current-menu-ancestor">
+										<a data-target="#parentDashboard" ui-sref="parentDashboard">Parent Dashboard</a>										
+									</li>
+									
+                                    <li class="menu-item" ng-hide="isLoggedIn" ui-sref-active="current-menu-ancestor">
+										<a data-target="#login" ui-sref="login">Login</a>
+									</li>
+                                    
+                                    <li class="menu-item" ng-hide="isLoggedIn" ui-sref-active="current-menu-ancestor">
+										<a data-target="#signUp" ui-sref="signup">Join us</a>
+									</li>
+                                    
+                                    <li class="menu-item" ui-sref-active="current-menu-ancestor">
+										<a data-target="#" ui-sref="contact">Contact Us</a>
+									</li>
+									
+									<li class="menu-item" ng-show="isLoggedIn" ui-sref-active="current-menu-ancestor">
+										<a data-target="#" ui-sref="login">Log Out</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</header>
+			
+	<!-- <div data-ng-show="$state.includes('home')" id="mainslider_1"
+	class="sliderHomeBullets staticSlider slider_engine_revo slider_alias_revo-babbysitter mainslider_1">
+	<div id="rev_slider_1_wrapper"
+		class="rev_slider_wrapper fullwidthbanner-container">
+		<div id="rev_slider_1" class="rev_slider fullwidthabanner">
+			<ul>
+				<li data-transition="fade" data-slotamount="7"
+					data-masterspeed="300" data-saveperformance="off"><img
+					src="app/angular_resources/images/transparent.png" alt="babbysitter-slider-ground"
+					data-bgposition="center bottom" data-bgfit="normal"
+					data-bgrepeat="no-repeat"> <div class="tp-caption _bs_slider_title tp-fade skewtorightshort tp-resizeme rs-parallaxlevel-0" data-x="center" data-hoffset="236" data-y="bottom" data-voffset="-397" data-speed="700" data-start="2000" data-easing="Power3.easeInOut" data-splitin="none" data-splitout="words" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="300">BeyondSkool
+								</div>
+					<div
+						class="tp-caption _bs_slider_title tp-fade skewtorightshort tp-resizeme rs-parallaxlevel-0"
+						data-x="center" data-hoffset="180" data-y="bottom"
+						data-voffset="-357" data-speed="700" data-start="2500"
+						data-easing="Power3.easeInOut" data-splitin="none"
+						data-splitout="words" data-elementdelay="0.1"
+						data-endelementdelay="0.1" data-endspeed="300">BeyondSkool</div>
+					<div
+						class="tp-caption _bs_slider_text tp-fade tp-resizeme rs-parallaxlevel-0"
+						data-x="center" data-hoffset="241" data-y="bottom"
+						data-voffset="-301" data-speed="700" data-start="3500"
+						data-easing="Power3.easeInOut" data-splitin="none"
+						data-splitout="none" data-elementdelay="0.2"
+						data-endelementdelay="0.1" data-endspeed="300">
+						<div style="text-align: center;">
+							"Children learn as they play. Most importantly, in play, children
+							learn how to learn" </br> - Fred Donaldson
+						</div>
+					</div>
+					<div class="tp-caption tp-fade rs-parallaxlevel-3" data-x="center"
+						data-hoffset="-176" data-y="bottom" data-voffset="-126"
+						data-speed="700" data-start="500" data-easing="Power3.easeInOut"
+						data-elementdelay="0.1" data-endelementdelay="0.1"
+						data-endspeed="300">
+						<div class="tp-layer-inner-rotation   rs-wave" data-speed="2"
+							data-angle="0" data-radius="5" data-origin="50% 50%">
+							<img src="app/angular_resources/images/slide1.png" alt="" data-ww="433" data-hh="391">
+						</div>
+					</div>
+					<div class="tp-caption lfl rs-parallaxlevel-3" data-x="center"
+						data-hoffset="-492" data-y="bottom" data-voffset="-348"
+						data-speed="1000" data-start="2500" data-easing="Power3.easeInOut"
+						data-elementdelay="0.1" data-endelementdelay="0.1"
+						data-endspeed="300">
+						<div class="tp-layer-inner-rotation   rs-slideloop"
+							data-easing="Power3.easeInOut" data-speed="2" data-xs="-10"
+							data-xe="10" data-ys="0" data-ye="0">
+							<img src="app/angular_resources/images/babbysitter-slider-cloud-1a.png" alt="">
+						</div>
+					</div>
+					<div class="tp-caption lft rs-parallaxlevel-4" data-x="center"
+						data-hoffset="-73" data-y="bottom" data-voffset="-548"
+						data-speed="1000" data-start="3500" data-easing="Power3.easeInOut"
+						data-elementdelay="0.1" data-endelementdelay="0.1"
+						data-endspeed="300">
+						<div class="tp-layer-inner-rotation   rs-slideloop"
+							data-easing="Power3.easeInOut" data-speed="2" data-xs="-15"
+							data-xe="15" data-ys="0" data-ye="0">
+							<img src="app/angular_resources/images/babbysitter-slider-cloud-2a.png" alt="">
+						</div>
+					</div>
+					<div class="tp-caption lfl rs-parallaxlevel-3" data-x="center"
+						data-hoffset="373" data-y="bottom" data-voffset="-123"
+						data-speed="1000" data-start="4500" data-easing="Power3.easeInOut"
+						data-elementdelay="0.1" data-endelementdelay="0.1"
+						data-endspeed="300">
+						<div class="tp-layer-inner-rotation   rs-slideloop"
+							data-easing="Power3.easeInOut" data-speed="2" data-xs="-10"
+							data-xe="10" data-ys="0" data-ye="0">
+							<img src="app/angular_resources/images/babbysitter-slider-cloud-3a.png" alt="">
+						</div>
+					</div>
+					<div class="tp-caption tp-fade rs-parallaxlevel-5" data-x="center"
+						data-hoffset="-487" data-y="bottom" data-voffset="-251"
+						data-speed="1000" data-start="1200" data-easing="Power3.easeInOut"
+						data-elementdelay="0.1" data-endelementdelay="0.1"
+						data-endspeed="300">
+						<div class="tp-layer-inner-rotation   rs-pulse"
+							data-easing="Power3.easeInOut" data-speed="2" data-zoomstart="1"
+							data-zoomend="1.4">
+							<img src="app/angular_resources/images/babbysitter-slider-star-1.png" alt="">
+						</div>
+					</div>
+					<div class="tp-caption tp-fade rs-parallaxlevel-6" data-x="center"
+						data-hoffset="-373" data-y="bottom" data-voffset="-533"
+						data-speed="1000" data-start="2000" data-easing="Power3.easeInOut"
+						data-elementdelay="0.1" data-endelementdelay="0.1"
+						data-endspeed="300">
+						<div class="tp-layer-inner-rotation   rs-pulse"
+							data-easing="Power3.easeInOut" data-speed="2" data-zoomstart="1"
+							data-zoomend="1.4">
+							<img src="app/angular_resources/images/babbysitter-slider-star-2.png" alt="">
+						</div>
+					</div>
+					<div class="tp-caption tp-fade rs-parallaxlevel-7" data-x="center"
+						data-hoffset="-57" data-y="bottom" data-voffset="-491"
+						data-speed="1000" data-start="3000" data-easing="Power3.easeInOut"
+						data-elementdelay="0.1" data-endelementdelay="0.1"
+						data-endspeed="300">
+						<div class="tp-layer-inner-rotation   rs-pulse"
+							data-easing="Power3.easeInOut" data-speed="2" data-zoomstart="1"
+							data-zoomend="1.4">
+							<img src="app/angular_resources/images/babbysitter-slider-star-3.png" alt="">
+						</div>
+					</div>
+					<div class="tp-caption tp-fade rs-parallaxlevel-6" data-x="center"
+						data-hoffset="198" data-y="bottom" data-voffset="-553"
+						data-speed="1000" data-start="4000" data-easing="Power3.easeInOut"
+						data-elementdelay="0.1" data-endelementdelay="0.1"
+						data-endspeed="300">
+						<div class="tp-layer-inner-rotation   rs-pulse"
+							data-easing="Power3.easeInOut" data-speed="2" data-zoomstart="1"
+							data-zoomend="1.4">
+							<img src="app/angular_resources/images/babbysitter-slider-star-4.png" alt="">
+						</div>
+					</div>
+					<div class="tp-caption tp-fade rs-parallaxlevel-5" data-x="center"
+						data-hoffset="484" data-y="bottom" data-voffset="-579"
+						data-speed="1000" data-start="5000" data-easing="Power3.easeInOut"
+						data-elementdelay="0.1" data-endelementdelay="0.1"
+						data-endspeed="300">
+						<div class="tp-layer-inner-rotation   rs-pulse"
+							data-easing="Power3.easeInOut" data-speed="2" data-zoomstart="1"
+							data-zoomend="1.4">
+							<img src="app/angular_resources/images/babbysitter-slider-star-5.png" alt="">
+						</div>
+					</div>
+					<div class="tp-caption customin customout rs-parallaxlevel-10"
+						data-x="center" data-hoffset="412" data-y="bottom"
+						data-voffset="-485"
+						data-customin="x:-300;y:700;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+						data-customout="x:70;y:-150;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.01;scaleY:0.01;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+						data-speed="3500" data-start="2500" data-easing="Power0.easeIn"
+						data-elementdelay="0.1" data-endelementdelay="0.1" data-end="6000"
+						data-endspeed="1000" data-endeasing="Power0.easeInOut">
+						<img src="app/angular_resources/images/babbysitter-slider-rocket.png" alt="">
+					</div>
+					<div
+						class="tp-caption _bs_slider_text tp-fade tp-resizeme rs-parallaxlevel-0"
+						data-x="center" data-hoffset="144" data-y="bottom"
+						data-voffset="-233" data-speed="700" data-start="3900"
+						data-easing="Power3.easeInOut" data-splitin="none"
+						data-splitout="none" data-elementdelay="0.1"
+						data-endelementdelay="0.1" data-endspeed="300"
+						data-captionhidden="on">
+
+						<a href='https://www.facebook.com/BeyondSkool' target="_blank">
+							<img src="app/angular_resources/images/social-icon-2.png" alt=''>
+						</a> <a href='https://twitter.com/Beyond_Skool' target="_blank"> 
+						<img src="app/angular_resources/images/social-icon-1.png" alt=''>
+						</a> <a href='https://www.instagram.com/beyondskool/' target="_blank">
+							<img src="app/angular_resources/images/pinterest-icon-4.png" alt=''>
+						</a>
+
+					</div>
+					<div class="tp-caption tp-fade rs-parallaxlevel-0" data-x="center"
+						data-hoffset="0" data-y="bottom" data-voffset="40"
+						data-speed="300" data-start="0" data-easing="Power3.easeInOut"
+						data-elementdelay="0.1" data-endelementdelay="0.1"
+						data-endspeed="300">
+						<img src="app/angular_resources/images/babbysitter-slider-ground-3.png" alt="">
+					</div></li>
+				<li data-transition="fade" data-slotamount="7"
+					data-masterspeed="300" data-saveperformance="off"><img
+					src="app/angular_resources/images/transparent.png" alt="babbysitter-slider-ground"
+					data-bgposition="center bottom" data-bgfit="normal"
+					data-bgrepeat="no-repeat"> <div class="tp-caption _bs_slider_title tp-fade skewtorightshort tp-resizeme rs-parallaxlevel-0" data-x="center" data-hoffset="221" data-y="bottom" data-voffset="-410" data-speed="700" data-start="2000" data-easing="Power3.easeInOut" data-splitin="none" data-splitout="words" data-elementdelay="0.1" data-endelementdelay="0.1" data-endspeed="300">BeyondSkool
+								</div>
+					<div
+						class="tp-caption _bs_slider_title tp-fade skewtorightshort tp-resizeme rs-parallaxlevel-0"
+						data-x="center" data-hoffset="124" data-y="bottom"
+						data-voffset="-370" data-speed="700" data-start="2500"
+						data-easing="Power3.easeInOut" data-splitin="none"
+						data-splitout="words" data-elementdelay="0.1"
+						data-endelementdelay="0.1" data-endspeed="300">BeyondSkool</div>
+					<div
+						class="tp-caption _bs_slider_text tp-fade tp-resizeme rs-parallaxlevel-0"
+						data-x="center" data-hoffset="190" data-y="bottom"
+						data-voffset="-320" data-speed="700" data-start="3500"
+						data-easing="Power3.easeInOut" data-splitin="none"
+						data-splitout="none" data-elementdelay="0.2"
+						data-endelementdelay="0.1" data-endspeed="300">
+						BeyondSkool is a novel way to engage your children in after </br>
+						school activities
+					</div>
+					<div class="tp-caption sft rs-parallaxlevel-6" data-x="center"
+						data-hoffset="-323" data-y="bottom" data-voffset="-359"
+						data-speed="1000" data-start="2000" data-easing="Power3.easeInOut"
+						data-elementdelay="0.1" data-endelementdelay="0.1"
+						data-endspeed="300">
+						<div class="tp-layer-inner-rotation   rs-pulse"
+							data-easing="Power3.easeInOut" data-speed="2" data-zoomstart="1"
+							data-zoomend="1.1">
+							<img src="app/angular_resources/images/babbysitter-slider-sun.png" alt="">
+						</div>
+					</div>
+					<div class="tp-caption lfb fadeout rs-parallaxlevel-0"
+						data-x="center" data-hoffset="-170" data-y="bottom"
+						data-voffset="180" data-speed="700" data-start="900"
+						data-easing="Power3.easeInOut" data-elementdelay="0.1"
+						data-endelementdelay="0.1" data-endspeed="300">
+						<img src="app/angular_resources/images/slide2.png" alt="">
+					</div>
+					<div class="tp-caption lfl rs-parallaxlevel-3" data-x="center"
+						data-hoffset="-492" data-y="bottom" data-voffset="-348"
+						data-speed="1000" data-start="2500" data-easing="Power3.easeInOut"
+						data-elementdelay="0.1" data-endelementdelay="0.1"
+						data-endspeed="300">
+						<div class="tp-layer-inner-rotation   rs-slideloop"
+							data-easing="Power3.easeInOut" data-speed="2" data-xs="-10"
+							data-xe="10" data-ys="0" data-ye="0">
+							<img src="app/angular_resources/images/babbysitter-slider-cloud-1a.png" alt="">
+						</div>
+					</div>
+					<div class="tp-caption lft rs-parallaxlevel-4" data-x="center"
+						data-hoffset="-73" data-y="bottom" data-voffset="-548"
+						data-speed="1000" data-start="3500" data-easing="Power3.easeInOut"
+						data-elementdelay="0.1" data-endelementdelay="0.1"
+						data-endspeed="300">
+						<div class="tp-layer-inner-rotation   rs-slideloop"
+							data-easing="Power3.easeInOut" data-speed="2" data-xs="-15"
+							data-xe="15" data-ys="0" data-ye="0">
+							<img src="app/angular_resources/images/babbysitter-slider-cloud-2a.png" alt="">
+						</div>
+					</div>
+					<div class="tp-caption lfl rs-parallaxlevel-5" data-x="center"
+						data-hoffset="470" data-y="bottom" data-voffset="-440"
+						data-speed="1000" data-start="4500" data-easing="Power3.easeInOut"
+						data-elementdelay="0.1" data-endelementdelay="0.1"
+						data-endspeed="300">
+						<div class="tp-layer-inner-rotation   rs-slideloop"
+							data-easing="Power3.easeInOut" data-speed="5" data-xs="-10"
+							data-xe="10" data-ys="0" data-ye="0">
+							<img src="app/angular_resources/images/babbysitter-slider-cloud-1a.png" alt=""
+								data-ww="166.9390243902439" data-hh="486">
+						</div>
+					</div>
+					<div class="tp-caption customin customout rs-parallaxlevel-10"
+						data-x="center" data-hoffset="300" data-y="bottom"
+						data-voffset="-85"
+						data-customin="x:500;y:-100;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:1;scaleY:1;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+						data-customout="x:-550;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.01;scaleY:0.01;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;"
+						data-speed="3500" data-start="2450" data-easing="Power0.easeIn"
+						data-elementdelay="0.1" data-endelementdelay="0.1"
+						data-endspeed="1000" data-endeasing="Power0.easeInOut">
+						<div class="tp-layer-inner-rotation   rs-wave" data-speed="1"
+							data-angle="0" data-radius="3" data-origin="3% 3%">
+							<img src="app/angular_resources/images/slide2-1.png" alt="">
+						</div>
+					</div>
+					<div
+						class="tp-caption _bs_slider_text tp-fade tp-resizeme rs-parallaxlevel-0"
+						data-x="center" data-hoffset="120" data-y="bottom"
+						data-voffset="-180" data-speed="300" data-start="4500"
+						data-easing="Power3.easeInOut" data-splitin="none"
+						data-splitout="none" data-elementdelay="0.2"
+						data-endelementdelay="0.1" data-endspeed="300">
+						<div
+							class="sc_button sc_button_style_global sc_button_size_huge alignright curveButton right squareButton global huge">
+							<a ui-sref="contact" data-target="#contact">Contact Us</a>
+						</div>
+					</div>
+					<div class="tp-caption tp-fade rs-parallaxlevel-0" data-x="center"
+						data-hoffset="0" data-y="bottom" data-voffset="40"
+						data-speed="300" data-start="0" data-easing="Power3.easeInOut"
+						data-elementdelay="0.1" data-endelementdelay="0.1"
+						data-endspeed="300">
+						<img src="app/angular_resources/images/babbysitter-slider-ground-3.png" alt="">
+					</div></li>
+				<li data-transition="fade" data-slotamount="7"
+					data-masterspeed="300" data-saveperformance="off"><img
+					src="app/angular_resources/images/transparent.png" alt="babbysitter-slider-ground"
+					data-bgposition="center bottom" data-bgfit="normal"
+					data-bgrepeat="no-repeat">
+					<div class="tp-caption tp-fade rs-parallaxlevel-0" data-x="center"
+						data-hoffset="57" data-y="bottom" data-voffset="10"
+						data-speed="1300" data-start="500" data-easing="Power3.easeInOut"
+						data-elementdelay="0.1" data-endelementdelay="0.1"
+						data-endspeed="300">
+						<img src="app/angular_resources/images/slide3.png" alt="">
+					</div>
+					<div
+						class="tp-caption _bs_slider_title tp-fade skewtorightshort tp-resizeme rs-parallaxlevel-0"
+						data-x="center" data-hoffset="-400" data-y="bottom"
+						data-voffset="-415" data-speed="700" data-start="2000"
+						data-easing="Power3.easeInOut" data-splitin="none"
+						data-splitout="words" data-elementdelay="0.1"
+						data-endelementdelay="0.1" data-endspeed="300">1000+
+						Activities</div>
+					<div
+						class="tp-caption _bs_slider_text tp-fade tp-resizeme rs-parallaxlevel-0"
+						data-x="center" data-hoffset="-401" data-y="bottom"
+						data-voffset="-375" data-speed="700" data-start="3500"
+						data-easing="Power3.easeInOut" data-splitin="none"
+						data-splitout="none" data-elementdelay="0.2"
+						data-endelementdelay="0.1" data-endspeed="300">Elite Pack –
+						Rs 1000 per month</div>
+
+
+					<div class="tp-caption lfr rs-parallaxlevel-3" data-x="center"
+						data-hoffset="-485" data-y="bottom" data-voffset="-520"
+						data-speed="1000" data-start="2500" data-easing="Power3.easeInOut"
+						data-elementdelay="0.1" data-endelementdelay="0.1"
+						data-endspeed="300">
+						<div class="tp-layer-inner-rotation   rs-wave" data-speed="2"
+							data-angle="0" data-radius="10" data-origin="50% 50%">
+							<img src="app/angular_resources/images/slide3-1.png" alt="">
+						</div>
+					</div>
+					<div class="tp-caption lft rs-parallaxlevel-1" data-x="center"
+						data-hoffset="-141" data-y="bottom" data-voffset="-151"
+						data-speed="1000" data-start="3500" data-easing="Power3.easeInOut"
+						data-elementdelay="0.1" data-endelementdelay="0.1"
+						data-endspeed="300">
+						<div class="tp-layer-inner-rotation   rs-wave" data-speed="2"
+							data-angle="0" data-radius="10" data-origin="50% 50%">
+							<img src="app/angular_resources/images/slide3-2.png" alt="">
+						</div>
+					</div>
+					<div class="tp-caption lfl rs-parallaxlevel-2" data-x="center"
+						data-hoffset="233" data-y="bottom" data-voffset="-376"
+						data-speed="1000" data-start="4500" data-easing="Power3.easeInOut"
+						data-elementdelay="0.1" data-endelementdelay="0.1"
+						data-endspeed="300">
+						<div class="tp-layer-inner-rotation   rs-wave" data-speed="5"
+							data-angle="0" data-radius="10" data-origin="50% 50%">
+							<img src="app/angular_resources/images/slide3-3.png" alt="">
+						</div>
+					</div>
+					<div
+						class="tp-caption _bs_slider_text tp-fade tp-resizeme rs-parallaxlevel-0"
+						data-x="center" data-hoffset="-435" data-y="bottom"
+						data-voffset="-200" data-speed="300" data-start="4500"
+						data-easing="Power3.easeInOut" data-splitin="none"
+						data-splitout="none" data-elementdelay="0.2"
+						data-endelementdelay="0.1" data-endspeed="300">
+						<div
+							class="sc_button sc_button_style_global sc_button_size_banner alignright curveButton right squareButton global banner">
+							<a ui-sref="contact" data-target="#contact">Contact Us</a>
+						</div>
+					</div>
+					<div class="tp-caption tp-fade rs-parallaxlevel-0" data-x="center"
+						data-hoffset="0" data-y="bottom" data-voffset="40"
+						data-speed="300" data-start="0" data-easing="Power3.easeInOut"
+						data-elementdelay="0.1" data-endelementdelay="0.1"
+						data-endspeed="300">
+						<img src="app/angular_resources/images/babbysitter-slider-ground-3.png" alt="">
+					</div></li>
+			</ul>
+		</div>
+	</div>
+</div> -->
+
+			<div ui-view></div>
+		</div>
+		<!--page views end -->
+	</div>
+	
+	<div class="upToScroll">
+		<a href="#" class="addBookmark icon-star-empty" title="Add the current page into bookmarks"> </a>
+		<a href="#" class="scrollToTop icon-up-open-big" title="Back to top"> </a>
+	</div>
+
+
+<!--*********************** Add All Script here start******************************************** -->
+	<script type="text/javascript" src="app/angular_resources/lib/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="app/angular_resources/lib/angular.min.js"></script>
+	<script type="text/javascript" src="app/angular_resources/lib/bootstrap.min.js" type="text/javascript"></script>
+	<!-- <script type='text/javascript' src="app/angular_resources/lib/jquery-migrate.min.js"></script>
+	--><script src="http://cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
+	<!-- <script type='text/javascript' src="app/angular_resources/vendor/revslider/jquery.themepunch.tools.min.js"></script>
+	 <script type='text/javascript' src="app/angular_resources/vendor/revslider/jquery.themepunch.revolution.min.js"></script>
+	 --><script type='text/javascript' src="app/angular_resources/lib/__main.js"></script>
+	<script type='text/javascript' src="app/angular_resources/lib/__packed.js"></script>
+	<!--<script type='text/javascript' src='js/vendor/SmoothScroll.min.js'></script>-->
+
+	<script type='text/javascript' src="app/angular_resources/lib/shortcodes_init.js"></script>
+	<script type='text/javascript' src="app/angular_resources/lib/_utils.js"></script>
+	<script type='text/javascript' src="app/angular_resources/lib/_front.js"></script>
+	 <!-- <script type='text/javascript' src="app/angular_resources/lib/diagram.raphael.min.js"></script> -->
+	
+	
+	<script type="text/javascript" type="text/javascript" src="app/angular_resources/lib/angular-ui-router.js"></script>	
+	<!-- <script type="text/javascript" src="app/angular_resources/lib/angular-sanitize.min.js"></script> -->
+	<script type="text/javascript" src="app/angular_resources/lib/toaster.min.js"></script>
+	<script type="text/javascript" src="app/angular_resources/lib/ng-infinite-scroll.min.js"></script>
+	
+	<script type="text/javascript" src="app/angular_resources/lib/ui-bootstrap.js"></script>
+	<script type="text/javascript" src="app/angular_resources/lib/ng-file-upload.js"></script>
+	<script type="text/javascript" src="app/angular_resources/lib/angular-route.min.js"></script>
+	<script type="text/javascript" src="app/angular_resources/lib/angular-resource.js"></script>
+	<script type="text/javascript" src="app/angular_resources/lib/ngStorage.js"></script>
+	<script type="text/javascript" src="app/angular_resources/lib/angular-cookies.js"></script>
+	<script type="text/javascript" src="app/app.js"></script>
+	<script type="text/javascript" src="app/modules/home/controllers/homeController.js"></script>
+	<script type="text/javascript" src="app/modules/home/services/homeService.js"></script>
+	<script type="text/javascript" src="app/modules/login/controllers/loginController.js"></script>
+	<script type="text/javascript" src="app/modules/commons/interceptor/jwtTokenInterceptor.js"></script>
+	<script type="text/javascript" src="app/modules/login/services/loginService.js"></script>
+	<script type="text/javascript" src="app/modules/contact/controllers/contactController.js"></script>
+	<script type="text/javascript" src="app/modules/contact/services/contactService.js"></script>
+	<script type="text/javascript" src="app/modules/signup/services/signupService.js"></script>
+	<script type="text/javascript" src="app/modules/signup/controllers/signupController.js"></script>
+	<script type="text/javascript" src="app/modules/my-centre/services/myCentreService.js"></script>
+	<script type="text/javascript" src="app/modules/my-centre/controllers/myCentreController.js"></script>
+	<script type="text/javascript" src="app/modules/activity-centres/controllers/centreController.js"></script>
+	<script type="text/javascript" src="app/modules/activity-centres/services/centreService.js"></script>
+	<script type="text/javascript" src="app/modules/parent-dashboard/controllers/parentDashboardController.js"></script>
+	<script type="text/javascript" src="app/modules/parent-dashboard/services/parentDashboardService.js"></script>
+	<script type="text/javascript" src="app/modules/packages/controllers/packageController.js"></script>
+	<script type="text/javascript" src="app/modules/packages/services/packageService.js"></script>
+	<script type="text/javascript" src="app/modules/upcoming-classes/controllers/upcomingController.js"></script>
+	<script type="text/javascript" src="app/modules/upcoming-classes/services/upcomingService.js"></script>
+	<!-- <script type="text/javascript" src="app/angular_resources/lib/polyfiller.js"></script> -->
+	
+	<script type="text/javascript">
+		window.$zopim || (function(d, s) {
+			var z = $zopim = function(c) {
+				z._.push(c)
+			}, $ = z.s = d.createElement(s), e = d.getElementsByTagName(s)[0];
+			z.set = function(o) {
+				z.set._.push(o)
+			};
+			z._ = [];
+			z.set._ = [];
+			$.async = !0;
+			$.setAttribute("charset", "utf-8");
+			$.src = "//v2.zopim.com/?4H2XoVfueGm1ZyjnFTNogYznsN0795M1";
+			z.t = +new Date;
+			$.type = "text/javascript";
+			e.parentNode.insertBefore($, e)
+		})(document, "script");
+		
+		webshims.setOptions('forms-ext', {types: 'date'});
+		webshims.polyfill('forms forms-ext');
+	</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="beyondSkool">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title update-title></title>
+<link href="app/angular_resources/css/main.css" rel="stylesheet" />
+<!-- to prevent favicon missing error in console -->
+<link rel="icon" href="data:;base64,iVBORwOKGO=" />
+</head>
+<body ng-controller="appController" ng-keyup="keyup($event)">
+	 <toaster-container
+		toaster-options="{'time-out': 3000, 'close-button':true, 'position-class': 'toast-top-center'}">
+	</toaster-container>
+
+	<div class="container-fluid">
+		<!--page views start -->
+		<div class="row" id="main">
+			<div ui-view></div>
+		</div>
+		<!--page views end -->
+	</div>
+
+	<!--*********************** Add All Script here start******************************************** -->
+	<script src="app/angular_resources/lib/angular.min.js"></script>
+	<script src="app/angular_resources/lib/jquery-1.11.0.min.js"></script>
+	<script src="app/web/theme/js/bootstrap.min.js" type="text/javascript"></script>
+	<script type="text/javascript" type="text/javascript" src="app/angular_resources/lib/angular-ui-router.js"></script>	
+	<!-- <script type="text/javascript" src="app/angular_resources/lib/angular-sanitize.min.js"></script> -->
+	<script type="text/javascript" src="app/angular_resources/lib/toaster.min.js"></script>
+	<script type="text/javascript" src="app/angular_resources/lib/ui-bootstrap.js"></script>
+	<script type="text/javascript" src="app/angular_resources/lib/ng-file-upload.js"></script>
+	<script type="text/javascript" src="app/angular_resources/lib/angular-route.min.js"></script>
+	<script type="text/javascript" src="app/angular_resources/lib/angular-resource.js"></script>
+	<script type="text/javascript" src="app/angular_resources/lib/ngStorage.js"></script>
+	<script type="text/javascript" src="app/angular_resources/lib/angular-cookies.js"></script>
+	<!-- <script type="text/javascript" src="app/angular_resources/lib/polyfiller.js"></script> -->
+	<script src="http://cdn.jsdelivr.net/webshim/1.14.5/polyfiller.js"></script>
+	<script type="text/javascript" src="app/app.js"></script>
+	<script type="text/javascript" src="app/modules/login/services/loginService.js"></script>
+	<script type="text/javascript" src="app/modules/login/controllers/loginController.js"></script>
+	<script type="text/javascript" src="app/modules/commons/interceptor/jwtTokenInterceptor.js"></script>
+	<script type="text/javascript" src="app/modules/commons/controllers/headerController.js"></script>
+	<script type="text/javascript" src="app/modules/cities/controllers/citiesController.js"></script>
+	<script type="text/javascript" src="app/modules/cities/services/citiesService.js"></script>
+	<script type="text/javascript" src="app/modules/areas/controllers/areasController.js"></script>
+	<script type="text/javascript" src="app/modules/areas/services/areasService.js"></script>
+	<script type="text/javascript" src="app/modules/users/controllers/usersController.js"></script>
+	<script type="text/javascript" src="app/modules/users/services/usersService.js"></script>
+	<script type="text/javascript" src="app/modules/activities/controllers/activitiesController.js"></script>
+	<script type="text/javascript" src="app/modules/activities/services/activitiesService.js"></script>
+	<script type="text/javascript" src="app/modules/centres/controllers/centresController.js"></script>
+	<script type="text/javascript" src="app/modules/centres/services/centresService.js"></script>
+	<script type="text/javascript" src="app/modules/payments/controllers/paymentsController.js"></script>
+	<script type="text/javascript" src="app/modules/payments/services/paymentsService.js"></script>
+	<script type="text/javascript" src="app/modules/bookings/controllers/bookingsController.js"></script>
+	<script type="text/javascript" src="app/modules/bookings/services/bookingsService.js"></script>
+	<script type="text/javascript" src="app/modules/pending-centres/controllers/pendingCentresController.js"></script>
+	<script type="text/javascript" src="app/modules/pending-centres/services/pendingCentresService.js"></script>
+	<script type="text/javascript" src="app/modules/reviews/controllers/reviewsController.js"></script>
+	<script type="text/javascript" src="app/modules/reviews/services/reviewsService.js"></script>
+	<script type="text/javascript">
+		webshims.setOptions('forms-ext', {types: 'date'});
+		webshims.polyfill('forms forms-ext');
+	</script>
+	<!--*********************** Add All Script here End******************************************** -->
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!-- <div class="mainWrap without_sidebar" ng-show="showCentre">
+		<div class="main">
+			<div class="content">
+				<section class="no_padding">
+					<div class="container">
+					<div ng-show="centreData.status === 'Inactive' " class="margin_top_middle alert alert-danger">
+ 							Your account is under currently Inactive. Fill out your profile and activity details after which the admin will activate your account.
+						</div>
+						<div ng-show="centreData.status === 'Moderation' " class="margin_top_middle alert alert-danger">
+ 							Your account is under moderation. Once admin approves your account, this message will disappear.
+						</div>
+						<div class="columnsWrap col-md-4  margin_bottom_middle">
+						<h3 class="pageTitle h3">Profile Details</h3>						
+							<div class="columns2_3 sc_column_item sc_column_item_1 odd first span_2">
+								<div class="sc_contact_form">									
+									<div><b>Name: </b>{{centreData.ownerName}}</div>
+									<div><b>Email ID: </b>{{centreData.mailId}}</div>
+									<div><b>Contact No: </b>{{centreData.contactNo}}</div>
+								</div>
+							</div>				
+						</div>
+						<div ng-show="centreData.centreName !== null" class="columnsWrap col-md-9  margin_bottom_middle">
+						<h3 class="pageTitle h3">Centre Details</h3>						
+							<div class="columns2_3 sc_column_item sc_column_item_1 odd first span_2">
+								<div class="sc_contact_form">									
+									<div><b>Centre Name: </b>{{centreData.centreName}}</div>
+									<div><b>Centre Description: </b>{{centreData.description}}</div>
+									<div><b>Centre Location: </b>{{centreData.cityName}} - {{centreData.areaName}}</div>
+									<div><b>Centre Address: </b>{{centreData.address}}</div>
+									<button type="button" style="margin-top: 20px;" ng-click="getActivityDetails()" class="btn btn-info">Activity Details</button>
+										<button type="button" ng-click="editCentreButton()" style="margin-top: 20px;" class="btn btn-danger">Edit Centre Details</button>
+										<a ui-sref="viewCentre({ centreName: centreData.centreName.split(' ').join('-').toLowerCase()})" type="button" style="margin-top: 20px;" class="btn btn-warning">My Profile</a>
+										<button type="button" ng-click="addActivityButton()" style="margin-top: 20px;"  class="btn btn-success">Add Activity Class</button>
+										<button ng-click="centreImagesButton()" type="button"  style="margin-top: 20px;" class="btn btn-info">Edit Centre Images</button>										
+								</div>
+							</div>				
+						</div>
+						<div class="columnsWrap col-md-7  margin_bottom_middle">												
+							<div class="columns2_3 sc_column_item sc_column_item_1 odd first span_2">
+								<button ng-show="centreData.centreName === null || centreData.activityList.length == 0" ng-click="createButton()" type="button" style="margin-top: 20px;" class="btn btn-success">Create Centre</button>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div> -->

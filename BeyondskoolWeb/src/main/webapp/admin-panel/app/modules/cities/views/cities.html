@@ -1,0 +1,192 @@
+<div ng-include src="'app/modules/commons/views/sidebar.html'"></div>
+<div class="main-panel">
+	<div ng-include src="'app/modules/commons/views/topbar.html'"></div>
+	<div class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card" ng-show="cityState==='display'"
+						id="displayCities">
+						<div class="header">
+							<h3 class="title">Cities</h3>
+							<p style="float: right; margin-top: -25px;">
+								<a class="btn btn-success btn-fill"
+									ng-click="createCityButton()">Create Cities</a>
+							</p>
+						</div>
+						<div class="content">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="table-responsive">
+										<div class="grid-view" id="w0">
+											<div class="summary">
+												Showing <b>1-{{cityData.length}}</b> of <b>{{cityData.length}}</b> items.
+											</div>
+										</div>
+										<table class="table">
+											<thead>
+												<tr>
+													<th>#</th>
+													<th><a data-sort="city_name" href="">City Name</a></th>
+													<th><a data-sort="updated_at" href="">Updated At</a></th>
+													<th><a data-sort="status" href="">Status</a></th>
+													<th class="action-column">&nbsp;</th>
+												</tr>
+												<tr class="filters" id="w0-filters">
+													<td>&nbsp;</td>
+													<td><input class="form-control"
+														ng-model="search.cityName"
+														name="BsCitiesSearch[city_name]" type="text"></td>
+													<td><input class="form-control"
+														ng-model="search.updatedAt"
+														name="BsCitiesSearch[updated_at]" type="text"></td>
+													<td><input class="form-control"
+														ng-model="search.status" name="BsCitiesSearch[status]"
+														type="text"></td>
+													<td>&nbsp;</td>
+												</tr>
+
+											</thead>
+
+											<tbody
+												ng-repeat="city in (cityDataResults = (cityData | filter: search : strict))">
+
+												<tr data-key="2">
+													<td>{{city.id}}</td>
+													<td>{{city.cityName}}</td>
+													<td>{{city.updatedAt | date:'dd/MM/yyyy hh:mm a'}}</td>
+													<td>{{city.status}}</td>
+													<td><a aria-label="View" ng-click="view(city)"
+														title="View"><button
+																class="btn btn-success btn-simple btn-xs">
+																<i class="fa fa-eye"></i>
+															</button></a> <a aria-label="Update" ng-click="updateCity(city.id, city.cityName)" title="Update"><button
+																class="btn btn-info btn-simple btn-xs">
+																<i class="fa fa-edit"></i>
+															</button></a> <a aria-label="Delete" data-toggle="modal"
+														data-target="#myModal_{{city.id}}" title="Delete"><button
+																class="btn btn-danger btn-simple btn-xs">
+																<i class="fa fa-times"></i>
+															</button></a></td>
+												</tr>												
+											</tbody>
+										</table>										
+										<h4 ng-show="cityDataResults.length == 0" class="text-center">
+											No Result Found</h4>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card" ng-show="cityState==='create'" id="createCity">
+					<div class="header">
+						<h3 class="title">Create Cities</h3>
+					</div>
+					<div class="content">
+						<div class="row">
+							<div class="col-md-5">
+								<div class="table-responsive">
+									<div class="bs-cities-form">										
+											
+											<div class="form-group field-bscities-city_name required">
+												<label class="control-label" for="bscities-city_name">City
+													Name</label> <input ng-model="cityName" class="form-control" id="bscities-city_name"
+													maxlength="250" name="BsCities[city_name]" type="text">
+												<div class="help-block"></div>
+											</div>											
+											<div class="form-group">
+												<button class="btn btn-success btn-fill" ng-click="createCity()">Create</button>
+											</div>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card" ng-show="cityState==='view'" id="viewCity">
+					<div class="content">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="table-responsive">
+									<h3 class="title">View City</h3>
+									<p style="float: right;">
+										<a class="btn btn-primary btn-fill"  ng-click="updateCity(cityInfo.id,cityInfo.cityName)">Update</a>
+									</p>
+									<table id="w0" class="table">
+										<tbody>
+											<tr>
+												<th>ID</th>
+												<td>{{cityInfo.id}}</td>
+											</tr>
+											<tr>
+												<th>City Name</th>
+												<td>{{cityInfo.cityName}}</td>
+											</tr>
+											<tr>
+												<th>Updated At</th>
+												<td>{{cityInfo.updatedAt}}</td>
+											</tr>
+											<tr>
+												<th>Status</th>
+												<td>{{cityInfo.status}}</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="card" ng-show="cityState==='update'" id="updateCity">
+					<div class="header">
+						<h3 class="title">Update Cities</h3>
+					</div>
+					<div class="content">
+						<div class="row">
+							<div class="col-md-5">
+								<div class="table-responsive">
+									<div class="bs-cities-form">											
+											<div class="form-group field-bscities-city_name required">
+												<label class="control-label" for="bscities-city_name">City
+													Name</label> <input type="text" id="bscities-city_name"
+													class="form-control" value="{{editCity}}" ng-model="editCity" name="BsCities[city_name]" maxlength="250">										
+												<div class="help-block"></div>
+											</div>		
+											<div class="form-group">
+												<button ng-click="updateCityName(editCity)" class="btn btn-primary btn-fill">Update</button>												
+											</div>								
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</div>
+	<div ng-include src="'app/modules/commons/views/footer.html'"></div>
+</div>
+<div ng-repeat="city in cityData">
+		<div class="modal fade" id="myModal_{{city.id}}" role="dialog">
+			<div class="modal-dialog">
+
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Delete City</h4>
+					</div>
+					<div class="modal-body">
+						<p>Do you want to delete {{city.cityName}}?</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="deleteCity(city.id)">Yes</button>
+						<button type="button" 
+							class="btn btn-default" data-dismiss="modal">No</button>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>

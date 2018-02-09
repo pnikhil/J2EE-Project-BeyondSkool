@@ -1,0 +1,777 @@
+.table_Expand1 {
+    padding-top: 21px;
+    padding-left: 16px;
+    padding-right: 14px;
+    font-size: 13px;
+    /*margin-top: 0px;*/
+}
+.bold_Class{
+    /*font-weight: bold;*/
+    color: #363437;
+}
+.loss_Page_Button{
+    margin-bottom: 10PX;
+}
+.agency_Details {
+    margin-top: 17px;
+    margin-bottom: 3px;
+}
+.carrier_Tab_Content{
+    margin-top: 0px;
+}
+.policy_number{
+    background-color: rgb(252,220,221);
+    border: 1px solid #e1b9b9;
+}
+.accord_Info { 
+    padding-bottom: 13px;
+    padding-top: 13px;
+    padding-left: 11px;
+    padding-right: 9px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #b7ecfb;
+    /* border-bottom: none; */
+    background-color: #e8f8fc;
+    font-size: 12px;
+    margin-top: 2px;
+	cursor:pointer;
+
+}
+.vehicle_Details{
+     padding-bottom: 13px;
+    padding-top: 13px;
+    padding-left: 10px;
+    padding-right: 9px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #b7ecfb;
+    /* border-bottom: none; */
+    background-color: #e8f8fc;
+    font-size: 12px;
+    margin-top: 2px;
+}
+.policy_Information{
+     padding-bottom: 13px;
+    padding-top: 13px;
+    padding-left: 5px;
+    padding-right: 9px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #b7ecfb;
+    /* border-bottom: none; */
+    background-color: #e8f8fc;
+    font-size: 12px;
+    margin-top: 2px;
+    white-space: nowrap;
+}
+.additional_Information_Tab {
+    width: 16%;
+    margin-top: 9px;
+    margin-left: 2%;
+}
+.accord_info_Link{
+    text-decoration: underline;
+    font-style: italic;
+}
+
+.additional_Information_Details{
+    width: 79%;   
+}
+.expanded_Details {
+	font-size: 12px;
+   margin-left: 0%;
+    margin-top: 11px;
+    /*padding: 9px;*/
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 7px;
+    padding-right: 7px;
+    color: #353535;
+    background-color: #ffffff;
+    min-height: 277px;
+    width: 79.8%;
+    border: 1px solid #b7ecfb;
+    border-left: none;
+}
+.accord_info_Details {
+    border-right: none;
+    background-color: #ffffff;
+    
+}
+.caption{
+    width: 32%;
+    margin-top: 2px;
+    padding-left: 20px;
+}
+/*.input_Caption{
+    margin-left: 20px;
+}*/
+.input_Caption{
+    border: 1px solid #d4d4d4;
+        height: 24px;
+}
+.plus_Tag {
+    float: right;
+}
+.input_Field{
+        border: 1px solid #d4d4d4;
+        padding-top:3px;
+        padding-bottom:3px;
+}
+.accord_Vehicle_Info{
+    padding-bottom: 13px;
+    padding-top: 13px;
+    padding-left: 15px;
+    padding-right: 9px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #b7ecfb;
+    /* border-bottom: none; */
+    background-color: #e8f8fc;
+    font-size: 12px;
+    margin-top: 2px;  
+}
+.status_Transaction {
+    margin: 12px;
+}
+.excel_Data{
+    margin-top: 10px;
+    margin-left: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 13px;
+}
+
+.excel_Contents{
+   background-color: #76c3ef;
+    color: #fff;
+    font-size: 11px;
+    width: 1000px;
+}
+
+.excel_location, .excel_Details, .excel_Address, .excel_built {
+    margin-left: 15px;
+    margin-top: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border:1px solid #d4d4d4;
+    
+}
+.excel_data_location{
+    margin-left: 5px;
+    margin-right: 5px;
+    border:1px solid #d4d4d4;
+}
+.scroll_Tables{
+    width: 100%;
+    overflow: auto;
+}
+
+.Scroll {
+
+   overflow: auto;
+}
+.Scroll::-webkit-scrollbar {
+    width: 5px;
+    overflow-x: hidden;
+    border-radius: 5px;
+}
+
+
+.Scroll::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+.excel_location ,.excel_Location{
+    width: 163px;
+
+}
+.excel_Details , .excel_details{
+    width: 157px;
+
+}
+.excel_Address , .excel_address{
+    width: 170px;
+
+}
+.excel_built , .excel_Built{
+    width: 170px;
+
+}
+/*input.checkBox.floatleft {
+    margin-left: 8px;
+    height: 30px;
+}*/
+input.checkBox {
+    margin-left: 14px;
+    height: 30px;
+    margin-top: 3px;
+}
+/*input.checkBox {
+    margin-left: 14px;
+    margin-top: 12px;
+}*/
+.popup_Padding{
+    padding-bottom:  20px;
+
+}
+.excel_Location , .excel_details , .excel_address ,.excel_Built{
+    margin-left: 15px;
+    /*margin-top: 6px;*/
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 11px;
+
+}
+.slider.floatright {
+    margin-top: 6px;
+}
+.floatright {
+    float: right;
+}
+.slider_Padding {
+    padding-top: 10px;
+    padding-bottom: 0px;
+}
+.left_Banner_Wrapper{
+    background-color:#e7f2f8;
+    padding-top:5px;
+    padding-bottom:5px;
+}
+.accord_info {
+    padding-bottom: 13px;
+    padding-top: 13px;
+    padding-left: 15px;
+    padding-right: 9px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #b7ecfb;
+    /* border-bottom: none; */
+    background-color: #e8f8fc;
+    font-size: 12px;
+    margin-top: 2px;
+}
+p.captions {
+    margin-left: 2px;
+}
+.accord_Information{
+    padding-bottom: 13px;
+    padding-top: 13px;
+    padding-left: 9.8px;
+    padding-right: 9px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #b7ecfb;
+    /* border-bottom: none; */
+    background-color: #e8f8fc;
+    font-size: 12px;
+    margin-top: 2px;
+    white-space: nowrap;
+    border-right: none;
+    background-color: #ffffff;
+}
+.expanded_Details_Policy{
+    margin-left: 0%;
+    margin-top: -2px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 7px;
+    padding-right: 7px;
+    color: #353535;
+    background-color: #cef3fc;
+    min-height: 277px;
+    width: 99%;
+    border: 1px solid #b7ecfb;
+}
+.scroll_tables {
+   width: 100%;
+    overflow: auto;
+    margin-top: 6px;
+    background-color: #ffffff;
+}
+.excel_contents {
+    /*padding-top: 3px;*/
+    background-color: #76c3ef;
+    padding-bottom: 3px;
+    color: #fff;
+    font-size: 12px;
+    width: 1000px;
+}
+.excel_data{
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-left: 9px;
+    padding-bottom: 10px;
+    font-size: 13px;
+}
+.odd{
+    width: 1000px;
+    background-color: #e5f2f8;
+
+}
+.even{
+    width: 1000px;
+    background-color: #ffffff;
+
+}
+.input_Text_Box{
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+.comment_Box{
+    margin-top: 5px;
+    width: 28%;
+}
+.comments{
+    font-size: 13px;
+    margin: 0px;
+}
+.choice_Option{
+    width: 30%;
+    margin-top: 5px;
+
+
+}
+.reason_Select{
+    width: 80%;
+
+}
+textarea , select{
+     border: 1px solid #d4d4d4;
+
+}
+textarea{
+    resize: none;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.client_Accord_Info{
+    white-space: nowrap;
+}  
+.popup_Credentials {
+    font-size: 13px;
+    padding-top: 11px;
+  
+}
+.popup_Data{
+    font-size: 13px;
+
+}
+.popup_Content{
+    font-size: 13px;
+    margin-left: 14px;
+    padding-top: -15px;
+    margin-top: -11px;
+}
+.ok_Button {
+    color: white;
+    padding-left: 33px;
+    padding-right: 33px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border: none;
+    font-size: 12px;
+    background-color: #323b3e;
+    margin-top: 5px;
+    margin-left: 127px;
+}
+.horizontal_line{
+    background-color:#edf3f6
+}
+.diaDashboardText_agency{
+    color:#2d373d
+}
+.container_in{
+    padding-top:0px
+}
+.input-group-addon{
+    border-color: #cceafb
+}
+.admin_Configuration_Header{
+    padding: 5px;
+    margin-top: 47px;
+    border: 1px solid blue;
+}
+.admin_Banner_Header{
+    background-color: #76c3ef;
+    color: #fff;
+    font-size: 13px;
+    width: 1000px;
+}
+.admin_Number.floatleft {
+    width: 6%;
+
+
+}
+.admin_Business.floatleft {
+    width: 20%;
+}
+.admin_Data.floatleft {
+    width: 27%;
+}
+.admin_Mapper.floatleft {
+    width: 29%;
+}
+.admin_Action.floatleft {
+    width: 9%;
+}
+
+.admin_Banner {
+    background-color: #76c3ef;
+    color: #fff;
+    font-size: 12px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    min-height: 30px;
+}
+select.assign_Option.assign_To {
+    color: #a8a7a7;
+}
+
+.admin_Records{
+    
+    background-color: #fff;
+}
+.admin_Message{
+    
+    margin: 0 auto;
+    color: #363435;
+    width: 111px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 13px;
+}
+.admin_Container{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.body_Content_Wrapper{
+    background-color: #e7f2f8;
+    margin-bottom: 10px;
+    border: 1px solid #e7f2f8;
+
+}
+.sliding_Content {
+        margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+.policy_Table{
+    
+    margin-left: -2px;
+}
+.policy_Tab {
+    margin-left: 10px;
+    width: 98%;
+}
+
+.checkAllHeader{
+    height:30px;
+}
+.issue_Policy{
+    white-space: nowrap;
+}
+.admin_Inner_Wrapper{
+    width: 95%;
+    margin: 0 auto;
+    
+}
+/*.admin_Role_Content{
+    width: 95%;
+    border: 1px solid red;
+    margin: 0 auto;
+}*/
+.admin_Role_Number , .admin_Role_List , .admin_Role_Description , .admin_Role_Action{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.admin_Role_Number ,.adminRoleName{
+    width: 12%;
+}
+.admin_Role_Number{
+        padding-left: 45px;
+}
+.admin_Role_List {
+    width: 25%;
+}
+.admin_Role_Description {
+    width:35%; 
+}
+
+.admin_Role_Action.floatright{
+        width: 20%;
+    text-align: right;
+    padding-right: 22px;
+}
+.admin_Checkbox{
+    width: 30px;
+    float: left;
+}
+.admin_Role_Box{
+    width: 10px;
+}
+input.admin_Checkbox {
+    width: 24px;
+    margin-top: 8px;
+}
+.admin_Role_Image {
+    background: url(../images/pencil.png)no-repeat;
+    width: 18px;
+    height: 22px;
+    padding-left: 31px;
+    padding-right: 20px;
+    margin-top: 8px;
+}
+.admin_Serial_number.floatleft {
+    width: 9%;
+    padding-left: 1.5%;
+}
+.admin_Serial_List.floatleft {
+    width: 25%;
+    padding-left: 1.5%;
+}
+.admin_Serial_Description.floatleft {
+    width: 25%;
+    padding-left: 1.4%;
+}
+.oddClass{
+    background-color: #e7f2f8;
+    border-top:1px solid #cef3fc; 
+    border-bottom:1px solid #cef3fc; 
+
+}
+.evenClass{
+        background-color: #fff;
+         border-top:1px solid #cef3fc; 
+        border-bottom:1px solid #cef3fc;
+
+}
+.admin_Border{
+    border: 1px solid #cef3fc;
+    border-top: none;
+}
+.admin_Serial_number , .admin_Serial_List , .admin_Serial_Description, .admin_Role_Image{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 11px;
+    color: #353535;
+
+}
+.admin_User_List.floatleft {
+    width: 35%;
+}
+.admin_User_Description.floatleft {
+    width: 21%;
+
+}
+.admin_User_Details {
+    width: 21%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 12px;
+    color: #353535;
+}
+.admin_Role_Name , .adminRoleName{
+    width: 24.3%;
+}
+.admin_Serial_name {
+    width: 25%;
+    font-size: 12px;
+    color: #353535;
+    padding-left: .5%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.admin_User_Scrollbar{
+    height: 190px;
+    overflow: auto;
+}
+.admin_Container_Bottom{
+    padding-bottom: 25px;
+}
+
+.document_Contents.col-sm-7 {
+    font-size: 13px;
+    padding-top: 5px;
+    padding-left: 0px;
+
+}
+.fail_Case{
+    border: 1px solid #e1b9b9;
+    width: 65px;
+    text-align: center;
+    background-color: #fadcda;
+    color: #d61202;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 2px;
+}
+.version{
+    text-align: right;
+}
+.failed_Details{
+    color: #d61202;
+
+}
+.overide_Class{
+    padding-left: 2px;
+    font-style: italic;
+}
+.aig_Loss_Run{
+       height: 200px;
+    overflow: auto;
+    border: 1px solid red;
+    background-color: #fff;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+.slides{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+/*button.btn.btn-default.btn-sm.delete_Button.floatright {
+    margin-bottom: 3px;
+}*/
+input.admin_checkBox.floatleft{
+        margin-left: 9px;
+    height: 30px;
+    margin-top: 3px;
+}
+.font_Class{
+     padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 12px;
+    color: #353535;
+}
+.searchBox_agency {
+    width: 61%;
+    float: right;
+    padding-right: 8px;
+}
+span.glyphicon.glyphicon-search {
+    color: #78c3eb;
+}
+select.assign_Option {
+    width: 185px;
+    font-size: 12px;
+    color: #363636;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.reassign_Data{
+    background-color: #fff;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 9px;
+}
+.assign_From.floatleft {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #363636;
+
+}
+.assign_To{
+    background-color: #dfe3e4;
+}
+.assign_button.floatleft {
+    padding-top: 36px;
+    padding-left: 21px;
+   
+}
+.reassign_Button{
+    background-color: #adb1b2;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+/*.admin_Role_Status{
+     padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 12px;
+    color: #353535;
+    padding-left: 10px;
+    padding-right: 22px;
+    width: 20%;
+    text-align: right;
+    padding-right: 22px;
+}
+.adminRoleStatus{
+    width: 20%;
+    padding-right: 9px;
+}*/
+.accord_Headline{
+    padding-left: 3.5px;
+}
+.right_side_Tool{
+    width: 23%;
+    margin-top: 9px;
+    float: right;
+    margin-bottom: 3px;
+}
+.tableHdColumn.due_Date {
+    width: 24%;
+}
+.admin_Due{
+        width: 14%;
+}
+.tableHdColumn.received_Date {
+    width: 15.1%;
+}
+.diaWorkBenchText{
+    color: #2d373d;
+    padding: 5px;
+    width: 70%;
+    font-weight: bold;
+    margin-top: 12px;
+}
+.diaWorkBenchText_agency{
+    color: #2d373d;
+    padding: 5px;
+    width: 70%;
+    font-weight: bold;
+    margin-top: 12px;
+}
+.search_Bar.floatright {
+    border: 1px solid red;
+    width: 21%;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.admin_search_Icon{
+        width: 83%;
+    float: left;
+}
+.delete_button_Icon{
+    width: 7%;
+
+}
+.admin_Case_Status{
+        width: 45%;
+}
+.SearchbarIcon.floatright {
+    width: 21%;
+    padding: 10px;
+}
+.trash_Icons{
+    float: right;
+}
+.trash_Icons button{
+    height: 33px;
+    border: none;
+    border-radius: 0px;
+    margin-left: 3px;
+    background-color: #044e96;
+    color: #f4fafe;
+}
+.search_case_box
+{
+    width: 86%;
+    float: left;
+}
+.searchBar_Icons{
+    padding-right: 5px;
+}	

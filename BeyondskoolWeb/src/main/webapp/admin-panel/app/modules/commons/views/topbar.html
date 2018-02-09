@@ -1,0 +1,35 @@
+<nav class="navbar navbar-default navbar-fixed"
+	ng-controller="headerController">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse"
+				data-target="#navigation-example-2">
+				<span class="sr-only">Toggle navigation</span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span> <span
+					class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="">Admin Panel</a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<!-- 
+			<ul class="nav navbar-nav navbar-left">
+				<li><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<i class="fa fa-dashboard"></i>
+				</a></li>
+
+				<li class="dropdown"><a href="" class="dropdown-toggle"
+					data-toggle="dropdown"> <i class="fa fa-bell-o"></i> <span
+						class="notification">1</span>
+						<p class="hidden-md hidden-lg">
+							Notifications <b class="caret"></b>
+						</p>
+				</a></li>
+			</ul> -->
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<div ng-click="logout()" class="btn btn-link logout">Logout</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>

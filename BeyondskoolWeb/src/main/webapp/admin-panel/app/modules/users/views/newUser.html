@@ -1,0 +1,120 @@
+<div class="header">
+  <h3 class="title">Create User</h3>
+</div>
+<p style="float: right;">
+		<a class="btn btn-success btn-fill" ng-click="goBack()">Go Back</a>
+</p>
+<div class="content">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="table-responsive">
+        <div class="bs-user-form">
+          <!-- <div
+            class="form-group field-bsuser-beyondskool_id required">
+            <label class="control-label" for="bsuser-beyondskool_id">Beyondskool ID</label>
+            <input ng-model="beyondskoolid" type="text" id="bsuser-beyondskool_id"
+              class="form-control" maxlength="25">            
+          </div> -->
+          <div class="form-group field-bsuser-parent_name required">
+            <label class="control-label" for="bsuser-parent_name">Parent Name</label>
+            <input type="text" ng-model="parentName" id="bsuser-parent_name" class="form-control" maxlength="150">           
+          </div>
+          <div class="form-group field-bsuser-child_name required">
+            <label class="control-label" for="bsuser-child_name">Child Name</label> 
+            <input type="text" ng-model="childName" id="bsuser-child_name" class="form-control" maxlength="150">
+           
+          </div>
+          <div class="form-group field-bsuser-age">
+            <label class="control-label" for="bsuser-age">Age</label> 
+            <input type="number" ng-model="age"  id="bsuser-age" class="form-control">
+           
+          </div>
+          <div class="form-group field-bsuser-gender">
+            <label class="control-label" for="bsuser-gender">Gender</label>
+            <select ng-model="gender" id="bsuser-gender" class="form-control">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+           
+          </div>
+          <div class="form-group field-bsuser-email required">
+            <label class="control-label" for="bsuser-email">Email</label>
+            <input type="text" ng-blur="checkEmailExist()" ng-model="email" id="bsuser-email" class="form-control" maxlength="250">
+            <h6 ng-show="email_exists" class="sc_title sc_title_regular" style="color: #ea624c;">Email already exists. Choose another one</h6>
+						           
+          </div>
+          <div class="form-group field-bsuser-password required">
+            <label class="control-label" for="bsuser-password">Password</label>
+            <input type="password" ng-model="password" id="bsuser-password" class="form-control" maxlength="25">            
+          </div>
+          <div class="form-group field-bsuser-father_mobile_no required">
+            <label class="control-label" for="bsuser-father_mobile_no">Father Mobile No</label> 
+            <input type="text" ng-model="fatherMobile" id="bsuser-father_mobile_no" class="form-control" maxlength="15">
+           
+          </div>
+          <div class="form-group field-bsuser-mother_mobile_no">
+            <label class="control-label" for="bsuser-mother_mobile_no">Mother Mobile No</label>
+            <input type="text" ng-model="motherMobile" id="bsuser-mother_mobile_no" class="form-control"  maxlength="15">            
+          </div>
+          <div class="form-group field-bsuser-address">
+            <label class="control-label" for="bsuser-address">Address</label>
+            <textarea id="bsuser-address" ng-model="address" class="form-control" rows="6"></textarea>
+          </div>
+          <div class="form-group field-bsuser-standard">
+            <label class="control-label" for="bsuser-standard">Standard</label>           
+        <select  id="bsuser-standard" class="form-control" ng-model="standard">
+		<option value="">Select</option>
+		<option ng-repeat="n in [] | range:1:13" value="{{n}}">{{n}}</option>
+		</select>
+            <div class="help-block"></div>
+          </div>
+          <div class="form-group field-bsuser-school">
+            <label class="control-label" for="bsuser-school">School</label>
+            <input type="text" id="bsuser-school" ng-model="school" class="form-control" maxlength="250">          
+          </div>
+         <div class="form-group field-bscenter-city_id">
+						<label class="control-label" for="bscenter-city_id">City</label> 
+						<select ng-change="getAreaNames(city)" ng-model="city" class="form-control">
+						<option value="">Select City</option>
+							<option ng-repeat="city in cityData" value="{{city.cityName}}">{{city.cityName}}</option>
+						</select>
+
+						<div class="help-block"></div>
+					</div>
+			<div ng-show="city.length> 0" class="form-group field-bscenter-area_id">
+						<label class="control-label" for="bscenter-area_id">Area</label> 
+						<select ng-model="area" class="form-control">
+						<option value="">Select Area</option>
+							<option ng-repeat="area in areaData" value="{{area.areaName}}">{{area.areaName}}</option>
+						</select>
+
+						<div class="help-block"></div>
+			</div>
+          <div ng-init="activityNames()" class="form-group field-bsuser-interested_activities container">
+            <h4 class="control-label">Interested Activities</h4>
+            <div ng-repeat="activity in activityData">              
+           <label class="col-md-3">
+           <input type="checkbox"  ng-model="activity.selected" ng-change="addActivityToList(activity);"> {{activity.activityName}}</label>
+           </div>           
+            <div class="help-block"></div>
+          </div>
+          <div
+            class="form-group field-bsuser-applicable_timings">
+            <label class="control-label" for="bsuser-applicable_timings">Applicable Timings</label> 
+            <input type="text" placeholder="09:00 AM - 06:00 PM" id="bsuser-applicable_timings" ng-model="timings" class="form-control" maxlength="25">            
+          </div>
+          <div class="form-group field-bsuser-preference">
+            <label class="control-label" for="bsuser-preference">Preference</label>
+            <select id="bsuser-preference" ng-model="preference" class="form-control" >
+              <option value="Weekdays">Weekdays</option>
+              <option value="Weekends">Weekends</option>
+            </select>           
+          </div>          
+          <div class="form-group">
+            <button ng-click="createUser()" class="btn btn-success btn-fill">Create User</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

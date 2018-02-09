@@ -1,0 +1,154 @@
+@import "kidscare.css";
+
+/* ToysStore skin for the theme
+------------------------------------------------------------------------- */
+/* theme_skin_toysstore */
+section:not(.no_padding) > .container {
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+
+section.woo_section > .container {
+    padding-bottom: 0;
+}
+
+/* main menu */
+.topWrap .topMenuStyleFon>ul>li ul,.topWrap .topMenuStyleLine>ul>li ul{
+	width:260px;
+}
+.topWrap .topMenuStyleFon>ul>li ul li ul{
+	left:270px;
+}
+.menu_right .topWrap .topMenuStyleFon ul.submenu_left{
+	left:-270px!important;
+}
+.topWrap .topMenuStyleLine>ul>li ul li ul{
+	left:263px;
+}
+.menu_right .topWrap .topMenuStyleLine ul.submenu_left{
+	left:-264px!important;
+}
+ul#mainmenu .menu-panel ul.columns>li ul{
+	max-width:260px;
+}
+
+/* slider */
+.sliderHomeBullets{
+	height:500px;
+}
+
+.tp-caption a{
+	color:#ff7302;
+	text-shadow:none;
+	-webkit-transition:all 0.2s ease-out;
+	-moz-transition:all 0.2s ease-out;
+	-o-transition:all 0.2s ease-out;
+	-ms-transition:all 0.2s ease-out;
+}
+.tp-caption a:hover{
+	color:#ffa902;
+}
+.tp-button.order{
+	font-weight:700;
+	font-size:16px;
+	letter-spacing:1px;
+	display:inline-block;
+	padding:10px 20px;
+	line-height:24px!important;
+	height:24px;
+}
+.babbysitter-slider-bg{
+	background-color:#86d9d2;
+}
+.healthcare-slider-bg{
+	background-color:#6fd3d7;
+}
+
+.royalslider_4 {width: 100%; height: 500px;}
+
+/* title */
+.sc_title.style_5 {text-align:center;color:#292929;}
+
+.sc_title_iconed.style_2 {text-align:center;color:#ffffff;font-weight:500;}
+
+/*sc_line*/
+.sc_line.style_1 {border-top-width:8px;border-top-style:solid;border-top-color:#f2f2f2;}
+
+/* light section */
+.light_section + .light_section > .container {padding-top: 0;}
+
+/* grey section */
+.grey_section {background-color:#f9fafb;}
+
+/* woo section */
+section.woo_section > .container {padding-bottom: 0;}
+
+/* highlight */
+.sc_highlight.style_5 {font-size:20px;line-height:24px;}
+
+
+/* Theme Accent Color
+------------------------------------------------------------------------- */
+
+/* WooCommerce colors */
+
+/* Theme Accent Color */
+
+/* Other skin settings
+------------------------------------------------------------------------- */
+
+/*WooCommerce plugins */
+.woocommerce div.product form.cart div.quantity{
+	position:relative;
+	height:29px;
+	border:solid 1px #C8BFC6;
+}
+.woocommerce div.product form.cart div.quantity input.input-text.qty.text{
+	height:27px;
+	width:94px;
+	border:none;
+	left:auto;
+	top:auto;
+}
+.woocommerce .quantity input.qty,.woocommerce-page .quantity input.qty{
+	position:relative;
+	border:solid 1px #DDD;
+}
+
+@media (max-width: 480px) {
+	.woocommerce table.shop_table th,.woocommerce table.cart td,.woocommerce-page table.cart td{
+		padding-left:1px;
+		padding-right:1px;
+	}
+	.woocommerce table.shop_table thead th,.woocommerce-page table.shop_table thead th{
+		font-size:14px;
+	}
+	.woocommerce .quantity,.woocommerce-page .quantity{
+		width:auto;
+	}
+	.woocommerce .quantity input.qty,.woocommerce-page .quantity input.qty{
+		width:50px;
+		left:auto;
+	}
+	.woocommerce table.cart td.actions,.woocommerce-page table.cart td.actions{
+		padding:10px;
+	}
+	.woocommerce table.cart td.actions .coupon,.woocommerce-page table.cart td.actions .coupon{
+		padding-bottom:1em;
+	}
+}
+
+
+/* footer */
+.theme_skin_toysstore .footerWrap.footerStyleLight {}
+.theme_skin_toysstore .footerWrap.footerStyleDark {}
+
+.theme_skin_toysstore .footerWrap.footerStyleLight.contactFooterWrap {background-image: none; background-color: #ffffff;}
+.theme_skin_toysstore .contactFooterWrap.footerStyleLight .contactAddress {color: #969899;}
+
+.theme_skin_toysstore .copyWrap .socPage {display: none;}
+.theme_skin_toysstore .copyWrap .copy .copyright {float: none; text-align: center;}
+
+
+
+

@@ -1,0 +1,157 @@
+<div ng-include src="'app/modules/commons/views/sidebar.html'"></div>
+<div class="main-panel">
+	<div ng-include src="'app/modules/commons/views/topbar.html'"></div>
+	<div class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card" ng-show="centreState==='display'">
+						<div class="header">
+							<h3 class="title">Centres Pending for Approval</h3>
+						</div>
+						<div class="content">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="table-responsive">
+										<div id="w0" class="grid-view">
+										<div ng-show="currentPage === 1 && centreData.length < entryLimit">
+												Showing <b>{{currentPage}}</b> to <b>{{centreData.length}}</b>
+												items of total <b>{{centreData.length}}</b> items.
+										</div>
+											<div ng-show="currentPage === 1 && centreData.length >= entryLimit">
+												Showing <b>{{currentPage}}</b> to <b>{{entryLimit}}</b>
+												items of total <b>{{centreData.length}}</b> items.
+											</div>
+											<div ng-show="currentPage !== 1 && currentPage !== noOfPages"
+												class="summary">
+												Showing <b>{{(entryLimit*(currentPage-1)) + 1}}</b> to <b>{{(entryLimit*(currentPage))%totalItems}}</b>
+												items of total <b>{{centreData.length}}</b> items.
+											</div>
+
+											<div ng-show="currentPage === noOfPages && currentPage !== 1" class="summary">
+												Showing <b>{{(entryLimit*(currentPage-1)) + 1}}</b> to <b>{{totalItems}}</b>
+												items of total <b>{{centreData.length}}</b> items.
+											</div>
+
+											<div class="slide pull-right">
+												<ul uib-pagination total-items="totalItems"
+													items-per-page="entryLimit" ng-model="currentPage"
+													max-size="maxSize" class="pagination-sm paginationMargin"
+													boundary-links="true"></ul>
+											</div>
+											<div class="myClear"></div>
+											<table class="table">
+												<thead>
+													<tr>
+														<th><a>#</a></th>
+														<th><a>Center Name</a></th>
+														<th><a>Center Image</a></th>
+														<th><a>City Name</a></th>
+														<th><a>Area Name</a></th>
+														<th><a>Address</a></th>
+														<th class="action-column">&nbsp;</th>
+													</tr>
+													<tr id="w0-filters" class="filters">
+														<td>&nbsp;</td>
+														<td><input ng-model="search.centreName" type="text"
+															class="form-control"></td>
+														<td>&nbsp;</td>
+														<td>&nbsp;</td>
+														<td>&nbsp;</td>
+														<td><input type="text" ng-model="search.address"
+															class="form-control"></td>
+														<td>&nbsp;</td>
+													</tr>
+												</thead>
+												<tbody
+													ng-repeat="centre in (centreDataResults = (centreData | filter: search : strict | limitTo: entryLimit : (currentPage-1)*entryLimit))">
+													<tr data-key="4">
+														<td>{{centre.id}}</td>
+														<td>{{centre.centreName}}</td>
+														<td ng-show="centre.imagePath[0]!=''"><img
+															ng-src="../uploads/{{centre.centreName}}_{{centre.imageDirId}}/{{centre.imagePath[0]}}"
+															width="200px" alt="{{centre.centreName}}"></td>
+														<td ng-show="centre.imagePath[0] ==''"><img
+														ng-src="../uploads/no_image.jpg"
+														height="100"></td>
+														
+														<td>{{centre.cityName}}</td>
+														<td>{{centre.areaName}}</td>
+														<td>{{centre.address}}</td>
+														<td><a ng-click="view(centre)" title="View"
+															aria-label="View"><button
+																	class="btn btn-warning btn-simple btn-xs">
+																	<i class="fa fa-eye"></i>
+																</button></a> <a title="Update" ng-click="updateCentreButton(centre)" aria-label="Update"><button
+																	class="btn btn-info btn-simple btn-xs">
+																	<i class="fa fa-edit"></i>
+																</button></a> <a title="Approve" data-toggle="modal"
+																data-target="#myModal_{{centre.id}}" aria-label="Approve"><button
+																	class="btn btn-success btn-simple btn-xs">
+																	<i class="fa fa-check"></i>
+																</button></a></td>
+													</tr>
+												</tbody>
+											</table>
+											<h4 ng-show="centreDataResults.length == 0"
+												class="text-center">No Result Found</h4>
+											<div class="slide pull-right">
+												<ul uib-pagination total-items="totalItems"
+													items-per-page="entryLimit" ng-model="currentPage"
+													max-size="maxSize" class="pagination-sm paginationMargin"
+													boundary-links="true"></ul>
+											</div>
+											<div class="myClear"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="card" id="viewCentre" ng-show="centreState==='view'"
+						pending-centre-frame
+						template-path="app/modules/pending-centres/views/view-centre.html"></div>
+						<div class="card" id="updateCentre" ng-show="centreState==='update'"
+						pending-centre-frame
+						template-path="app/modules/centres/views/update-centre.html"></div>
+					
+				</div>
+			</div>
+		</div>
+		<div ng-include src="'app/modules/commons/views/footer.html'"></div>
+	</div>
+</div>
+
+<div ng-repeat="centre in centreData">
+		<div class="modal fade"
+			id="myModal_{{centre.id}}" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Approve the Centre
+							{{centre.centreName}}</h4>
+					</div>
+					<div class="modal-body">
+						<h4>Centre Details</h4>
+						<ul class="list-group">
+							<li class="list-group-item">Centre Owner:
+								{{centre.ownerName}}</li>
+							<li class="list-group-item">Centre City :
+								{{centre.cityName}}</li>
+							<li class="list-group-item">Centre Area: {{centre.areaName}}</li>
+							<li class="list-group-item">Centre Address:
+								{{centre.address}}</li>
+						</ul>
+						<p>Do you want to Approve the Centre: {{centre.centreName}}?</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-success" data-dismiss="modal"
+							ng-click="approveCentre(centre.id,centre.mailId)">Yes</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

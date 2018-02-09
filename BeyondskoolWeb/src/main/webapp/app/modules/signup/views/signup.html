@@ -1,0 +1,200 @@
+<div
+	class="widgetTabs ui-tabs ui-widget ui-widget-content ui-corner-all">
+	<div id="topOfPage" class="topTabsWrap">
+		<div class="main">
+			<div class="speedBar">
+				<a class="home" ui-sref="home">Home</a> <span class="breadcrumbs_delimiter"><i class="icon-right-open-mini"></i>
+				</span> <span class="current">Sign Up</span>
+			</div>
+			<h3 class="pageTitle h3">Sign Up</h3>
+		</div>
+	</div>
+	<div class="mainWrap without_sidebar">
+		<div class="main">
+			<div class="content">
+
+				<section class="no_padding">
+					<div class="container">
+						<div
+							class="columnsWrap sc_columns sc_columns_count_3 margin_top_middle margin_bottom_middle">
+							<div
+								class="columns2_3 sc_column_item sc_column_item_1 odd first span_2">
+								<div
+									class="sc_contact_form sc_contact_form_contact contact_form_1">
+									<h1 class="title">Sign-Up at BeyondSkool</h1>
+
+									<div class="container col-md-10">
+										<ul class="nav nav-tabs" data-tabs="tabs">
+											<li style="cursor:pointer;" class="active"><a data-target="#parentsSignUp" data-toggle="tab"
+												data-toggle="tab">Parents Sign-Up</a></li>
+											<li style="cursor:pointer;"><a data-target="#activityCentreSignUp" data-toggle="tab">Activity centre Sign-Up</a></li>
+										</ul>
+										<div class="tab-content">
+											<div class="tab-pane active" id="parentsSignUp">
+												<h3>Parents Sign-up Form</h3>
+												<div class="work_days">
+													<p>The novel way to engage your children in after
+														school activities.</p>
+												</div>
+												<div class="columnsWrap">
+													<div class="columns1_2">
+														<label class="required" for="user_name">Parent Name</label>
+														<input ng-model="user_name" type="text" name="name" id="user_name" required>
+														<h5 ng-show="user_name_empty" class="sc_title sc_title_regular" style="color: #ea624c;">Parent Name is Invalid</h5>
+													</div>
+												</div>
+												<div class="columnsWrap">
+													<div class="columns1_2">
+														<label class="required" for="user_email">E-mail</label>
+														<input ng-model="user_email" ng-blur="checkParentEmailExist()" ng-pattern = '/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i' type="text" name="email" id="user_email" required>
+														<h5 ng-show="user_email_empty || user_email.$error.pattern" class="sc_title sc_title_regular" style="color: #ea624c;">Email is Invalid</h5>
+														<b ng-show="user_email_exists" class="sc_title sc_title_regular" style="color: #ea624c;">Email already taken, choose another one.</b>
+												</div>
+												</div>
+												<div class="columnsWrap">
+													<div class="columns1_2">
+														<label class="required" for="user_password">Password</label>
+														<input ng-model="user_password" type="password" name="user_password" id="user_password" required>
+														<h5 ng-show="user_password_empty" class="sc_title sc_title_regular" style="color: #ea624c;">Password is Invalid</h5>
+													</div>
+												</div>
+												<div class="columnsWrap">
+													<div class="columns1_2">
+														<label class="required" for="user_password">Confirm Password</label>
+														<input ng-model="user_confirm_password" type="password" name="user_password" id="user_password" required>
+														<h5 ng-show="user_confirm_password_empty" class="sc_title sc_title_regular" style="color: #ea624c;">Confirm Password is Invalid</h5>
+														<h5 ng-show="password_match" class="sc_title sc_title_regular" style="color: #ea624c;">Passwords not same</h5>
+													</div>
+												</div>
+												<div class="columnsWrap">
+													<div class="columns1_2">
+														<label class="required" for="user_contact">Contact Number</label>
+														<input ng-model="user_contact" type="text" name="user_contact" id="user_contact" required>
+														<h5 ng-show="user_contact_empty" class="sc_title sc_title_regular" style="color: #ea624c;">Contact no. is Invalid</h5>
+													</div>
+												</div>
+												
+												<div class="columnsWrap">
+													<div class="columns1_2">
+														<label class="required" for="user_child_name">Child's Name</label>
+														<input ng-model="user_child_name" type="text" name="user_child_name" id="user_child_name" required>
+														<h5 ng-show="user_child_name_empty" class="sc_title sc_title_regular" style="color: #ea624c;">Child Name is Invalid</h5>
+													</div>
+												</div>
+												<div class="columnsWrap">
+													<div class="columns1_2">
+														<label class="required" for="user_child_age">Child's Age</label>
+														<input ng-model="user_child_age" type="text" ng-pattern="/^[0-9]*$/" name="user_child_age" id="user_child_age" required>
+														<h5 ng-show="user_child_age_empty || user_child_age.$error.pattern" class="sc_title sc_title_regular" style="color: #ea624c;">Child Age is Invalid</h5>
+													</div>
+												</div>
+												<div class="columnsWrap">
+													<div class="columns1_2">
+														<label class="required" for="user_child_school">Child's School Name</label>
+														<input ng-model="user_child_school" type="text" name="user_child_school"
+															id="user_child_school" required>
+														<h5 ng-show="user_child_school_empty"
+															class="sc_title sc_title_regular" style="color: #ea624c;">Child School is Invalid</h5>
+													</div>
+												</div>
+												<!-- <div class="columnsWrap" ng-init="activityNames()">
+													<div class="columns1_1">
+														<label class="required" for="user_child_school">Interested Activities</label>
+														<div ng-repeat="activity in activityData">
+															<div class="checkbox"> 
+															<input type="checkbox" class="form-control" ng-model="activity.selected" 
+															ng-change="addActivityToList(activity);"> {{activity.activityName}}
+															</div>
+														</div>
+													</div>
+												</div> -->
+
+												<div class="columnsWrap">
+													<div
+														class="squareButton sc_button_size sc_button_style_global global ico">
+														<button ng-click="userRegister(user_name,user_email,user_password,user_confirm_password,user_contact,user_child_name,user_child_age,user_child_school)" name="contact_submit" class="contact_form_submit">Sign Up</button>
+													</div>
+													<div ng-show="registering" class="alert alert-info col-md-7 pull-right">
+  														Registering you on the website. Please wait.
+													</div>
+													
+												</div>
+											</div>
+											<div class="tab-pane" id="activityCentreSignUp">
+												<h3>Activity Centre Sign-up Form</h3>
+												<div class="work_days">
+													<p>Join as a provider and let us help you promote and
+														fill your kids' classes, camps, and activities.</p>
+												</div>
+												<div class="columnsWrap">
+													<div class="columns1_2">
+														<label class="required" for="owner_name">Owner Name</label>
+														<input ng-model="owner_name" type="text" name="name" id="owner_name" required>
+														<h5 ng-show="owner_name_empty" class="sc_title sc_title_regular" style="color: #ea624c;">Name is Invalid</h5>
+													</div>
+												</div>
+												<div class="columnsWrap">
+													<div class="columns1_2">
+														<label class="required" for="owner_email">E-mail</label>
+														<input ng-model="owner_email" ng-pattern = '/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i' ng-blur="checkEmailExist()" type="text" name="email" id="owner_email" required>
+														<h5 ng-show="owner_email_empty || owner_email.$error.pattern" class="sc_title sc_title_regular" style="color: #ea624c;">Email is Invalid</h5>
+														<b ng-show="email_exists" class="sc_title sc_title_regular" style="color: #ea624c;">Email already taken, choose another one.</b>
+													</div>
+												</div>
+												<div class="columnsWrap">
+													<div class="columns1_2">
+														<label class="required" for="owner_password">Password</label>
+														<input ng-model="owner_password" type="password" name="owner_password" id="owner_password" required>
+														<h5 ng-show="owner_password_empty" class="sc_title sc_title_regular" style="color: #ea624c;">Password is Invalid</h5>
+													</div>
+												</div>
+												<div class="columnsWrap">
+													<div class="columns1_2">
+														<label class="required" for="owner_password">Confirm Password</label>
+														<input ng-model="owner_confirm_password" type="password" name="owner_password" id="owner_password" required>
+														<h5 ng-show="owner_confirm_password_empty" class="sc_title sc_title_regular" style="color: #ea624c;">Confirm Password is Invalid</h5>
+														<h5 ng-show="password_match" class="sc_title sc_title_regular" style="color: #ea624c;">Passwords not same</h5>
+													</div>
+												</div>
+												<div class="columnsWrap">
+													<div class="columns1_2">
+														<label class="required" for="owner_contact">Contact Number</label>
+														<input ng-model="owner_contact" type="text" name="owner_contact" id="owner_contact" required>
+														<h5 ng-show="owner_contact_empty" class="sc_title sc_title_regular" style="color: #ea624c;">Contact no. is Invalid</h5>
+													</div>
+												</div>
+												<div class="columnsWrap">
+													<div
+														class="squareButton sc_button_size sc_button_style_global global ico">
+														<button type="submit" name="owner_submit"
+															ng-click="centreRegister(owner_name,owner_email,owner_password,owner_confirm_password,owner_contact)" class="contact_form_submit">Sign Up</button>															
+													</div>
+													<div ng-show="registering" class="alert alert-info col-md-7 pull-right">
+  														Registering you on the website. Please wait.
+													</div>
+												</div>												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- <div ng-show="reg_complete" class="columns1_3 sc_column_item sc_column_item_3 odd after_span_2">
+								<h1 class="sc_title sc_title_regular">Login to your Account</h1>
+								<div class="work_days">
+									<p>Account created. You can now login and complete your profile</p>
+								</div>
+								<div class="columnsWrap">
+									<div class="squareButton sc_button_size sc_button_style_global global ico">
+										<a ui-sref="login" class="contact_form_submit">Click
+											Here</a>
+									</div>
+								</div>
+							</div>	 -->						
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+</div>
+<div ng-include src="'app/modules/commons/views/footer.html'"></div>

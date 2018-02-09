@@ -1,0 +1,82 @@
+	<div class="mainWrap without_sidebar">
+		<div class="main">
+			<div class="content">
+				<section class="no_padding">
+					<div class="container">								
+						<div class="columnsWrap col-md-12  margin_bottom_middle">
+						
+						<button class="btn btn-success btn-fill col-md-offset-5" style="margin-top:10px;" ng-click="goBack()">Go Back</button>		
+						<h3 class="pageTitle h3">Edit Centre Images</h3>
+						
+						<div class="container">
+						<div class="row">
+						<div ng-show="imageArray[0] != ''" ng-repeat="image in imageArray"
+							class="col-lg-4 col-md-6 col-xs-6 thumb">
+							<a class="thumbnail"> <img class="img-responsive"
+								ng-src="uploads/{{centreData.centreName}}_{{centreData.imageDirId}}/{{image}}" alt="{{centreData.centreName}}">
+							<div class="caption text-center" style="text-decoration: none;cursor: default;"><button ng-click="deleteImage(centreData.centreName,image,centreData.id,centreData)" class="btn btn-danger btn-simple btn-xs">
+																	<i class="icon-trash"></i></button>
+							</div>	
+							</a>
+						</div>
+						<div ng-show="imageArray[0] == ''"
+							class="col-lg-4 col-md-6 col-xs-6 thumb">
+							<a class="thumbnail"> <img class="img-responsive"
+								ng-src="uploads/no_image.jpg"></a>
+							</div>	
+							
+						</div>
+						<h6 class="text-center" ng-show="imageArray.length == 0">No Images Found</h6>
+						</div>
+						<div ng-hide="wannaUpload" class="form-group field-bscenter-newImages">
+						<label ng-show="imageArray[0] != ''" class="control-label" for="bscenter-description">Above are the current images. Want to upload more images?</label>
+						
+						<label ng-show="imageArray[0] == ''" class="control-label" for="bscenter-description">No Images added. Want to add images?</label>
+						<button class="btn btn-success btn-fill" ng-click="editUploadNew('yes')">Yes</button>
+						<button class="btn btn-danger btn-fill" ng-click="editUploadNew('no')">No</button>
+						<div class="help-block"></div>
+					</div>
+					<div ng-show="uploadBoxonEdit" class="form-group field-bscenter-img">
+						<label class="control-label" for="bscenter-img">Upload Image(s) <span class="errorRedClass">(LESS THAN 1 MB SIZE)</span></label>
+						<form>							
+							<div class="form-group">
+								<button class="btn btn-primary" ngf-select="uploadFiles($files)"
+									multiple accept="image/*" ngf-max-size="1MB">
+									<i class="glyphicon glyphicon-folder-open"></i>&nbsp;&nbsp;Browse Files</button>
+							</div>
+							<!-- <div ng-repeat="file in files">
+								<img ngf-thumbnail="file" class="thumb"
+									ngf-size="{width: 100, height: 100, quality: 0.9}">
+							</div> -->
+							<div ng-hide="hideThumbnails" class="container">
+											<div class="row">
+												<div ng-repeat="image in fileNames"
+													class="col-lg-4 col-md-6 col-xs-6 thumb">
+													<img class="img-responsive"
+														ng-src="uploads/{{centreName}}_{{imageDirId}}/{{image}}">
+												</div>
+											</div>
+										</div>
+							<div ng-show="files.length>0">Files uploaded:</div>
+							<div class="uploadedfile" ng-repeat="f in files"
+								style="font: smaller">
+								<!-- FILE -->
+								<i class="glyphicon glyphicon-file"></i><span
+									ng-class="{removed: f.removed}">{{f.name}}
+									{{f.$errorParam}}</span>
+								
+							</div>
+							{{errorMsg}}
+						</form>
+						<div class="help-block"></div>
+					</div>
+					</div>
+					<div ng-show="files.length > 0" class="form-group">
+							<button ng-click="updateCentreImages(centreData.id)" class="btn btn-success btn-fill">Update Images</button>
+					</div> 
+					</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>

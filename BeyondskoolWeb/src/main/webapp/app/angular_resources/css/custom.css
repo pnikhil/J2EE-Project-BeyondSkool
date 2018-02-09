@@ -1,0 +1,109 @@
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 99999999; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+}
+
+/* Modal Content */
+.modal-content {
+    position: fixed;
+    top: 5%;
+    background-color: #fefefe;
+    width: 60%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s;
+    left: 19%;
+    height: 600px;
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #ea624c;
+    color: white;
+}
+
+.modal-header h3
+{
+    font-size: 24px;
+    line-height: 28px;
+    color: white;
+    margin-top: -45px;
+    margin-bottom: -15px;
+    margin-left: 60px;
+}
+
+.modal-body {padding: 2px 35px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #ea624c;
+    color: white;
+}
+
+.a-list-content {
+    float: left;
+    margin-left: -35px;
+}
+
+.a-list-price {
+    position: relative;
+    left: 0px;
+    top: 15px;
+}
+
+.sc_blogger.style_date .sc_blogger_item h4 {
+    margin: 10px 0 0 100px;
+    padding: 0 0 5px 0;
+}
+.sc_blogger.sc_blogger_vertical.style_date.timeline_slider_style_1.sc_scroll_controls.no_description{
+    padding-left: 15px;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+    from {top: 0px; opacity: 0} 
+    to {top: 100; opacity: 1}
+}
+
+@keyframes slideIn {
+    from {top: 0px; opacity: 0}
+    to {top: 100; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+}

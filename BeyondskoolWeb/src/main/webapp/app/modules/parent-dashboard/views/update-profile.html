@@ -1,0 +1,149 @@
+<div class="main">
+	<div class="content">
+		<section class="no_padding">
+			<div class="container">
+				<div class="columnsWrap col-md-10  margin_bottom_middle">
+					<h3 class="pageTitle h3">Update Profile</h3>
+					<div
+						class="sc_column_item sc_column_item_1 odd first span_2">
+						<div class="bs_user_form">
+							<div class="form-group field-bsuser-parent_name required">
+								<label class="control-label" for="bsuser-parent_name">Parent
+									Name</label> <input type="text" ng-model="parentName"
+									id="bsuser-parent_name" class="form-control" maxlength="150">
+							</div>
+							<div class="form-group field-bsuser-child_name required">
+								<label class="control-label" for="bsuser-child_name">Child
+									Name</label> <input type="text" ng-model="childName"
+									id="bsuser-child_name" class="form-control" maxlength="150">
+
+							</div>
+							<div class="form-group field-bsuser-age">
+								<label class="control-label" for="bsuser-age">Age</label> <input
+									type="number" ng-model="age" id="bsuser-age"
+									class="form-control">
+
+							</div>
+							<div class="form-group field-bsuser-gender">
+								<label class="control-label" for="bsuser-gender">Gender</label>
+								<select ng-model="gender" id="bsuser-gender"
+									class="form-control">
+									<option value="Male">Male</option>
+									<option value="Female">Female</option>
+								</select>
+								<h5 ng-show="gender_empty" class="sc_title sc_title_regular" style="color: #ea624c;">Gender cannot be empty</h5>
+								
+
+							</div>
+							<div class="form-group field-bsuser-email required">
+								<label class="control-label" for="bsuser-email">Email</label> <input
+									type="text" ng-model="email" id="bsuser-email"
+									class="form-control" maxlength="250" disabled>
+							</div>
+						
+							<div class="form-group field-bsuser-father_mobile_no required">
+								<label class="control-label" for="bsuser-father_mobile_no">Father
+									Mobile No</label> <input type="text" ng-model="fatherMobile"
+									id="bsuser-father_mobile_no" class="form-control"
+									maxlength="15">
+
+							</div>
+							<div class="form-group field-bsuser-mother_mobile_no">
+								<label class="control-label" for="bsuser-mother_mobile_no">Mother
+									Mobile No</label> <input type="text" ng-model="motherMobile"
+									id="bsuser-mother_mobile_no" class="form-control"
+									maxlength="15">
+									<h5 ng-show="mother_mobile_empty" class="sc_title sc_title_regular" style="color: #ea624c;">Mother mobile number cannot be empty</h5>
+								
+							</div>
+							<div class="form-group field-bsuser-address">
+								<label class="control-label" for="bsuser-address">Address</label>
+								<textarea id="bsuser-address" ng-model="address"
+									class="form-control" rows="6"></textarea>
+									<h5 ng-show="address_empty" class="sc_title sc_title_regular" style="color: #ea624c;">Address cannot be empty</h5>
+								
+							</div>
+							<div class="form-group field-bsuser-standard">
+								<label class="control-label" for="bsuser-standard">Standard (Class)</label>
+								<select id="bsuser-standard" class="form-control"
+									ng-model="standard" ng-options="n as n for n in [] | range:1:13">									
+									<!-- <option ng-repeat="" value="{{n}}">{{n}}</option> -->
+								</select>
+								<h5 ng-show="standard_empty" class="sc_title sc_title_regular" style="color: #ea624c;">Child class cannot be empty</h5>
+								<div class="help-block"></div>
+							</div>
+							<div class="form-group field-bsuser-school">
+								<label class="control-label" for="bsuser-school">School</label>
+								<input type="text" id="bsuser-school" ng-model="school"
+									class="form-control" maxlength="250">
+							</div>
+							<div class="form-group field-bscenter-city_id">
+								<label class="control-label" for="bscenter-city_id">City</label>
+								<select ng-change="getAreaNames(city)" ng-model="city"
+									class="form-control">
+									<option value="">Select City</option>
+									<option ng-repeat="city in cityData" value="{{city.cityName}}">{{city.cityName}}</option>
+								</select>
+								<h5 ng-show="city_empty" class="sc_title sc_title_regular" style="color: #ea624c;">City cannot be empty</h5>
+								
+
+								<div class="help-block"></div>
+							</div>
+							<div ng-show="city.length> 0"
+								class="form-group field-bscenter-area_id">
+								<label class="control-label" for="bscenter-area_id">Area</label>
+								<select ng-model="area" class="form-control">
+									<option value="">Select Area</option>
+									<option ng-repeat="area in areaData" value="{{area.areaName}}">{{area.areaName}}</option>
+								</select>
+							<h5 ng-show="area_empty" class="sc_title sc_title_regular" style="color: #ea624c;">Area cannot be empty</h5>
+								
+								<div class="help-block"></div>
+							</div>
+							<div class="columnsWrap" ng-init="activityNames()">
+								<div class="columns1_1">
+									<h4 class="required" for="user_child_school">Interested Activities</h4>
+									<div ng-repeat="activity in activityData">
+										<label class="col-md-3"> <input type="checkbox"
+											ng-model="activity.selected"
+											ng-change="addActivityToList(activity);">
+											{{activity.activityName}}
+										</label>
+									</div>
+								</div>
+							</div>
+							<h5 ng-show="activities_empty" class="sc_title sc_title_regular" style="color: #ea624c;">Interest Activities cannot be empty</h5>
+
+							<div class="form-group field-bsuser-applicable_timings">
+								<h4 class="control-label" for="bsuser-applicable_timings">Applicable
+									Timings</h4> <input type="text" placeholder="Example: 05:00 AM - 08:00 AM" id="bsuser-applicable_timings"
+									ng-model="timings" class="form-control" maxlength="25">
+								<h5 ng-show="timings_empty" class="sc_title sc_title_regular" style="color: #ea624c;">Timings cannot be empty</h5>
+							</div>
+							
+								
+							<div class="form-group field-bsuser-preference">
+								<h4 class="control-label" for="bsuser-preference">Preference</h4>
+								<select id="bsuser-preference" ng-model="preference"
+									class="form-control">
+									<option value="Weekdays">Weekdays</option>
+									<option value="Weekends">Weekends</option>
+								</select>
+							<h5 ng-show="preference_empty" class="sc_title sc_title_regular" style="color: #ea624c;">Preference cannot be empty</h5>
+							</div>
+							<div class="form-group">
+						<button ng-click="updateProfile()" type="button"
+						style="margin-top: 20px; float: right;" class="btn btn-success">Update Profile</button>
+						<h5 ng-show="form_incomplete" class="sc_title sc_title_regular" style="color: #ea624c;">Details Incomplete</h5>
+						</div>
+						</div>
+					</div>
+				</div>
+				<div class="sc_column_item sc_column_item_1 col-md-1 odd first span_2">
+								<button ng-click="goBack()" type="button" style="margin-top: 20px; float:right;" class="btn btn-success">Go Back</button>
+				</div>	
+				
+			</div>
+		</section>
+	</div>
+</div>

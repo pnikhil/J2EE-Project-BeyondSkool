@@ -1,0 +1,99 @@
+<div ng-include src="'app/modules/commons/views/sidebar.html'"></div>
+<div class="main-panel">
+	<div ng-include src="'app/modules/commons/views/topbar.html'"></div>
+	<div class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="header">
+							<h3 class="title">User Bookings</h3>							
+						</div>
+						<div class="content">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="table-responsive">
+										<div id="w0" class="grid-view">
+										<div ng-show="currentPage === 1 && bookingData.length < entryLimit">
+												Showing <b>{{currentPage}}</b> to <b>{{bookingData.length}}</b>
+												items of total <b>{{bookingData.length}}</b> items.
+										</div>
+											<div ng-show="currentPage === 1 && bookingData.length >= entryLimit">
+												Showing <b>{{currentPage}}</b> to <b>{{entryLimit}}</b>
+												items of total <b>{{bookingData.length}}</b> items.
+											</div>
+											<div ng-show="currentPage !== 1 && currentPage !== noOfPages"
+												class="summary">
+												Showing <b>{{(entryLimit*(currentPage-1)) + 1}}</b> to <b>{{(entryLimit*(currentPage))%totalItems}}</b>
+												items of total <b>{{bookingData.length}}</b> items.
+											</div>
+
+											<div ng-show="currentPage === noOfPages && currentPage !== 1" class="summary">
+												Showing <b>{{(entryLimit*(currentPage-1)) + 1}}</b> to <b>{{totalItems}}</b>
+												items of total <b>{{bookingData.length}}</b> items.
+											</div>
+											<div class="slide pull-right">
+												<ul uib-pagination total-items="totalItems"
+													items-per-page="entryLimit" ng-model="currentPage"
+													max-size="maxSize" class="pagination-sm paginationMargin"
+													boundary-links="true"></ul>
+											</div>
+											<div class="myClear"></div>
+											<table class="table">
+												<thead>
+													<tr>
+														<th><a>Booking ID</a></th>
+														<th><a>Booking Date</a></th>
+														<th><a>User Name</a></th>
+														<th><a>User Email</a></th>
+														<th><a>Activity Cost</a></th>
+														<th><a>Centre Name</a></th>
+														<th><a>Activity Name</a></th>
+														<th><a>Already Attended</a></th>
+													</tr>
+													<tr id="w0-filters" class="filters">
+														<td>&nbsp;</td>
+														<td><input type="text" class="form-control" ng-model="search.bookingDate"></td>
+														<td>&nbsp;</td>
+														<td><input type="text" class="form-control" ng-model="search.userEmail"></td>
+														<td>&nbsp;</td>
+														<td><input type="text" class="form-control" ng-model="search.centreName"></td>
+														<td><input type="text" class="form-control" ng-model="search.activityName"></td>
+														<td><input type="text" class="form-control" ng-model="search.alreadyAttended"></td>														
+																											
+													</tr>
+												</thead>
+												<tbody ng-repeat="booking in (bookingDataResults = (bookingData | filter: search : strict | limitTo: entryLimit : (currentPage-1)*entryLimit))">
+													<tr>
+														<td>{{booking.id}}</td>
+														<td>{{booking.bookingDate | date : 'dd/MM/yyyy hh:mm a'}}</td>
+														<td>{{booking.userName}}</td>
+														<td><a href="mailto:{{booking.userEmail}}">{{booking.userEmail}}</a></td>
+														<td>{{booking.activityCost}}</td>													
+														<td>{{booking.centreName}}</td>
+														<td>{{booking.activityName}}</td>
+														<td>{{booking.alreadyAttended}}</td>
+													</tr>													
+												</tbody>
+											</table>
+											<h4 ng-show="bookingDataResults.length == 0" class="text-center">
+											No Result Found</h4>
+											<div class="slide pull-right">
+												<ul uib-pagination total-items="totalItems"
+													items-per-page="entryLimit" ng-model="currentPage"
+													max-size="maxSize" class="pagination-sm paginationMargin"
+													boundary-links="true"></ul>
+											</div>
+											<div class="myClear"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</div>
+	<div ng-include src="'app/modules/commons/views/footer.html'"></div>
+</div>

@@ -1,0 +1,294 @@
+<div id="topOfPage" class="topTabsWrap">
+	<div class="main">
+		<div class="speedBar">
+			<a class="home" ui-sref="home">Home</a> <span
+				class="breadcrumbs_delimiter"> <i
+				class="icon-right-open-mini"></i>
+			</span> <span class="current"> Upcoming Classes</span>
+		</div>
+		<h3 class="pageTitle h3">Upcoming Classes</h3>
+	</div>
+</div>
+
+<div class="mainWrap without_sidebar" ng-hide="dataLoaded">
+	<div class="main">
+		<div class="content">
+			<section class="no_padding">
+				<div class="container">
+					<h4 class="text-center">Loading Upcoming Classes...</h4>
+				</div>
+			</section>
+		</div>
+	</div>
+</div>
+
+<div ng-show="dataLoaded" class="mainWrap with_sidebar sideBarLeft">
+
+	<div class="main">
+
+		<div id="sidebar_main" class="widget_area sidebar_main sidebar">
+		
+		
+			<aside class="widgetWrap hrShadow widget widget_subcategories">
+				<h3 class="title">Search by City</h3>
+				<div class="widget_subcategories_inner">
+					<select ng-change="getAreaNames(search.cityName);reloadData()" ng-model="search.cityName" class="form-control">
+						<option value="">Select City</option>
+							<option ng-repeat="city in cityData" value="{{city.cityName}}">{{city.cityName}}</option>
+						</select>
+				</div>
+			</aside>
+			<aside ng-show="search.cityName.length> 0" class="widgetWrap hrShadow widget widget_subcategories">
+				<h3 class="title">Search by Area</h3>
+				<div class="widget_subcategories_inner">
+					<select ng-model="search.areaName" class="form-control">
+					<option value="">Select Area</option>
+							<option ng-repeat="area in areaData" value="{{area.areaName}}">{{area.areaName}}</option>
+					</select>
+				</div>
+			</aside>	
+			
+		<aside class="widgetWrap hrShadow widget widget_subcategories">
+				<h3 class="title">Search By Age</h3>
+				<div class="widget_subcategories_inner">
+					<select class="form-control" ng-change="filterByAge(age)" ng-model="age" id="age">
+						<option value="">Select Age</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+					</select>
+				</div>
+			</aside>
+			
+		<!-- 	<aside class="widgetWrap hrShadow widget widget_subcategories">
+				<h3 class="title">Activities</h3>				
+				<button ng-show="removeFilter" style="margin-bottom:10px;" ng-click="removeActivityFilter()" class="btn btn-danger">Remove activity Filter</button>
+				<div class="tagcloud">					
+					<a  ng-repeat="activity in activityData" style="cursor: pointer;" ng-click="filterByActivity(activity.id)" ng-model="activity.id" id="{{activity.id}}" title="{{activity.activityName}}">{{activity.activityName}}</a> 
+				</div>
+			</aside> -->
+			
+				
+			<aside class="widgetWrap hrShadow widget widget_subcategories">
+				<h3 class="title">Activities</h3>				
+				<div class="tagcloud">			
+					<!-- <a  ng-repeat="activity in activityData" style="cursor: pointer;" ng-click="filterByActivity(activity.id)" ng-model="activity.id" id="{{activity.id}}" title="{{activity.activityName}}">{{activity.activityName}}</a> 
+				 --><select ng-model="activity.id" ng-change="filterByActivity(activity.id)" id="bscenteractivity-0-activity_id" class="form-control">
+						<option value="">Select Activity</option>
+						<option ng-repeat="activity in activityData" value="{{activity.id}}">{{activity.activityName}}</option>
+					</select>
+				</div>
+			</aside>
+			
+			<aside ng-show="removeFilter" class="widgetWrap hrShadow widget widget_subcategories">
+			<button  style="margin-bottom:10px;" ng-click="removeActivityFilter()" class="btn btn-danger">Remove Search Filter</button>
+			</aside>
+
+			<aside class="widgetWrap hrShadow widget woocommerce widget_product_search">
+				<h3 class="title">Search by Activity Name</h3>
+				<input type="text" style="width: 150px; height: 40px;"
+					class="search-field" ng-model="search" ng-change="performingSearch=true" placeholder="Search for Activity"
+					title="Search for center:"><button style="margin-left:10px;"class="btn btn-success" ng-click="reloadData()">Go</button> <span
+					class="search-button squareButton light ico"> <a
+					class="search-field icon-search"
+					onclick="filterCenter();return false;"></a>
+				</span>
+			</aside>
+					
+		</div>
+		
+		<div class="content">
+			<section class="post post_format_standard postAlter page type-page">
+				<article class="post_content">
+					<div class="post_text_area">
+						<section class="no_padding">
+						<div style="margin-top:20px;"class="slide pull-right">
+									<ul ng-hide="upcomingDataResults.length == 0" uib-pagination total-items="totalItems"
+													items-per-page="entryLimit" ng-model="currentPage"
+													max-size="maxSize" class="pagination-sm paginationMargin"
+													boundary-links="true"></ul>
+											</div>
+							<div class="container"> 
+									<h2 class="sc_title sc_title_regular aligncenter" style="margin-top:10px;">Upcoming Activities</h2>
+									
+									<div infinite-scroll="getMoreData()" class="col-md-offset-3 sc_blogger sc_blogger_horizontal style_image style_image_classes">
+										<div class="columnsWrap">
+										
+											<div class="columns1_2 column_item_{{$index+1}}"  ng-repeat="upcoming in (upcomingDataResults = (upcomingData | filter: search : strict | limitTo: entryLimit : (currentPage-1)*entryLimit))">
+												<article class="sc_blogger_item">
+													<div class="thumb">
+														<a data-toggle="modal" data-target="#myModal_{{upcoming.activityCentreBookingId}}">														
+															<img ng-show="upcoming.activityImagePath != ''" width="100%"
+															style="overflow: hidden; height: 224px;" ng-src="uploads/{{upcoming.activityImagePath}}" alt="{{upcoming.centreName}}">
+															<img ng-show="upcoming.activityImagePath == ''" width="100%"
+															style="overflow: hidden; height: 224px;" ng-src="uploads/no_image.jpg">
+															<div class="sc_blogger_content">
+																<div class="sc_blogger_content_inner">{{upcoming.classDescription | limitTo: 160 }}{{upcoming.classDescription.length > 160 ? '...' : ''}}</div>
+															</div>
+														</a>
+													</div>
+													<div class="sc_blogger_title upcomingActivites">
+														ng-style="{ width: myObject.value == 'ok' ? '100%' : '0%' }
+														<p>{{upcoming.activityName}} at {{upcoming.areaName}}</p>
+														<p><b>Centre Name:</b> {{upcoming.centreName}}</p>
+														<p><b>Start Date:</b> {{upcoming.startDate}}</p>
+														<p><b>End Date:</b> {{upcoming.endDate}}</p>
+														<p><b>Timings:</b> {{upcoming.inTime  | date:'hh:mm a'}} - {{upcoming.outTime  | date:'hh:mm a'}}</p>
+       													<p><b>Slots Remaining:</b> {{upcoming.totalSlots}}</p>
+       													<p><b>Age Group:</b> {{upcoming.fromAge}} - {{upcoming.toAge}}</p>
+        												<p><b>Days:</b> {{upcoming.dayData}}</p>
+      													<p><b>Class Duration:</b> {{upcoming.duration}}</p>
+       													<p><b>Class Charge:</b> Rs.{{upcoming.amount}}</p>
+														<br />
+														<a style="font-size: 15px;cursor:pointer;" data-toggle="modal" data-target="#myModal_{{upcoming.activityCentreBookingId}}">Click here to book</a>
+													</div>
+												</article>
+											</div>																					
+										</div>
+										<h4 class="text-center col-md-offset-4" ng-show="performingSearch">Performing Search Activity...</h4>
+										<h4 class="text-center col-md-offset-4" ng-show="noResult">No Activities found</h4>
+										<h4 class="text-centre col-md-offset-4" ng-show="upcomingDataResults.length == 0">No Activities found</h4>
+										<button ng-show="removeFilter && noResult" style="margin-bottom:10px;" ng-click="removeActivityFilter()" class="btn btn-danger text-center">Remove Filters</button>
+									</div>
+							</div>
+							<div style="margin-top:20px;"class="slide pull-right">
+												
+									<ul ng-hide="upcomingDataResults.length == 0" uib-pagination total-items="totalItems"
+													items-per-page="entryLimit" ng-model="currentPage"
+													max-size="maxSize" class="pagination-sm paginationMargin"
+													boundary-links="true"></ul>
+											</div>
+						</section>
+					</div>
+				</article>
+			</section>
+		</div>
+	</div>
+</div>
+<div ng-include src="'app/modules/commons/views/footer.html'"></div>
+<div ng-repeat="upcoming in upcomingData" >
+<div id="myModal_{{upcoming.activityCentreBookingId}}" class="modal fade" style="margin-top:50px;" role="dialog">
+  <div class="modal-dialog">
+    Modal content
+    <div class="modal-content">   
+     <div class="modal-header">
+          <img id="model-img" src="uploads/{{upcoming.activityImagePath}}" width="100px" style="margin-top: 8px;">  
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3 class="modal-title">{{upcoming.activityName}} at {{upcoming.centreName}}</h3>
+       </div>
+      <div class="modal-body">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h3 style="margin-bottom: -40px;" class="modal-title">{{upcoming.activityName}} at {{upcoming.centreName}}</h3>
+      <hr />
+      <div class="sc_contact_form sc_contact_form_contact contact_form_1">
+									<div class="container col-md-12">
+      <h6>Offered by: <a target="_blank" class="btn btn-success" ui-sref="viewCentre({ centreId: upcoming.centreId, centreName: upcoming.centreName.split(' ').join('-').toLowerCase()})">View Centre Details</a></h6>
+     	<h6>Class Description:</h6> <p>{{upcoming.classDescription}}</p>     	 
+     	<h6>City & Area: {{upcoming.areaName}} at {{upcoming.cityName}}</h6>
+     	<h6>Start Date: {{upcoming.startDate}}</h6>
+		<h6>End Date: {{upcoming.endDate}}</h6>
+        <h6>Offered between (Timings): {{upcoming.inTime  | date:'hh:mm a'}} - {{upcoming.outTime  | date:'hh:mm a'}}</h6>
+        <h6>Slots Remaining: {{upcoming.totalSlots}}</h6>
+        <h6>Age Group: {{upcoming.fromAge}} - {{upcoming.toAge}}</h6>
+        <h6>Days on which offered - {{upcoming.dayData}}</h6>
+        <h6>Class Duration - {{upcoming.duration}}</h6>
+        <h6>Class Charge - Rs. {{upcoming.amount}}</h6>
+         <div ng-show="!isParentLoggedIn && !isCentreLoggedIn" class=" alert alert-danger">
+ 			You have to be logged in to purchase.
+		</div>
+       <div ng-show="isParentLoggedIn">
+       <div ng-show="upcoming.totalSlots === 0" class=" alert alert-danger">
+ 			No Slots remaining for this class.
+		</div>
+       <button class="btn btn-success" ng-hide="bookClick" ng-click="bookSlotButton()" ng-disabled="upcoming.totalSlots === 0">Book your slot</button>
+       </div> 
+      <div ng-show="bookClick">
+      <label for="date">Choose date
+      <input type="datetime-local" id="date" placeholder="dd-mm-yyyy --:--" ng-model="bookingDate" style="margin-top:20px;" class="form-control"></label>
+      </div>
+      				 
+												<form ng-hide="isParentLoggedIn || isCentreLoggedIn" name="userLoginForm" novalidate="" class="ng-pristine ng-invalid ng-invalid-required">
+												<h3 class="modal-title">Parent Login</h3>
+												<div class="columnsWrap">
+													<div class="columns1_1">
+														<label class="required" for="contact_form_username">E-mail</label>
+														<input type="text" ng-model="parent_userName" name="email" id="contact_form_username" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
+													</div>
+												</div>
+												<div class="columnsWrap">
+													<div class="columns1_1">
+														<label class="required" for="contact_form_email">Password</label>
+														<input type="password" ng-model="parent_password" name="password" id="contact_form_email" required="" class="ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
+													</div>
+												</div>
+												<div class="errorRedClass text-center ng-pristine ng-untouched ng-valid ng-not-empty ng-hide" ng-show="incorrectLogin" ng-model="incorrectLogin">Invalid Username or Password</div>
+												<div class="columnsWrap">
+														<div class="squareButton sc_button_size sc_button_style_global global ico">
+															<input ng-click="parentLogin(parent_userName,parent_password)" type="button" value="Login" name="contact_submit" class="contact_form_submit">
+															<input style="margin-bottom:10px;" type="button" ng-show="isParentLoggedIn"
+															value="Buy Now" class="js-pay-bundle" data-amount="100000" data-qty="1" name="hidden" />
+														</div>
+													</div>
+												</form>
+									</div>
+								</div>
+      </div>
+      <div class="modal-footer" style="border-top:none!important;">
+      	<button type="button" ng-show="bookClick" ng-click="bookSlot(upcoming.activityCentreBookingId, bookingDate, upcoming.amount)" class="btn btn-primary" data-dismiss="modal">Book</button>
+        <button type="button" ng-click="reset()" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- <div class="mainWrap without_sidebar">
+				<div class="main">
+					<div class="content">
+						<section class="post no_margin post_format_standard postAlter page type-page">
+							<article class="post_content">
+								<div style="margin-top:20px;" class="post_text_area">
+									
+<p>We live in an ever changing dynamic world! To be successful in today's world, a child needs to do much more than score good marks. Children need to be equipped with 'real world education' which unfortunately isn't part of the Indian education system.
+<br /><br /><strong>BeyondSkool</strong> presents <strong>"Financial Knowledge Course"</strong> - a comprehensive program which will teach your child the fundamentals of how money works, the banking system, types of accounts, credit/debit cards, loans, interests, savings, investments, taxes, budgeting, online trends. This course is applicable to children above 12 years.</p><br />
+<strong>Why financial knowledge is important for children?</strong><br />
+
+<p>We deal with money everyday. However, most adults struggle with money management. We are poor when it comes to managing debt, EMI's because we weren't taught good financial habits in our childhood. That's why it's extremely important for kids to learn about money while they are growing up.</p><br />
+<strong>How does the training happen?</strong><br />
+
+<p>Online! Just download the 'BeyondSkool' app on playstore!
+You don't have to step out of your house and drive through the crazy traffic! You can study the material at the comfort of your home and at the time of your convenience. Every week, we send you 2 videos for 3 months. We recommend both parent & child to watch the videos together so that there's more family bonding. This also gives a chance to parents to share their invaluable experiences about money with their child!  
+</p>
+<br />
+<strong>Training Pedagogy : Hands On Learning!</strong><br />
+
+<p>The entire training is based on 'doing things'. It's not going to be just gyan sharing. Every module ends with a practical exercise eg - if we are talking about how to open a bank account, the homework for the child is to actually open a bank account on their name. Only after screenshots of all exercises are uploaded, we issue a 'course completion certificate'.</p>
+
+<br />
+<strong>About The Content & Delivery!</strong><br />
+<p>Our content has been designed & developed by top financial experts in consultation with child psychologists who have worked with hundreds of children before and understand their psyche.  The modules are delivered in an engaging manner which will keep your child hooked.</p>
+<br />
+<strong>IT'S EASIER TO PREPARE A CHILD THAN TO REPAIR AN ADULT!
+ENROL NOW!!!
+</strong><br /><br />
+								</div>
+							</article>
+						</section>
+					</div>
+				</div>
+			</div> -->
+			
+<div ng-include src="'app/modules/commons/views/footer.html'"></div>
+<!--  -->

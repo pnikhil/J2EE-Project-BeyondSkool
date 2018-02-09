@@ -1,0 +1,133 @@
+<div ng-include src="'app/modules/commons/views/sidebar.html'"></div>
+<div class="main-panel">
+	<div ng-include src="'app/modules/commons/views/topbar.html'"></div>
+	<div class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="header">
+							<h3 class="title">User Reviews</h3>							
+						</div>
+						<div class="content">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="table-responsive">
+										<div id="w0" class="grid-view">
+										<div ng-show="currentPage === 1 && reviewData.length < entryLimit">
+												Showing <b>{{currentPage}}</b> to <b>{{reviewData.length}}</b>
+												items of total <b>{{reviewData.length}}</b> items.
+										</div>
+											<div ng-show="currentPage === 1 && reviewData.length >= entryLimit">
+												Showing <b>{{currentPage}}</b> to <b>{{entryLimit}}</b>
+												items of total <b>{{reviewData.length}}</b> items.
+											</div>
+											<div ng-show="currentPage !== 1 && currentPage !== noOfPages"
+												class="summary">
+												Showing <b>{{(entryLimit*(currentPage-1)) + 1}}</b> to <b>{{(entryLimit*(currentPage))%totalItems}}</b>
+												items of total <b>{{reviewData.length}}</b> items.
+											</div>
+
+											<div ng-show="currentPage === noOfPages && currentPage !== 1" class="summary">
+												Showing <b>{{(entryLimit*(currentPage-1)) + 1}}</b> to <b>{{totalItems}}</b>
+												items of total <b>{{reviewData.length}}</b> items.
+											</div>
+											<div class="slide pull-right">
+												<ul uib-pagination total-items="totalItems"
+													items-per-page="entryLimit" ng-model="currentPage"
+													max-size="maxSize" class="pagination-sm paginationMargin"
+													boundary-links="true"></ul>
+											</div>
+											<div class="myClear"></div>
+											<table class="table">
+												<thead>
+													<tr>
+														<th><a>#</a></th>
+														<th><a>Added at</a></th>
+														<th><a>Parent Name</a></th>
+														<th><a>Centre Name</a></th>
+														<th><a>Review</a></th>
+														<th><a>Rating</a></th>
+														<th><a>Action</a></th>													
+													</tr>
+													<tr id="w0-filters" class="filters">
+														<td>&nbsp;</td>
+														<td>&nbsp;</td>
+														<td><input type="text" class="form-control" ng-model="search.userName"></td>
+														<td><input type="text" class="form-control" ng-model="search.centreName"></td>
+														<td>&nbsp;</td>
+														<td>&nbsp;</td>																																									
+													</tr>
+												</thead>
+												<tbody ng-repeat="review in (reviewDataResults = (reviewData | filter: search : strict | limitTo: entryLimit : (currentPage-1)*entryLimit))">
+													<tr>
+														<td>{{review.id}}</td>
+														<td>{{review.date}}</td>													
+														<td>{{review.userName}}</td>
+														<td>{{review.centreName}}</td>
+														<td>{{review.review}}</td>
+														<td><uib-rating ng-model="review.rating" max="max" data-read-only="true" aria-labelledby="default-rating"></uib-rating></td>
+														<td><a title="Update" aria-label="Update"><button
+																	class="btn btn-info btn-simple btn-xs">
+																	<i class="fa fa-edit"></i>
+																</button></a> <a title="Delete" data-toggle="modal"
+															data-target="#myModal_{{review.id}}" aria-label="Delete"><button
+																	class="btn btn-danger btn-simple btn-xs">
+																	<i class="fa fa-times"></i>
+																</button></a></td>
+													</tr>													
+												</tbody>
+											</table>
+											<h4 ng-show="reviewDataResults.length == 0" class="text-center">
+											No Result Found</h4>
+											<div class="slide pull-right">
+												<ul uib-pagination total-items="totalItems"
+													items-per-page="entryLimit" ng-model="currentPage"
+													max-size="maxSize" class="pagination-sm paginationMargin"
+													boundary-links="true"></ul>
+											</div>
+											<div class="myClear"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>				
+			</div>
+		</div>
+	</div>
+	<div ng-include src="'app/modules/commons/views/footer.html'"></div>
+</div>
+<div ng-repeat="review in reviewData">
+		<div class="modal fade"
+			id="myModal_{{review.id}}" role="dialog">
+			<div class="modal-dialog">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Delete the Review by {{review.userName}}?</h4>
+					</div>
+					<div class="modal-body">
+						<h4>Review Details</h4>
+						<ul class="list-group">
+							<li class="list-group-item">Written For:
+								{{review.centreName}}</li>
+							<li class="list-group-item">Written on :
+								{{review.date}}</li>
+							<li class="list-group-item">Review: {{review.review}}</li>
+							<li class="list-group-item">Rating:
+								<uib-rating ng-model="review.rating" max="max" data-read-only="true" aria-labelledby="default-rating"></uib-rating></li>
+						</ul>
+						<p>Do you want to delete this review?</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal"
+							ng-click="deleteReview(review.id)">Yes</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

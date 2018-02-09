@@ -1,0 +1,599 @@
+.floatright{
+	float: right;
+}
+.headerContent{
+	border-bottom: 1px solid #cef3fc;
+	
+	margin-top: 1px;
+	}
+/* .center-Block {
+     width: 100%; 
+    color: #ec8007;
+    background-color: rgba(48, 180, 175, 0.19);
+    padding-bottom: 32px;
+}
+*/
+
+
+.dash{
+    margin:7px 0px 6px 5px;
+}
+.myWork{
+	font-weight: bold;
+    margin-top: 2px;
+}
+.bannerHead{
+	font-size: 16px;
+    font-weight: bold;
+    margin: 10px 0px 10px 24px;
+}
+.images {
+    margin-right: 109px;
+    float: right;
+}
+/*commented by : Anoop Sunny
+  commented date : 27/02/2017
+  Reason : Was overriding the default bootstrap css due to naming conflict and there were founf not to be in use elsewhere.
+*/
+/*.open , .progress , .closed , .fail{
+	border: 1px solid #cef3fc;
+    margin: 0px -16px 0px 24px;
+    padding: 9px 18px 9px 20px;
+
+}
+.open{
+	background-color: #cef3fc;
+}*/
+.highlight{
+    margin: 8px 0px 0px 24px;
+    padding: 14px;
+    background-color: #cef3fc;
+}
+.tasklist-center-block {
+    padding-bottom: 4px;
+    padding-top: 4px;
+}
+.table_format {
+	border: 1px solid rgba(81,196,201,0.23);
+    width: 98.1%;
+    color: #ec8007;
+    margin-left: 24px;
+    padding-bottom: 30px;
+    background-color: rgba(81,196,201,0.23);
+}
+.arrow{
+    margin: -2px 0px 0px 4px;
+}
+.new {
+    width: 12%;
+    height: 17px;
+    font-size: 13px;
+    margin-top: 6px;
+    padding: -1px 2px 29px 19px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    background-color: red;
+}
+.documentName_Wraper{
+	width: 30%;
+}
+.document_classFi{
+    width: 20%;
+}
+.documentclassification_WraperPage {
+    width: 20%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.document_Action{
+    width: 20%;
+	text-align:center;
+}
+.document_status{
+	width: 15%;
+}
+.document_WraperStatus{
+	width: 17%;
+}
+.document_WraperAction{
+	width: 12%;
+}
+.documentClassificationContent1{
+    float:left;
+    width:20%;
+    color: black;
+    padding: 0px 10px 0px 10px;
+}
+.documents{
+    float:left;
+    width:20%;
+    color: black;
+	padding-left:3px;
+	padding-right:3px;
+}
+.Status{
+    float:left;
+    color: black;
+    width: 10%;
+	padding-left:3px;
+	padding-right:3px;
+}
+.Subtype{
+    float:left;
+    color: black;
+    width: 15%;
+	padding-left:3px;
+	padding-right:3px;
+}
+
+.mail {
+    float: right;
+    margin-right: 97px;
+    margin-top: 3px;
+}
+.documentListContent1{
+    float:left;
+    width:37%;
+    padding-left:41px;
+    padding-right:10px;
+}
+.hdCol7 {
+    width: 20%;
+    padding-left: 5px;
+    padding-right: 5px;
+    word-wrap: break-word;
+}
+.Col1{
+	width: 24%;
+	padding-left: 5px;
+    padding-right: 5px;
+    word-wrap: break-word;
+}
+.Col2 {
+    width: 18%;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.Col3, .Col4 {
+    width: 11%;
+    padding-left: 5px;
+    padding-right: 5px;
+    word-wrap: break-word;
+}
+.Col5{
+	width: 16%;
+    padding-left: 5px;
+    padding-right: 5px;
+    word-wrap: break-word;
+}
+.Col6 {
+    width: 20%;
+    padding-left: 5px;
+    padding-right: 5px;
+    word-wrap: break-word;
+    text-align: center;
+}
+.RdCol1 {
+    width: 24%;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: black;
+}
+.RdCol2 {
+    width: 18%;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.RdCol3, .RdCol4 {
+    width: 11%;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.RdCol5 {
+    width: 15%;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: black;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.RdCol6 {
+    width: 20%;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: black;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.documentname_Wraper{
+    width:30%;
+    padding-left:41px;
+    padding-right:10px;
+}
+.documentclassification_Wraper{
+    width:20%;
+    padding-left:10px;
+    padding-right:10px;
+}
+.documentclassificationContent{
+    float:left;
+    width:15%;
+    color: black;
+    padding-left:3px;
+    padding-right:3px;
+}
+.documentstate{
+    width: 20%;
+}
+.shift {
+    background-color: white;
+    color: #035098;/*24-01-2017 Anoop*/
+    border: 1px solid rgba(215, 242, 243, 0.89);
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.shift:hover {
+    background-color: #0000ff;
+    color: white;
+}
+.slide.floatright {
+    margin-top: 6px;
+}
+.center-Block {
+    width: 100%;
+    color: #ec8007;
+    padding-bottom: 10px;
+    padding-right: 4px;
+    padding-left: 4px;
+}
+.tableRow{
+    margin-top: 1px;
+}
+.table2images{
+    background-image: url();
+    float: right;
+    margin-right: 75px;
+    padding-right: 22px;
+}
+.tab3ContentWrapper , .tab2ContentWrapper , .tab4ContentWrapper{
+    display: none;
+
+}
+.adminImageWrapper {
+    width:10%;
+	 float: right;
+	 
+}
+/*.table3Image {
+    padding-right: 22px;
+}*/
+.closeActionImg{
+    float:right;
+    margin-right:5px;
+}
+
+.table3Img2{
+background-image: url('../images/file.png');
+width:15px;
+height:15px;
+    margin-top: 4px;
+
+}
+.table3Img1 {
+    background-image: url(../images/file.png);
+    width: 15px;
+    height: 15px;
+    margin-top: 4px;
+}
+.closeActionImg {
+    float: right;
+    /* border: 1px solid red; */
+    margin-right: 5px;
+    margin-top: 4px;
+}
+.actionMailIcon{
+	
+	width:16px;
+	height:12px;
+	  background-image: url(../images/mailIcon.png);
+	  margin:0 auto;
+	
+}
+.innerCol1{
+	width:20%;
+	padding-right:5px;
+	text-align:center;
+}
+.innerCol2{
+	width:15%;
+	padding-left:3px;
+	text-align:center;
+}
+.innerCol3{
+	width:20%;
+	padding-left:3px;
+	text-align:center;
+}
+.innerCol4{
+	width:10%;
+	padding-left:3px;
+	text-align:center;
+}
+.innerCol5{
+	width:15%;
+	text-align:center;
+	text-align:center;
+}
+.innerCol6{
+	width:10%;
+	text-align:center;
+	text-align:center;
+}
+.innerCol7{
+	width:10%;
+	text-align:center;
+	text-align:center;
+}
+.documentDetailHeaderWrapper_case{
+	font-size:13px;
+
+padding-top:10px;
+padding-bottom:10px;	
+border-bottom:1px solid #c2d3db;
+}
+.documentListing_case{
+    float:left;
+    color:#3d3d3f;
+    font-weight:bold;
+
+}
+.mainIconWrapper{
+	margin:0 auto;
+	padding-left:3px;
+	padding-right:3px;
+	text-align:center;
+}
+.adminImageWrapper{
+	
+}
+.caseActionIconsWrapper{
+	float:left;
+}
+.caseIocns{
+	margin-left:5px;
+}
+.caseActionIconsWrapper{
+	 
+	  margin-left:3px;
+	  margin-right:3px;
+	 
+	   
+	
+}
+.caseSubCol{
+	padding-top:5px;
+	padding-bottom:5px;
+	font-size:12px;
+	text-align: center;
+	/*24-01-2017 Anoop*/
+}
+/*24-01-2017 Anoop start*/
+.rdCol6_case{
+    width: 15%;
+    padding-left: 5px;
+    color: black;
+	padding-top:6px;
+}
+.failedCase{
+border: 1px solid #e1b9b9;
+width: 65px;
+text-align: center;
+background-color:#fadcda;
+color:#d61202;
+}
+/*24-01-2017 Anoop end*/
+.hdCol1_workBench{
+	width: 15%;
+    padding-left: 5px;
+    padding-right: 5px;
+    word-wrap: break-word;
+    text-align:center;
+}	
+.hdCol2_workBench{
+	width: 15%;
+    padding-left: 5px;
+    padding-right: 5px;
+    word-wrap: break-word;
+    text-align:center;
+}
+.hdCol3_workBench{
+	width: 15%;
+    padding-left: 5px;
+    padding-right: 5px;
+    word-wrap: break-word;
+    text-align:center;
+}
+.hdCol4_workBench{
+	width: 25%;
+    padding-left: 5px;
+    padding-right: 5px;
+    word-wrap: break-word;
+    text-align:center;
+}
+.hdCol5_workBench{
+	width: 15%;
+    padding-left: 5px;
+    padding-right: 5px;
+    word-wrap: break-word;
+    text-align:center;
+}
+.hdCol6_workBench{
+	width: 15%;
+    padding-left: 5px;
+    padding-right: 5px;
+    word-wrap: break-word;
+    text-align:center;
+}
+.hdCol7_workBench{
+	width: 10%;
+    padding-left: 5px;
+    padding-right: 5px;
+    word-wrap: break-word;
+	text-align:center;
+}
+.rdCol1_workBench{
+    width: 15%;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: black;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    text-align:center;
+}
+.rdCol2_workBench{
+    width: 15%;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: black;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    text-align:center;
+}
+.rdCol3_workBench{
+    width: 15%;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: black;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    text-align:center;
+}
+.rdCol4_workBench{
+    width: 25%;
+    padding-left: 5px;
+    padding-right: 5px;
+	padding-top: 1px;
+    padding-bottom: 1px;
+    text-align:center;
+}
+.rdCol5_workBench{
+    width: 15%;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: black;
+	padding-top: 1px;
+    padding-bottom: 1px;
+    text-align:center;
+}
+.rdCol6_workBench{
+    width: 15%;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: black;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    text-align:center;
+}
+.paddingTop_bottom{
+padding-top:5px;
+padding-bottom:5px;
+}
+.caseWCBenchHeaderTd{
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-left:10px;
+	padding-right:10px;
+	color:#3d3d3f;
+	font-weight:bold;
+	
+	
+}
+.caseWCBenchRowTd{
+	padding-top:5px;
+	padding-bottom:5px;
+	padding-left:10px;
+	padding-right:10px;
+	color:#000000;
+}
+.caseTable{
+	margin-left:15px;
+}
+.caseTableWrapper{
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.paginationMargin{
+	margin-top:5px;
+	margin-bottom:5px;
+}
+/* CSS for QA workbench */
+.hdCol1_qaworkBench{
+	width: 25%;
+    padding-left: 5px;
+    padding-right: 5px;
+    word-wrap: break-word;
+    text-align:center;
+}	
+.hdCol2_qaworkBench{
+	width: 25%;
+    padding-left: 5px;
+    padding-right: 5px;
+    word-wrap: break-word;
+    text-align:center;
+}
+.hdCol3_qaworkBench{
+	width: 25%;
+    padding-left: 5px;
+    padding-right: 5px;
+    word-wrap: break-word;
+    text-align:center;
+}
+.hdCol4_qaworkBench{
+	width: 25%;
+    padding-left: 5px;
+    padding-right: 5px;
+    word-wrap: break-word;
+    text-align:center;
+}
+.rdCol1_qaworkBench{
+    width: 25%;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: black;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    text-align:center;
+}
+.rdCol2_qaworkBench{
+    width: 25%;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: black;
+    padding-bottom: 1px;
+    text-align:center;
+}
+.rdCol3_qaworkBench{
+    width: 25%;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: black;
+    padding-bottom: 1px;
+    text-align:center;
+}
+.rdCol4_qaworkBench{
+    width: 25%;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: black;
+    padding-bottom: 1px;
+    text-align:center;
+}

@@ -1,0 +1,297 @@
+.floatright {
+	float: right;
+}
+
+.overLay {
+	position: fixed;
+	z-index: 100;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	opacity: 0.5;
+}
+
+.myPopupWrapper {
+	position: absolute;
+	z-index: 101;
+	top: 0px;
+	width: 100%;
+}
+
+.popup{
+ 	width: 362px;
+    float: none;
+    padding-bottom: 1px;
+    margin: 0 auto;
+    background-color: #e6f2f8;
+
+}
+.forgot_password{
+    background-color:#49b1cf;
+    color: white;
+    font-size: 15px;
+    padding: 5px 0px 5px 10px;
+}
+.close_button{
+    cursor: pointer;
+    font-size: 20px; 
+    margin-right: 8px;
+    margin-top: -4px;
+}
+.popup_credentials{
+    font-size: 14px;
+    padding-top: 2px;
+    padding-bottom: 1px;
+    color: #282828;
+}
+.popup_button{
+   	padding: 0px 1px 5px 7px;
+    float: left;
+    margin-top: 8px;
+    cursor: pointer;
+}
+.popup_input{
+    width: 100%;
+    height: 28px;
+    border:1px solid rgba(0, 191, 255, 0.2);
+}
+.popup_cancel , .popup_submit{
+   background-color: #1773a2;
+    color: white;
+    border-radius: 6px 6px 6px 6px !important;
+    font-size: 9pt !important;
+    font-weight: ;
+    height: 25px;
+    width: 73px;
+    padding: 3px !important;
+    padding: .3em 1em;
+    border: 0px solid #1773a2;
+    font-family: "Arial",Helvetica,sans-serif;    
+}
+.popup_table {
+    /* padding: 5px 5px 5px 5px;
+    margin: 14px 14px; */
+    margin-left: 14px;
+    margin-right: 14px;
+}
+
+.user {
+	padding-top: 4px;
+}
+
+.my-drop-zone {
+	background-color: #e7f2f8;
+}
+
+label.myLabel input[type="file"] {
+	position: fixed;
+	top: -1000px;
+}
+
+/***** Example custom styling *****/
+.myLabel {
+	display: inline-block;
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 9px;
+	color: white;
+	width: 90px;
+	cursor: pointer;
+	text-align: center;
+	padding: 5px;
+	border: 1px solid transparent;
+	background-color: #1773a2;
+	border-radius: 5px 5px 5px 5px !important;
+	font-family: "Arial", Helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: normal;
+	font-style: normal;
+}
+
+.myLabel:hover {
+	background-color: #1773a2;;
+}
+
+.myLabel:active {
+	background: #1773a2;
+}
+
+.myLabel :invalid+span {
+	color: #A44;
+}
+
+.myLabel :valid+span {
+	color: white;
+}
+
+.uplodedFilesWrapper {
+	
+}
+
+.fileDiv {
+	padding-left: 3px;
+	padding-right: 3px;
+	text-align: center;
+	float: left;
+	margin-right: 3px;
+	width: 70px;
+}
+
+.fileUploadNameClass {
+	word-wrap: break-word;
+	font-size: 12px;
+}
+
+.drop_panel_upload {
+	width: 100%;
+	margin-top: 21px;
+	color: #353535;
+	border-color: #c9d9e1;
+	padding-top: 14px;
+	font-size: 15px;
+	font-style: italic;
+	border-style: dashed;
+	border-width: 2px;
+	text-align: center;
+}
+
+.dropLabelWrapper {
+	font-family: "Arial", Helvetica, sans-serif;
+}
+
+.close_icon {
+	width: 50px;
+	height: 50px;
+	width: 20px;
+	height: 20px;
+	float: right;
+	cursor: pointer;
+}
+
+.doc_icon_large {
+	width: 40px;
+	height: 40px;
+	opacity: 0.9;
+}
+
+.messagepopup {
+	width: 450px;
+	float: none;
+	margin: 0 auto;
+	background-color: #e6f2f8;
+	font-size: 13px;
+}
+
+.messageHeader {
+	width: 420px;
+	margin: 0 auto;
+	border-bottom: 1px solid #dcdcdc;
+	padding-bottom: 10px;
+}
+
+.messagePopUpContent {
+	padding-left:20px;
+	padding-right:20px;
+	margin: 0 auto;
+}
+.paddingStyleCommente{
+	padding-bottom:20px;
+}
+
+.messageText {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: justify;
+}
+
+.messageTextHeader {
+	padding-top: 10px;
+}
+
+.messagemyPopupWrapper {
+	position: fixed;
+	z-index: 101;
+	top: 0px;
+	width: 100%
+}
+/*For add IMAGE*/
+.addNewfileWrapper {
+	width: 63px;
+	height: 84px;
+	text-align: center;
+	/* margin-top: 2px; */
+	padding-top: 20px;
+	float: left;
+}
+
+.addnewImg {
+	margin-top: 2PX;
+	cursor: pointer;
+}
+
+label.myLabel_addImg input[type="file"] {
+	position: fixed;
+	top: -1000px;
+}
+
+/***** Example custom styling *****/
+.myLabel_addImg {
+	display: inline-block;
+	font-style: normal;
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+	/* margin-top: 9px; */
+	/* font-size: 12px; */
+	/* color: white; */
+	/* width: 130px; */
+	cursor: pointer;
+	/* text-align: center; */
+	/* padding: 5px; */
+}
+
+.myLabel_addImg:hover {
+	
+}
+
+.myLabel_addImg:active {
+	background: #CCF;
+}
+
+.myLabel_addImg :invalid+span {
+	color: #A44;
+}
+
+.myLabel_addImg :valid+span {
+	color: white;
+}
+
+.commentTextArea {
+	width: 420px;
+	height: 150px;
+}
+
+.commentButtonWrapper {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.commentButton {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-left: 10px;
+	float: right;
+	color: #ffffff;
+	padding-left: 15px;
+	padding-right: 15px;
+	cursor: pointer;
+	background-color: #1773a2;
+	border-radius: 5px;
+}
+.commentContentScroll{
+ 	 height: 300px;
+    overflow: auto;
+   overflow-x: hidden; 
+}

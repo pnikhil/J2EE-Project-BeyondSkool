@@ -1,0 +1,270 @@
+<div class="header">
+	<h3 class="title">Create Center</h3>
+	<p style="float: right;">
+		<a class="btn btn-success btn-fill" ng-click="goBack()">Go Back</a>
+	</p>
+</div>
+<div class="content">
+	<div class="row">
+		<div class="col-md-5">
+			<div class="table-responsive">
+
+				<div class="bs-center-form">
+					<div class="form-group field-bscenter-owner_name required">
+						<label class="control-label" for="bscenter-owner_name">Owner
+							Name</label> <input type="text" ng-model="ownerName" id="bscenter-owner_name"
+							class="form-control">
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group field-bscenter-mail_id required">
+						<label class="control-label" for="bscenter-mail_id">Email</label>
+						<input ng-blur="checkEmailExist()" type="text" ng-model="emailId" id="bscenter-mail_id" class="form-control">
+						<h6 ng-show="email_exists" class="sc_title sc_title_regular" style="color: #ea624c;">Email already exists. Choose another one</h6>
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group field-bscenter-password required">
+						<label class="control-label" for="bscenter-password">Password</label>
+						<input type="password" ng-model="password" id="bscenter-password" class="form-control">
+
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group field-bscenter-center_name required">
+						<label class="control-label" for="bscenter-center_name">Center
+							Name</label> <input ng-model="centreName" type="text" id="bscenter-center_name"
+							class="form-control" maxlength="250">
+
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group field-bscenter-description">
+						<label class="control-label" for="bscenter-description">Description</label>
+						<textarea id="bscenter-description" ng-model="description" class="form-control" rows="6"></textarea>
+
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group field-bscenter-contact_no required">
+						<label class="control-label" for="bscenter-contact_no">Contact No </label> 
+							<input type="text" id="bscenter-contact_no" ng-model="contactNo" class="form-control">
+						<div class="help-block"></div>
+					</div>
+
+					<div ng-show="centreName.length > 0" class="form-group field-bscenter-img">
+						<label class="control-label" for="bscenter-img">Upload Image(s) <span class="errorRedClass">(LESS THAN 1 MB SIZE)</span></label>
+						<form>							
+							<div class="form-group">
+								<button class="btn btn-primary" ngf-select="uploadFiles($files)"
+									multiple accept="image/*" ngf-max-size="1MB">
+									<i class="glyphicon glyphicon-folder-open"></i>&nbsp;&nbsp;Browse Files</button>
+							</div>
+							<div ng-repeat="file in files">
+								<img ngf-thumbnail="file" class="thumb"
+									ngf-size="{width: 100, height: 100, quality: 0.9}">
+							</div>
+							<div ng-show="files.length>0">Files uploaded:</div>
+							<div class="uploadedfile" ng-repeat="f in files"
+								style="font: smaller">
+								<!-- FILE -->
+								<i class="glyphicon glyphicon-file"></i><span
+									ng-class="{removed: f.removed}">{{f.name}}
+									{{f.$errorParam}}</span>
+								<!-- PROGRESS -->
+								<!-- <div class="progress" ng-show="f.progress >= 0">
+									<div class="progress-bar progress-bar-success"
+										role="progressbar" aria-valuenow="{{f.progress}}"
+										aria-valuemin="0" aria-valuemax="100"
+										style="width: {{f.progress">
+										<span class="sr-only">{{f.progress}}% Complete</span>
+										{{f.progress}}%
+									</div>
+								</div> -->
+							</div>
+							{{errorMsg}}
+						</form>
+						<div class="help-block"></div>
+					</div>
+
+					<div class="panel panel-default" style="width: 950px;">
+						<div class="panel-heading">
+							<h2 class="panel-title pull-left">Activities</h2>
+							<div class="clearfix"></div>
+						</div>
+						<div class="panel-body">
+							<div class="dynamicform_wrapper">
+								<div class="container-items" data-ng-repeat="activity in activities">
+									<!-- widgetContainer -->
+									<div ng-modal="{{activity.id}}" class="item panel panel-default">
+										<!-- widgetBody -->
+										<div class="panel-heading">
+											<h3 class="panel-title pull-left">Activity</h3>
+											<div class="pull-right">
+												<button type="button" ng-click="addNewActivity()"
+													class="add-item btn btn-success btn-xs">
+													<i class="glyphicon glyphicon-plus"></i>
+												</button>
+												<button type="button" ng-click="removeNewActivity()"
+													class="remove-item btn btn-danger btn-xs">
+													<i class="glyphicon glyphicon-minus"></i>
+												</button>
+											</div>
+											<div class="clearfix"></div>
+										</div>
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-sm-3">
+													<div class="form-group field-bscenteractivity-0-day">
+														<label class="control-label" for="bscenteractivity-0-day">Day</label>
+														<select ng-model="activity.day" id="bscenteractivity-0-day" class="form-control">
+															<option value="">Select Day</option>
+															<option value="Monday">Monday</option>
+															<option value="Tuesday">Tuesday</option>
+															<option value="Wednesday">Wednesday</option>
+															<option value="Thursday">Thursday</option>
+															<option value="Friday">Friday</option>
+															<option value="Saturday">Saturday</option>
+															<option value="Sunday">Sunday</option>
+															<option value="Weekends">Weekends</option>
+															<option value="All Weekdays">All Weekdays</option>
+															<option value="All Days">All Days</option>
+														</select>
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="form-group field-bscenteractivity-0-in_time">
+														<label class="control-label"
+															for="bscenteractivity-0-in_time">Time (From)</label> 
+															<input ng-model="activity.fromTime" type="time"  placeholder="yyyy-MM-dd HH:mm:ss" min="2001-01-01T00:00:00" max="2013-12-31T00:00:00" class="form-control">
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="form-group field-bscenteractivity-0-out_time">
+														<label class="control-label" for="bscenteractivity-0-out_time">Until</label> 
+														<input ng-model="activity.toTime" type="time" class="form-control"  placeholder="yyyy-MM-ddTHH:mm:ss" min="2001-01-01T00:00:00" max="2018-12-31T00:00:00" >
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div
+														class="form-group field-bscenteractivity-0-activity_id required">
+														<label class="control-label" for="bscenteractivity-0-activity_id">Activity</label> 
+															<select ng-model="activity.activityId" id="bscenteractivity-0-activity_id" class="form-control">
+																<option value="">Select</option>
+																	<option ng-repeat="activity in activityData" value="{{activity.id}}">{{activity.activityName}}</option>
+															</select>
+														<div class="help-block"></div>
+													</div>
+												</div>
+												</div>
+												<div class="row">
+												<div class="col-sm-3">
+													<div
+														class="form-group field-bscenteractivity-0-age_group_id">
+														<label class="control-label" for="bscenteractivity-0-age_group_id">From Age</label> 
+														<select  ng-model="activity.fromAge" id="bscenteractivity-0-age_group_id" class="form-control">
+															<option value="">Select Age</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+															<option value="6">6</option>
+															<option value="7">7</option>
+															<option value="8">8</option>
+															<option value="9">9</option>
+															<option value="10">10</option>
+															<option value="11">11</option>
+															<option value="12">12</option>
+															<option value="13">13</option>
+															<option value="14">14</option>
+															<option value="15">15</option>
+															<option value="16">16</option>
+														</select>
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div
+														class="form-group field-bscenteractivity-0-to_age_group_id">
+														<label class="control-label" for="bscenteractivity-0-to_age_group_id">To Age</label> 
+														<select  ng-model="activity.toAge" id="bscenteractivity-0-to_age_group_id"
+															class="form-control">
+															<option value="">Select Age</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+															<option value="6">6</option>
+															<option value="7">7</option>
+															<option value="8">8</option>
+															<option value="9">9</option>
+															<option value="10">10</option>
+															<option value="11">11</option>
+															<option value="12">12</option>
+															<option value="13">13</option>
+															<option value="14">14</option>
+															<option value="15">15</option>
+															<option value="16">16</option>
+														</select>
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="form-group field-bscenteractivity-0-amount">
+														<label class="control-label">Amount</label>
+														<input  ng-model="activity.amount" type="number" class="form-control">
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="form-group field-bscenteractivity-0-amount">
+														<label class="control-label">Total Slots</label>
+														<input  ng-model="activity.totalSlots" type="number" class="form-control">
+														<div class="help-block"></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group field-bscenter-city_id">
+						<label class="control-label" for="bscenter-city_id">City</label> 
+						<select ng-change="getAreaNames(city)" ng-model="city" class="form-control">
+						<option value="">Select City</option>
+							<option ng-repeat="city in cityData" value="{{city.id}}">{{city.cityName}}</option>
+						</select>
+
+						<div class="help-block"></div>
+					</div>
+					<div ng-show="city.length> 0" class="form-group field-bscenter-area_id">
+						<label class="control-label" for="bscenter-area_id">Area</label> 
+						<select ng-model="area" class="form-control">
+						<option value="">Select Area</option>
+							<option ng-repeat="area in areaData" value="{{area.id}}">{{area.areaName}}</option>
+						</select>
+
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group field-bscenter-address required">
+						<label class="control-label" for="bscenter-address">Address</label>
+						<textarea id="bscenter-address" ng-model="address" class="form-control" rows="6"></textarea>
+						<div class="help-block"></div>
+					</div>
+
+					<div class="form-group field-bscenter-status required">
+						<label class="control-label" for="bscenter-status">Status</label>
+						<select id="bscenter-status" ng-model="status" class="form-control">
+							<option value="">Select Status</option>
+							<option value="Active">Active</option>
+							<option value="Active">Inactive</option>
+						</select>
+
+						<div class="help-block"></div>
+					</div>
+					<div class="form-group">
+						<button ng-click="createCentre()" class="btn btn-success btn-fill">Create</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

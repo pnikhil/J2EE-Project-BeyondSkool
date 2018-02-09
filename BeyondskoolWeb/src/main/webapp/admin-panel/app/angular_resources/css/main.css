@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700,300");
+@import url("../theme/css/bootstrap.min.css");
+@import url("style.css");
+/*Animation library for notifications   */
+@import url("../theme/css/animate.min.css");
+/* Light Bootstrap Table core CSS    */
+@import url("../theme/css/light-bootstrap-dashboard.css");
+@import url("toaster.min.css");
+/*      Fonts and icons    */
+@import url("../theme/css/font-awesome.min.css");
+@import url("../theme/css/pe-icon-7-stroke.css");

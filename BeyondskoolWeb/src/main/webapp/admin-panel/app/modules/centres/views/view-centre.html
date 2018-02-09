@@ -1,0 +1,199 @@
+<div class="content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="table-responsive">
+				<h3 class="title">View Centre</h3>
+				<p style="float: right;">
+					<a class="btn btn-primary btn-fill" ng-click="updateCentreButton(centreInfo)">Update Centre</a>
+					<a class="btn btn-success btn-fill" ng-click="goBack()">Go Back</a>
+				</p>
+				<table class="table">
+					<tbody>
+						<tr>
+							<th>ID</th>
+							<td>{{centreInfo.id}}</td>
+						</tr>
+						<tr>
+							<th>Center Name</th>
+							<td>{{centreInfo.centreName}}</td>
+						</tr>
+						<tr>
+							<th>Owner Name</th>
+							<td>{{centreInfo.ownerName}}</td>
+						</tr>
+						<tr>
+							<th>Email</th>
+							<td>{{centreInfo.mailId}}</td>
+						</tr>
+						<tr>
+							<th>Description</th>
+							<td>{{centreInfo.description}}</td>
+						</tr>
+						<tr>
+							<th>Contact No</th>
+							<td>{{centreInfo.contactNo}}</td>
+						</tr>						
+						<tr>
+							<th>City Name</th>
+							<td>{{centreInfo.cityName}}</td>
+						</tr>
+						<tr>
+							<th>Area Name</th>
+							<td>{{centreInfo.areaName}}</td>
+						</tr>
+						<tr>
+							<th>Address</th>
+							<td>{{centreInfo.address}}</td>
+						</tr>
+						<tr>
+							<th>Status</th>
+							<td>{{centreInfo.status}}</td>
+						</tr>
+					</tbody>
+				</table>
+				<br>
+				<h3>Images</h3>
+				<!-- <div class="row">
+				<div ng-repeat="image in centreInfo.imagePath">
+				<div class="col-md-3" style="margin-right:50px;">
+					
+						</div>
+				</div>
+				</div> -->				
+				<div class="row">
+					<div ng-show="centreInfo.imagePath!= ''" ng-repeat="image in centreInfo.imagePath" class="col-lg-3 col-md-4 col-xs-6 thumb">
+							<a class="thumbnail" data-toggle="modal" data-target="#myModal_{{$index}}"> <img class="img-responsive"
+								style="width: 200px;height: 200px;" ng-src="../uploads/{{centreInfo.centreName}}_{{centreInfo.imageDirId}}/{{image}}"
+								height="250" alt="{{centreInfo.centreName}}"></a>
+								<div class="caption text-center" style="text-decoration: none;cursor: default;"><button style="margin-top:-20px" ng-click="deleteImage(centreInfo.centreName,image,centreInfo.id,centreInfo.imageDirId)" class="btn btn-danger btn-simple btn-xs">
+																	<i class="fa fa-trash-o fa-2x"></i></button></div>
+							
+					</div>
+					<h6 style="margin-left:20px;" ng-show="centreInfo.imagePath == ''">No Images uploaded so far.</h6>
+				</div>
+				</div>
+
+				<br />
+				<h3 class="title">Activities Class List</h3>
+				<br>
+
+				<div id="w1" class="grid-view">
+					<div class="summary">
+						Showing <b>{{centreActivities.length}}</b> items.
+					</div>
+					<table class="table">
+						<thead>
+							<tr>
+								<th><a>#</a></th>
+								<th><a>Days</a></th>
+								<th><a data-sort="in_time">From - To (Time)</a></th>
+								<th><a>Start - End Date</a></th>								
+								<th><a>Activity Name</a></th>
+								<th><a>From - To (Age)</a></th>
+								<th><a data-sort="amount">Amount</a></th>
+								<th><a>Slots Remaining</a></th>
+								<th><a>Duration</a></th>
+								<th><a>Description</a></th>
+								<th><a>Delete</a></th>
+								<th><a>Edit</a></th>
+							</tr>
+						</thead>
+						<tbody ng-repeat="activity in centreActivities">
+							<tr>
+								<td>{{$index+1}}</td>
+								<td>{{activity.dayData}}</td>
+								<td>{{activity.inTime | date:'hh:mm a'}} - {{activity.outTime | date:'hh:mm a'}}</td>
+								<td>{{activity.startDate}} - {{activity.endDate}}</td>
+								<td>{{activity.activityName}}</td>
+								<td>{{activity.fromAge}} - {{activity.toAge}} years</td>
+								<td>{{activity.amount}}</td>
+								<td>{{activity.totalSlots}}</td>
+								<td>{{activity.duration}}</td>
+								<td>{{activity.classDescription}}</td>
+								<td><a title="Delete" data-toggle="modal"
+													data-target="#myModal_delete_{{activity.centreActivityId}}" aria-label="Delete">
+														<button class="btn btn-danger btn-simple btn-xs">
+															<i class="fa fa-trash-o"></i>
+														</button>
+												</a></td>
+												<td><a title="Update" ng-click="updateActivityButton(activity)" data-toggle="modal"
+													data-target="#myModal_edit_{{activity.centreActivityId}}" aria-label="Update"><button
+																	class="btn btn-info btn-simple btn-xs">
+																	<i class="fa fa-pencil-square-o"></i></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div ng-repeat="image in centreInfo.imagePath">
+<div class="modal fade" data-backdrop="false" id="myModal_{{$index}}" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<img ng-src="../uploads/{{centreInfo.centreName}}_{{centreInfo.imageDirId}}/{{image}}"
+								height="500" width="500" alt="{{centreInfo.centreName}}">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+</div>
+
+<div ng-repeat="activity in centreActivities">
+		<div data-backdrop="false" class="modal fade"
+			id="myModal_delete_{{activity.centreActivityId}}" role="dialog" style="margin-top:50px;">
+			<div class="modal-dialog modal-lg">
+				<!-- Modal content-->
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Delete the Activity Class - {{activity.activityName}}</h4>
+					</div>
+					<div class="modal-body">
+						<h4>Activity Class Details</h4>
+						<table class="table table-striped">
+										<thead>
+											<tr>
+								<th><a>#</a></th>
+								<th><a>Days</a></th>
+								<th><a data-sort="in_time">From - To (Time)</a></th>
+								<th><a>Start - End Date</a></th>								
+								<th><a>Activity Name</a></th>
+								<th><a>From - To (Age)</a></th>
+								<th><a data-sort="amount">Amount</a></th>
+								<th><a>Slots Remaining</a></th>
+								<th><a>Duration</a></th>
+								<th><a>Description</a></th>
+							</tr>
+						</thead>
+						<tbody ng-repeat="activity in centreActivities">
+							<tr>
+								<td>{{$index+1}}</td>
+								<td>{{activity.dayData}}</td>
+								<td>{{activity.inTime | date:'hh:mm a'}} - {{activity.outTime | date:'hh:mm a'}}</td>
+								<td>{{activity.startDate}} - {{activity.endDate}}</td>
+								<td>{{activity.activityName}}</td>
+								<td>{{activity.fromAge}} - {{activity.toAge}} years</td>
+								<td>{{activity.amount}}</td>
+								<td>{{activity.totalSlots}}</td>
+								<!-- <td>{{activity.slotsRemaining}}</td> -->
+								<td>{{activity.duration}}</td>
+								<td>{{activity.classDescription}}</td>
+											</tr>
+										</tbody>
+									</table>
+						
+						
+						<p>Do you want to delete {{activity.activityName}}?</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal"
+							ng-click="deleteActivityFromCentre(activity.centreActivityId)">Yes</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<div centre-frame template-path="app/modules/centres/views/update-centre-activities.html"></div>

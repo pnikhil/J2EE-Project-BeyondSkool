@@ -1,0 +1,196 @@
+.top_container{
+	background-color:#f4fafe;
+}
+.container_in{
+    width: 95%;
+    margin: 0 auto;
+	padding-top:0px;/*24-01-2017 Anoop*/
+    padding-bottom: 10px;
+}
+.horizontal_line{
+	background-color:#dee4e7;
+	width:100%;
+	height:1px;
+}
+.tab_header_selected{
+    text-align: center;
+    padding-top: 6px;
+	width:160px;
+	height:35px;
+	border-style:solid;
+	border-width:1px;float:left;
+	border-color:#b7ecfb;
+	border-bottom:none;
+	    margin-left: 2px;
+	background-color:#cff3fd;
+	cursor:pointer;
+}
+.tab_header_container{
+	width :100%;
+}
+.tab_header{
+    text-align: center;
+    padding-top: 6px;
+	width:160px;
+	float:left;
+	height:35px;
+	border-style:solid;
+	border-width:1px;
+	border-color:#b7ecfb;
+	border-bottom:none;
+	 margin-left: 2px;
+	background-color:#e8f8fc;
+	cursor:pointer;
+}
+.tab_content{
+	float:left;
+	width :100%;	 
+	margin-left: 2px;
+	background-color:#cff3fd;
+	border-width:1px;
+	min-height: 300px;/*24-01-2017 Anoop*/	
+}
+.right_side_tools {
+    width: 20%;
+    margin-top: 9px;
+    float: right;
+    margin-bottom: 9px;/*24-01-2017 Anoop*/	
+}
+
+
+.right_side_tools input{
+	width:70%;
+	    border-radius: 0px;
+	
+}
+.search_box{
+	width:70%;    float: left;
+}
+.icon_buttons{
+width:30%;
+float:left;
+}
+.icon_buttons button{
+height: 33px;
+    border: none;
+    border-radius: 0px;
+    margin-left: 3px;
+    background-color: #044e96;
+    color: #f4fafe;
+}
+.no_pading{
+	padding:0px;
+}
+
+/*24-01-2017 Anoop start*/
+.input-group.stylish-input-group {
+    width: 27%;
+}
+/*24-01-2017 Anoop end*/
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	
+    border-color: #cceafb;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+/*24-01-2017 Anoop start*/
+.admin_tab_content{
+	float: left;
+    width: 100%;
+    background-color: #cff3fd;
+    min-height: 300px;
+}
+.displayTab{
+display:block;
+}
+.hideTab{
+display:none;
+}
+.icon_buttons_role{
+padding-right:5px;
+}
+.icon_buttons_role button{
+height: 33px;
+    border: none;
+    border-radius: 0px;
+    margin-left: 3px;
+    background-color: #044e96;
+    color: #f4fafe;
+}
+.refresh_icon{
+    width: 23px;border-radius: 5px;
+	background-color:#014e98;
+    margin-left: 3px;
+    height: 23px;
+    cursor: pointer;
+}
+.refresh_icon > div {
+  	background-position: -1px -1px;
+    background-size: 24px;
+    width: 23px;
+    height: 23px;
+    background-image: url(../images/refresh.png);
+
+}
+
+
+.refresh_icon_rotation{
+	border-radius: 5px;
+    width: 23px;
+	background-color:#014e98;
+    margin-left: 3px;
+    height: 23px;
+    cursor: pointer;
+	  
+}
+.refresh_icon_rotation > div{
+	background-position: -1px -1px;
+    background-size: 24px;
+    width: 23px;
+    height: 23px;
+    background-image: url(../images/refresh.png);
+    -webkit-animation: spin 2s linear infinite;
+    -moz-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.searchBoX-role {
+    width: 200px;
+    position: relative;
+}
+.searchbox_role_icon{
+	position: absolute;
+    top: 5px;
+    z-index: 101;
+    background-color: #ffffff;
+    right: 3px;
+    background-image: url('../images/searchIcon.png');
+}
+.iconBar{
+	padding-top:10px;
+	padding-bottom:10px;
+}
+.searching_Icons{
+    width: 198px;
+
+}
+.searchBox_role{
+	padding-left: 5px;
+    padding-top: 4px;
+    padding-bottom: 5px;
+    width: 200px;
+    padding-right: 20px;
+    color: #585858;
+	 border: 1px solid #cceafb;
+}
+/*24-01-2017 Anoop end*/

@@ -1,0 +1,114 @@
+<div id="topOfPage" class="topTabsWrap">
+	<div class="main">
+		<div class="speedBar">
+			<a class="home" ui-sref="home">Home</a> <span
+				class="breadcrumbs_delimiter"> <i
+				class="icon-right-open-mini"></i>
+			</span> <span class="current">Center Details</span>
+		</div>
+		<h3 class="pageTitle h3">Center Details</h3>
+	</div>
+</div>
+
+<div ng-controller="viewCentre" class="mainWrap without_sidebar">
+				<div class="main">
+					<div class="content">
+						<section class="post post_format_standard postAlter hrShadow no_padding">
+							<div class="container">
+								<article class="post_content">									
+									<h1 class="post_title entry-title">{{centreData.centreName}}</h1>
+									<div class="post_text_area">
+										<p>{{centreData.description}}</p>										
+									</div>
+                                    <div>Location: <b>{{centreData.cityName}}</b></div>
+                                    <div>Area: <b>{{centreData.areaName}}</b></div>
+								</article>
+							</div>
+						</section>
+
+			<section
+				class="post post_format_standard postAlter hrShadow no_padding">
+				<div class="container">
+					<article class="post_content">
+						<h1 class="post_title entry-title">Centre Images</h1>
+						<div ng-repeat="image in imageArray"
+							class="col-lg-4 col-md-6 col-xs-6 thumb">
+							<a class="thumbnail"> <img class="img-responsive"
+								ng-src="uploads/{{centreData.centreName}}/{{image}}" alt="{{centreData.centreName}}">
+								
+							</a>
+						</div>
+
+					</article>
+				</div>
+			</section>
+
+			<section class="post post_format_standard postAlter hrShadow no_padding">
+				<div class="sc_content main">
+					<h2 class="sc_title style_6 sc_title_regular">Activities</h2>
+					<div class="woocommerce columns-6">
+						<div ng-repeat="activityData in centreData.activityList" class="col-lg-3 col-md-4 col-xs-6 thumb">
+							<a class="thumbnail" data-toggle="modal" data-target="#myModal_{{activityData.id}}"> <img class="img-responsive"
+								style="width: 200px;height: 200px;" ng-src="uploads/{{activityData.imagePath}}" alt="{{activityData.activityName}}">
+								<div class="caption text-center" style="text-decoration: none;cursor: default;">{{activityData.activityName}}</div>
+							</a>
+						</div>
+						<h6 class="text-center" ng-show="centreData.activityList.length == 0">No Activities Added</h6>
+					</div>
+				</div>
+			</section>
+
+				<h2 class="sc_title style_6 sc_title_regular">Location</h2>
+										<h3>Venue</h3>
+										<p>{{centreData.address}}</p>
+										<h2>Organizer</h2>
+										<dl>
+											<dd>{{centreData.ownerName}}</dd>
+											<dt>Email:</dt>
+											<dd class="email">
+												<a href="mailto:{{centreData.mailId}}">{{centreData.mailId}}</a>
+											</dd>
+											<dt>Contact No:</dt>
+											<dd class="url">{{centreData.contactNo}}</dd>
+										</dl>
+									</div>
+								</div>
+							</div>
+
+<div ng-include src="'app/modules/commons/views/footer.html'"></div>
+<div ng-controller="viewCentre">
+<div ng-repeat="activityData in centreData.activityList" id="myModal_{{activityData.id}}" class="modal fade" style="margin-top:50px;" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">   
+     <div class="modal-header">
+          <img id="model-img" src="uploads/{{activityData.imagePath}}" width="50px" style="margin-top: 8px;">  
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3 class="modal-title">{{activityData.activityName}}</h3>
+       </div>
+      <div class="modal-body">
+     	 <h6>Class Description:</h6> <p>{{activityData.classDescription}}</p>
+        <h6>Offered between (Timings): {{activityData.inTime  | date:'hh:mm a'}} - {{activityData.outTime  | date:'hh:mm a'}}</h6>
+        <h6>Slots Remaining: {{activityData.slotsRemaining}}</h6>
+        <h6>Age Group: {{activityData.fromAge}} - {{activityData.toAge}}</h6>
+        <h6>Days on which offered - {{activityData.day}}</h6>
+        <h6>Class Duration - {{activityData.duration}}</h6>
+        <h6>Class Charge - Rs. {{activityData.amount}}</h6>
+        <div ng-hide="isParentLoggedIn" class=" col-md-10 col-md-offset-1 margin_top_middle alert alert-danger">
+ 			You need to be signed in as a Parent to book a class. Login here - <a target="_blank" ui-sref="login">link</a>	
+		</div>
+       <div ng-show="isParentLoggedIn"><button class="btn btn-success" ng-hide="bookClick" ng-click="bookSlotButton()" ng-disabled="activityData.slotsRemaining === 0">Book your slot</button></div> 
+      <div ng-show="bookClick">
+      <label for="date">Choose date
+      <input type="datetime-local" id="date" placeholder="dd-mm-yyyy --:--" ng-model="bookingDate" style="margin-top:20px;" class="form-control"></label>
+      </div>
+      </div>
+      <div class="modal-footer">
+      	<button type="button" ng-show="bookClick" ng-click="bookSlot(activityData.id, bookingDate, activityData.amount)" class="btn btn-primary" data-dismiss="modal">Book</button>
+        <button type="button" ng-click="reset()" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>

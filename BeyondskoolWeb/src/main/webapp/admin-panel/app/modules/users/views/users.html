@@ -1,0 +1,227 @@
+<div ng-include src="'app/modules/commons/views/sidebar.html'"></div>
+<div class="main-panel">
+	<div ng-include src="'app/modules/commons/views/topbar.html'"></div>
+<style>
+label {
+	width: 175px;
+}
+
+#bsuser-interested_activities, #bsuser-already_known_activities {
+	margin-left: 10%;
+}
+</style>
+	<div class="content">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card" ng-show="userState==='display'">
+            	<div class="header">
+                <h3 class="title">Users</h3>
+                <p style="float: right;margin-top: -25px;">
+                    <button class="btn btn-success btn-fill" ng-click="createUserButton()">Create User</button>                
+                 </p>
+           		 </div>
+					<div class="content">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="table-responsive">
+										<div id="w0" class="grid-view">
+											<div ng-show="currentPage === 1">
+												Showing <b>{{currentPage}}</b> to <b>{{entryLimit}}</b> items of total <b>{{userData.length}}</b> items.
+											</div>
+											<div ng-show="currentPage !== 1 && currentPage !== noOfPages" class="summary">
+												Showing <b>{{(entryLimit*(currentPage-1)) + 1}}</b> to <b>{{(entryLimit*(currentPage))%totalItems}}</b> items of total <b>{{centreData.length}}</b> items.
+											</div>
+											
+											<div ng-show="currentPage === noOfPages && currentPage !== 1" class="summary">
+												Showing <b>{{(entryLimit*(currentPage-1)) + 1}}</b> to <b>{{totalItems}}</b> items of total <b>{{userData.length}}</b> items.
+											</div>
+											<div class="slide pull-right">
+												<ul uib-pagination total-items="totalItems"
+													items-per-page="entryLimit" ng-model="currentPage"
+													max-size="maxSize" class="pagination-sm paginationMargin"
+													boundary-links="true"></ul>
+											</div>
+											<div class="myClear"></div>
+											<table class="table">
+												<thead>
+													<tr>
+														<th><a>#</a></th>
+														<!-- <th><a data-sort="beyondskool_id">Beyondskool ID</a></th> -->
+														<th><a data-sort="parent_name">Parent Name</a></th>
+														<th><a data-sort="child_name">Child Name</a></th>
+														<th><a data-sort="email">Email</a></th>
+														<th><a data-sort="father_mobile_no">Father Mobile
+																No</a></th>
+														<th><a data-sort="address">Address</a></th>
+														<th class="action-column">&nbsp;</th>
+													</tr>
+													<tr id="w0-filters" class="filters">
+														<td>&nbsp;</td>
+														<!-- <td><input type="text" class="form-control" ng-model="search.beyondskoolId"></td> -->
+														<td><input type="text" class="form-control" ng-model="search.parentName"></td>
+														<td><input type="text" class="form-control" ng-model="search.childName"></td>
+														<td><input type="text" class="form-control" ng-model="search.email"></td>
+														<td><input type="text" class="form-control" ng-model="search.fatherMobileNo"></td>
+														<td><input type="text" class="form-control" ng-model="search.address"></td>
+														<td>&nbsp;</td>
+													</tr>
+												</thead>
+												<tbody ng-repeat="user in (userDataResults = (userData | filter: search : strict | limitTo: entryLimit : (currentPage-1)*entryLimit))">
+													<tr data-key="1">
+														<td>{{user.userId}}</td>
+														<!-- <td>{{user.beyondskoolId}}</td> -->
+														<td>{{user.parentName}}</td>
+														<td>{{user.childName}}</td>
+														<td><a href="mailto:{{user.email}}" target="_blank">{{user.email}}</a></td>
+														<td>{{user.fatherMobileNo}}</td>
+														<td>{{user.address}}</td>
+														<td><a title="View" ng-click="view(user)" aria-label="View"><button
+																	class="btn btn-success btn-simple btn-xs">
+																	<i class="fa fa-eye"></i>
+																</button></a> <!-- <a title="Update" aria-label="Update"><button
+																	class="btn btn-info btn-simple btn-xs">
+																	<i class="fa fa-edit"></i>
+																</button></a> --> <a title="Delete" aria-label="Delete"
+																data-toggle="modal" data-target="#myModal_{{user.userId}}" ><button
+																	class="btn btn-danger btn-simple btn-xs">
+																	<i class="fa fa-times"></i>
+																</button></a></td>
+													</tr>
+												</tbody>
+											</table>											
+											<h4 ng-show="userDataResults.length == 0" class="text-center">No Result Found</h4>
+											<div class="slide pull-right">
+												<ul uib-pagination total-items="totalItems"
+													items-per-page="entryLimit" ng-model="currentPage"
+													max-size="maxSize" class="pagination-sm paginationMargin"
+													boundary-links="true"></ul>
+											</div>
+											<div class="myClear"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+	<div class="card" id="createUser" ng-show="userState==='create'" user-frame template-path="app/modules/users/views/newUser.html"></div>
+					<div class="card" ng-show="userState==='view'" id="viewUserDetails">
+						<div class="content">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="table-responsive">
+										<h3 class="title">View User</h3>
+										<p style="float: right;">
+											<!-- <button class="btn btn-primary btn-fill">Update</button> -->
+											<a class="btn btn-success btn-fill" ng-click="goBack()">Go Back</a>
+										</p>
+
+										<table class="table">
+											<tbody>
+												<tr>
+													<th>User ID</th>
+													<td>{{userInfo.userId}}</td>
+												</tr>
+												<!-- <tr>
+													<th>Beyondskool ID</th>
+													<td>{{userInfo.beyondskoolId}}</td>
+												</tr> -->
+												<tr>
+													<th>Parent Name</th>
+													<td>{{userInfo.parentName}}</td>
+												</tr>
+												<tr>
+													<th>Child Name</th>
+													<td>{{userInfo.childName}}</td>
+												</tr>
+												<tr>
+													<th>Age</th>
+													<td>{{userInfo.age}}</td>
+												</tr>
+												<tr>
+													<th>Gender</th>
+													<td>{{userInfo.gender}}</td>
+												</tr>
+												<tr>
+													<th>Email</th>
+													<td><a href="mailto:{{userInfo.email}}"
+														target="_blank">{{userInfo.email}}</a></td>
+												</tr>
+												<tr>
+													<th>Father Mobile No</th>
+													<td>{{userInfo.fatherMobileNo}}</td>
+												</tr>
+												<tr>
+													<th>Mother Mobile No</th>
+													<td>{{userInfo.motherMobileNo}}</td>
+												</tr>
+												<tr>
+													<th>Address</th>
+													<td>{{userInfo.address}}</td>
+												</tr>
+												<tr>
+													<th>Standard</th>
+													<td>{{userInfo.standard}}</td>
+												</tr>
+												<tr>
+													<th>School</th>
+													<td>{{userInfo.school}}</td>
+												</tr>
+												<tr>
+													<th>City</th>
+													<td>{{userInfo.city}}</td>
+												</tr>
+												<tr>
+													<th>Area</th>
+													<td>{{userInfo.area}}</td>
+												</tr>
+												<tr>
+													<th>Interested Activities</th>
+													<td>{{userInfo.interestedActivities}}</td>
+												</tr>												
+												<tr>
+													<th>Applicable Timings</th>
+													<td>{{userInfo.applicableTimings}}</td>
+												</tr>
+												<tr>
+													<th>Preference</th>
+													<td>{{userInfo.preference}}</td>
+												</tr>
+												<tr>
+													<th>Status</th>
+													<td>{{userInfo.status}}</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+					
+				</div>
+			</div>
+	</div>
+	<div ng-include src="'app/modules/commons/views/footer.html'"></div>
+</div>
+<div ng-repeat="user in userData">
+		<div class="modal fade" id="myModal_{{user.userId}}" role="dialog">
+			<div class="modal-dialog">				
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title">Delete User</h4>
+					</div>
+					<div class="modal-body">
+						<p>Do you want to delete {{user.parentName}} with BeyondSkool ID: {{user.beyondskoolId}}?</p>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="deleteUser(user.userId,user.beyondskoolId)">Yes</button>
+						<button type="button" 
+							class="btn btn-default" data-dismiss="modal">No</button>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>

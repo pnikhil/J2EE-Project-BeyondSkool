@@ -1,0 +1,242 @@
+<div class="widgetTabs ui-tabs ui-widget ui-widget-content ui-corner-all">
+<div id="topOfPage" class="topTabsWrap">
+		<div class="main">
+			<div class="speedBar">
+				<a class="home" ui-sref="home">Home</a> <span class="breadcrumbs_delimiter"><i class="icon-right-open-mini"></i>
+				</span> <span class="current">My Centre</span>
+			</div>
+			<h3 class="pageTitle h3">Add Activity</h3>
+		</div>
+	</div>
+
+<div class="mainWrap without_sidebar">
+		<div class="main">
+			<div class="content">
+				<section class="no_padding">
+					<div class="container">								
+						<div class="columnsWrap col-md-11  margin_bottom_middle">
+						<p style="float: right;">
+								<button class="btn btn-success btn-fill" style="margin-top:20px;"ng-click="goBack()">Go Back</button>
+						</p>
+						<h3 class="pageTitle h3">Add Activity</h3>
+						
+						<div class="bs-center-form">
+					<div class="panel panel-default" style="width: 950px;">
+						<div class="panel-heading">
+							<h2 class="panel-title pull-left">Activities</h2>
+							<div class="clearfix"></div>
+						</div>
+						<div class="panel-body">
+							<div class="dynamicform_wrapper">
+							<form name="userForm" ng-submit="addActivity()" novalidate>
+								<div class="container-items" data-ng-repeat="activity in activities">
+									
+									<div ng-modal="{{activity.id}}" class="item panel panel-default">
+										
+										<div class="panel-heading">
+											<h3 class="panel-title pull-left">Activity</h3>
+										
+											<div class="pull-right">
+												<button type="button" ng-click="addNewActivity()"
+													class="add-item btn btn-success btn-xs">
+													<i class="glyphicon glyphicon-plus"></i>
+												</button>
+												<button type="button" ng-click="removeNewActivity()"
+													class="remove-item btn btn-danger btn-xs">
+													<i class="glyphicon glyphicon-minus"></i>
+												</button>
+											</div>
+											<div class="clearfix"></div>
+										</div>
+										<div class="panel-body">
+											<div class="row">
+												<div class="col-sm-3">
+													<div class="form-group field-bscenteractivity-0-day" ng-class="{ 'has-error' : (userForm.day.$invalid && !userForm.day.$pristine) || (userForm.$submitted && userForm.day.$invalid) }">
+														<label class="control-label" for="bscenteractivity-0-day">Days Offered <span style="color:red;font-weight:bold;">(Use Ctrl for selecting multiple)</span></label>
+														<select multiple required name="day" ng-model="activity.day" id="bscenteractivity-0-day" class="form-control">
+															<option value="">Select Day</option>
+															<option value="Monday">Monday</option>
+															<option value="Tuesday">Tuesday</option>
+															<option value="Wednesday">Wednesday</option>
+															<option value="Thursday">Thursday</option>
+															<option value="Friday">Friday</option>
+															<option value="Saturday">Saturday</option>
+															<option value="Sunday">Sunday</option>
+															<option value="Weekends">Weekends</option>
+															<option value="All Weekdays">All Weekdays</option>
+															<option value="All Days">All Days</option>
+														</select>
+														<p ng-show="(userForm.day.$invalid && !userForm.day.$pristine) || (userForm.$submitted && userForm.day.$invalid)" class="help-block">Day is required.</p>
+						
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="form-group field-bscenteractivity-0-in_time" ng-class="{ 'has-error' : (userForm.fromTime.$invalid && !userForm.fromTime.$pristine) || (userForm.$submitted && userForm.fromTime.$invalid) }">
+														<label class="control-label"
+															for="bscenteractivity-0-in_time">(Timings) From</label> 
+															<input required name="fromTime" ng-model="activity.fromTime" type="time"  placeholder="yyyy-MM-dd HH:mm:ss" min="2001-01-01T00:00:00" max="2013-12-31T00:00:00" class="form-control">
+														<p ng-show="(userForm.fromTime.$invalid && !userForm.fromTime.$pristine) || (userForm.$submitted && userForm.fromTime.$invalid)" class="help-block">From time is required.</p>
+						
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="form-group field-bscenteractivity-0-out_time" ng-class="{ 'has-error' : (userForm.toTime.$invalid && !userForm.toTime.$pristine) || (userForm.$submitted && userForm.toTime.$invalid) }">
+														<label class="control-label" for="bscenteractivity-0-out_time">Until</label> 
+														<input required name="toTime" ng-model="activity.toTime" type="time" class="form-control"  placeholder="yyyy-MM-ddTHH:mm:ss" min="2001-01-01T00:00:00" max="2018-12-31T00:00:00" >
+														<p ng-show="(userForm.toTime.$invalid && !userForm.toTime.$pristine) || (userForm.$submitted && userForm.toTime.$invalid)" class="help-block">To time is required.</p>
+						
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="form-group field-bscenteractivity-0-activity_id required" ng-class="{ 'has-error' : (userForm.activityId.$invalid && !userForm.activityId.$pristine) || (userForm.$submitted && userForm.activityId.$invalid) }">
+														<label class="control-label" for="bscenteractivity-0-activity_id">Activity</label> 
+															<select required name="activityId" ng-model="activity.activityId" id="bscenteractivity-0-activity_id" class="form-control">
+																<option value="">Select</option>
+																	<option ng-repeat="activity in activityData" value="{{activity.id}}">{{activity.activityName}}</option>
+															</select>
+															<p ng-show="(userForm.activityId.$invalid && !userForm.activityId.$pristine) || (userForm.$submitted && userForm.activityId.$invalid)" class="help-block">Activity Name is required.</p>
+						
+														<div class="help-block"></div>
+													</div>
+												</div>												
+												<div class="col-sm-3">
+													<div class="form-group field-bscenteractivity-0-age_group_id" ng-class="{ 'has-error' : (userForm.fromAge.$invalid && !userForm.fromAge.$pristine) || (userForm.$submitted && userForm.fromAge.$invalid) }">
+														<label class="control-label" for="bscenteractivity-0-age_group_id">From Age</label> 
+														<select required name="fromAge"  ng-model="activity.fromAge" id="bscenteractivity-0-age_group_id" class="form-control">
+															<option value="">Select Age</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+															<option value="6">6</option>
+															<option value="7">7</option>
+															<option value="8">8</option>
+															<option value="9">9</option>
+															<option value="10">10</option>
+															<option value="11">11</option>
+															<option value="12">12</option>
+															<option value="13">13</option>
+															<option value="14">14</option>
+															<option value="15">15</option>
+															<option value="16">16</option>
+														</select>
+														<p ng-show="(userForm.fromAge.$invalid && !userForm.fromAge.$pristine) || (userForm.$submitted && userForm.fromAge.$invalid)" class="help-block">From age is required.</p>
+						
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="form-group field-bscenteractivity-0-to_age_group_id" ng-class="{ 'has-error' : (userForm.toAge.$invalid && !userForm.toAge.$pristine) || (userForm.$submitted && userForm.toAge.$invalid) }">
+														<label class="control-label" for="bscenteractivity-0-to_age_group_id">To Age</label> 
+														<select required name="toAge" ng-model="activity.toAge" id="bscenteractivity-0-to_age_group_id"
+															class="form-control">
+															<option value="">Select Age</option>
+															<option value="3">3</option>
+															<option value="4">4</option>
+															<option value="5">5</option>
+															<option value="6">6</option>
+															<option value="7">7</option>
+															<option value="8">8</option>
+															<option value="9">9</option>
+															<option value="10">10</option>
+															<option value="11">11</option>
+															<option value="12">12</option>
+															<option value="13">13</option>
+															<option value="14">14</option>
+															<option value="15">15</option>
+															<option value="16">16</option>
+														</select>
+														<p ng-show="(userForm.toAge.$invalid && !userForm.toAge.$pristine) || (userForm.$submitted && userForm.toAge.$invalid)" class="help-block">To Age is required.</p>
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="form-group field-bscenteractivity-0-amount" ng-class="{ 'has-error' : (userForm.amount.$invalid && !userForm.amount.$pristine) || (userForm.$submitted && userForm.amount.$invalid) }">
+														<label class="control-label">Amount</label>
+														<input required name="amount" ng-model="activity.amount" type="number" class="form-control">
+														<p ng-show="(userForm.amount.$invalid && !userForm.amount.$pristine) || (userForm.$submitted && userForm.amount.$invalid)" class="help-block">Amount is required.</p>
+						
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-3">
+													<div class="form-group field-bscenteractivity-0-amount" ng-class="{ 'has-error' : (userForm.totalSlots.$invalid && !userForm.totalSlots.$pristine) || (userForm.$submitted && userForm.totalSlots.$invalid) }">
+														<label class="control-label">Total Slots</label>
+														<input required name="totalSlots" ng-model="activity.totalSlots" type="number" class="form-control">
+														<p ng-show="(userForm.totalSlots.$invalid && !userForm.totalSlots.$pristine) || (userForm.$submitted && userForm.totalSlots.$invalid)" class="help-block">Total slots is required.</p>
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-4">
+													<div class="form-group field-bscenteractivity-0-duration" ng-class="{ 'has-error' : (userForm.duration.$invalid && !userForm.duration.$pristine) || (userForm.$submitted && userForm.duration.$invalid) }">
+														<label class="control-label">Duration</label>
+														<select required name="duration" ng-model="activity.duration" id="bscenteractivity-0-to_age_group_id"
+															class="form-control">
+															<option value="">Select Duration</option>
+															<option value="1 Day">1 Day</option>
+															<option value="1 Week">1 Week</option>
+															<option value="2 Weeks">2 Weeks</option>
+															<option value="3 Weeks">3 Weeks</option>
+															<option value="1 Month">1 Month</option>
+															<option value="2 Months">2 Months</option>
+															<option value="3 Months">3 Months</option>
+															<option value="4 Months">4 Months</option>
+															<option value="5 Months">5 Months</option>
+															<option value="6 Months">6 Months</option>
+															<option value="9 Months">9 Months</option>
+															<option value="1 Year">1 Year</option>
+														</select>
+														<p ng-show="(userForm.duration.$invalid && !userForm.duration.$pristine) || (userForm.$submitted && userForm.duration.$invalid)" class="help-block">Total slots is required.</p>
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-4">
+													<div
+														class="form-group field-bscenteractivity-0-activity_id required" ng-class="{ 'has-error' : (userForm.startDate.$invalid && !userForm.startDate.$pristine) || (userForm.$submitted && userForm.startDate.$invalid) }">
+														<label class="control-label" for="bscenteractivity-0-activity_id">Start Date</label> 
+															<input required ng-model="activity.startDate" name="startDate" type="date" class="form-control" >
+														<p ng-show="(userForm.startDate.$invalid && !userForm.startDate.$pristine) || (userForm.$submitted && userForm.startDate.$invalid)" class="help-block">Start Date is required.</p>
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-4">
+													<div
+														class="form-group field-bscenteractivity-0-activity_id required" ng-class="{ 'has-error' : (userForm.classDescription.$invalid && !userForm.classDescription.$pristine) || (userForm.$submitted && userForm.classDescription.$invalid) }">
+														<label class="control-label" for="bscenteractivity-0-activity_id">End Date</label> 
+														<input required ng-model="activity.endDate" name="endDate" type="date" class="form-control">															
+														<p ng-show="userForm.endDate.$invalid && !userForm.endDate.$pristine" class="help-block">End Date is required.</p>
+														<div class="help-block"></div>
+													</div>
+												</div>
+												<div class="col-sm-10">
+													<div class="form-group field-class-description" ng-class="{ 'has-error' : (userForm.classDescription.$invalid && !userForm.classDescription.$pristine) || (userForm.$submitted && userForm.classDescription.$invalid) }">
+														<label class="control-label">Class Description</label>
+														<textarea required class="form-control" rows="3" name="classDescription"  ng-model="activity.classDescription"></textarea>
+														<p ng-show="(userForm.classDescription.$invalid && !userForm.classDescription.$pristine) || (userForm.$submitted && userForm.classDescription.$invalid)" class="help-block">Class description is required.</p>
+														<div class="help-block"></div>														
+													</div>
+												</div>
+											</div>
+										</div>
+										
+									</div>									
+								</div>
+								<div class="form-group">
+											<input type="submit" value="Add Activity Class" class="btn btn-success btn-fill" />
+											<div ng-show="userForm.$invalid" style="margin-top:15px;" class="col-md-5 alert alert-warning">All details must be filled before submitting</div>
+										</div>
+								</form>
+							</div>
+						</div>
+					</div>
+								
+						</div>
+					</div>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	</div>

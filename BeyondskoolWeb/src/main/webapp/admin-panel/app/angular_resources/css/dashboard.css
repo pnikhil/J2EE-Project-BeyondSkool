@@ -1,0 +1,109 @@
+.panel-info > .panel-heading {
+  background-color: #66b3ff;
+  color: white;
+  font-family: Verdana;
+  bold: true;
+}
+
+.case_List_Scrollbar{
+    height: 385px;
+    overflow: auto;
+}
+
+.caseDashboardbodyContainerWrapper{
+   /* border-top:1px solid #cef3fc;*/
+    border-top: 1px solid #dfe4e7;
+    background-color: #f5fafe;
+}
+
+.textAlignCenter{
+  text-align: center;
+}
+
+.tableHeaderTextSize{
+  font-size: 13px;
+  text-align: center;
+   
+}
+.year-chart .nv-series {
+    display: none;
+
+}
+
+.reassign_Data_Style {
+	background-color: #cff3fd;
+	padding-bottom: 15px;	
+}
+
+.case_Reassign_List_Scrollbar{
+    height: 320px;
+    overflow: auto;
+}
+
+.case_Reassign_Button{
+	margin-top: 0px;
+}
+
+.admin_role_Checkbox{
+	width: 8%;
+	text-align: right;
+	height: 31px;
+}
+.admin_role_NonChecbox{
+	width: 23%;
+}
+.admin_role_CheckboxHeader{
+	width: 8%;
+	text-align: right;
+	height: 18px;
+}
+
+
+.reassign_Data_Style_Col1 {
+	padding-left: 170px;
+}
+.reassign_Data_Style_Col2 {
+	padding-left: 0px;
+}
+.reassign_Data_Style_Col3 {
+	padding-left: 30px;
+}
+/*.reportFilterStyle{
+	height: 490px;
+	overflow : auto;
+}*/
+
+.reportFilterHeader{
+    padding-top: 15px;
+    padding-bottom: 5px;
+    font-size: 12px;
+    /*font-weight: bold;*/
+}
+.my-datepicker .form-control {
+    height: 10px;
+    padding: 11px;
+}
+
+.my-datepicker .btn {
+    padding: 1px 2px;
+}
+
+.myFilterControlStyle
+{
+	min-height: 34px !important;
+}
+
+.reportButton {
+	    background-color: #1773a2;
+    color: white;
+    border-radius: 6px 6px 6px 6px !important;
+    font-size: 8pt !important;
+    font-weight: ;float:left;
+    height: 34px;
+    width: 46%;
+    padding: 4px !important;
+    margin: 0 !important;
+    padding: .3em 1em;
+    border: 0px solid #1773a2;
+    font-family: "Arial",Helvetica,sans-serif;
+}

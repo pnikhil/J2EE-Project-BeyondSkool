@@ -1,0 +1,55 @@
+<style type="text/css">
+.sidebar {
+	width: 100%;
+}
+</style>
+<div class="full-page login-page" data-color="orange"
+	data-image="/admin/web/theme/img/sidebar-5.jpg">
+	<nav class="navbar navbar-transparent navbar-absolute">
+		<div class="container" style="border-bottom: solid #9A9A9A;">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#navigation-example-2">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="https://beyondskool.com/"
+					target="_blank" style="color: black;">BeyondSkool</a>
+			</div>
+		</div>
+	</nav>
+	<div class="content">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+					<form id="login-form" ng-submit="login()" novalidate>
+						<div class="card">
+							<div class="header text-center">Admin Panel</div>
+							<div class="content">
+								<div class="form-group">
+									<label>Username</label> <input id="loginform-username"
+										class="form-control" ng-change="checkLoginFieldEmpty()" name="LoginForm[username]" ng-model="userName" autofocus=""
+										type="text">
+								</div>
+								<div class="form-group">
+									<label>Password</label> <input id="loginform-password"
+										class="form-control" ng-change="checkLoginFieldEmpty()" ng-model="password" name="LoginForm[password]" autofocus=""
+										type="password">
+								</div>
+								<div class="errorRedClass text-center" ng-show="incorrectLogin"
+							ng-model="incorrectLogin">Invalid Username or Password</div>
+							<div ng-show="loginWarning" class="failForgetPassword text-center" 
+							style="margin-top:5px;" ng-model="UserPassWarning">{{UserPassWarning}}</div>
+							</div>
+							<div class="footer text-center">
+							<input type="submit" value="LOGIN" class="btn btn-fill btn-warning btn-wd" />
+							</div>
+							<br />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,817 @@
+.myClear {
+	clear: both;
+}
+
+.contentWrapper {
+	background-color: #50b3d0;
+}
+
+.loginScreenWrapper {
+	float: none;
+	margin: 0 auto;
+	padding-top: 5px;
+	padding-bottom: 15px;
+	position: relative;
+	top: 20%;
+}
+
+.modal-content{
+	border: none !important;
+}
+
+.headderBanner {
+	background-color: #f5fafe;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.headderLogo {
+	width: 272px;
+	margin: 0 auto;
+}
+
+.innerContentWrapper {
+	background-color: #cef3fc;
+}
+
+.innerContent {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.login_textBoxLabel {
+	padding-top: 10px;
+	padding-bottom: 5px;
+	font-size: 14px;
+	color: #282828
+}
+
+.login_textBoxDiv {
+	padding-bottom: 5px;
+}
+
+.loginTextBox {
+	width: 100%;
+	border: 1px solid #cef3fc;
+	height: 35px;
+}
+
+.buttonWrapper {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.Loginbutton {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+	background-color: #1773a2;
+	color: white;
+	cursor: pointer;
+	width: 38%;
+}
+
+.forgot_Foter {
+	padding-top: 5px;
+	padding-bottom: 10px;
+	color: #1b59de;
+}
+
+.accountReset {
+	cursor: pointer;
+}
+
+.errorRedClass {
+	color: red;
+	font-size: 13px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.failForgetPassword{
+	color: red;
+    font-size: 13px;
+    /* padding-top: 0px; */
+    margin-top: -6px;
+    padding-bottom: 3px;
+    font-style: italic;
+}
+
+.successUnlockPassword{
+	color: green;
+    font-size: 13px;
+    /* padding-top: 0px; */
+    margin-top: -6px;
+    padding-bottom: 3px;
+    font-style: italic;
+}
+
+.successForgetPassword {
+	color: green;
+	font-size: 13px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	font-style: italic;
+}
+
+.center-block {
+	width: 95%;
+	padding-bottom: 30px;
+}
+.center-block-padding-style{
+	padding-bottom: 5px;
+}
+.progressBox {
+	cursor: pointer;
+	margin-top: 5px;
+	background-color: #ffffff;
+}
+
+.notificationBox {
+    padding-right: 0px;
+    margin-top: -19px;
+}
+
+/*CHNGED */
+.openImgDiv {
+	float: left;
+	background-color: #cef3fc;
+	height: 55px;
+	width: 70px;
+}
+
+.openTextDiv {
+	padding-top: 5px;
+	font-size: 12px;
+	padding-right: 20px;
+	color: #015c8b;
+	text-align: right;
+}
+
+.openTextDiv span {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.openImg {
+	width: 40px;
+	margin-top: 8px;
+	margin-bottom: 15px;
+	margin-right: 15px;
+	margin-left: 15px;
+}
+.viewImg {
+	width: 20px;
+	margin-top: 8px;
+	margin-right: 15px;
+	margin-left: 15px;
+	cursor: pointer;
+}
+
+.DashBoardClusterContent {
+	background-color: #50b3d0;
+}
+
+.taskNotificationWrapper {
+	background-color: #f5fafe;
+}
+
+.searchBoxParentDiv {
+	position: relative;
+}
+
+.searchIcon {
+	width: 14px;
+	height: 14px;
+	position: absolute;
+	right: 8px;
+	top: 5px;
+	background-image: url('../images/searchIcon.png');
+	line-height: 5px;
+}
+
+.searchBox {
+	padding-left: 5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	width: 200px;
+	padding-right: 20px;
+	color: #585858;
+	line-height: 10px;
+	border: 1px solid #cbebfa;
+}
+
+.searchTabActions {
+	float: right;
+	cursor: pointer;
+	width: 30px;
+	height: 24px;
+	margin-left: 5px;
+}
+
+.deleteIcon {
+	background-image: url(../images/move-button-24.png);
+	background-repeat: no-repeat;
+	border: none;
+	/*-webkit-filter: invert(100%);*/
+	margin-right: -2px;
+	margin-top: 0px;
+	background-position: 4px -1px;
+	/*background-color: orangered;*/
+}
+
+.filterIcon {
+	background-image: url('../images/filterIcon.png');
+}
+
+.downloadIcon {
+	background-image: url('../images/DownloadIcon.png');
+}
+
+.taskpannel {
+	float: left;
+	font-size: 13px;
+	font-weight: bold;
+	color: black;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 3px;
+	padding-right: 10px;
+}
+
+.taskpannelRight {
+	float: right;
+}
+
+.taskList-center-block {
+	width: 95%;
+	color: #ec8007;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.tableHeadder {
+	background-color: #76c3ef;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.tableHdColumn, .tableROColumn {
+	font-size: 12px;
+	color: white;
+	float: left;
+	font-family: "Arial",Helvetica,sans-serif;
+	
+}
+
+.hdCol1 {
+	width: 20%;
+	padding-left: 5px;
+	padding-right: 5px;
+	word-wrap: break-word;
+	text-align: center;
+	
+	
+}
+
+.hdCol2 {
+	width: 15%;
+	padding-left: 5px;
+	padding-right: 5px;
+	text-align: center;
+	
+}
+
+.hdCol3 {
+	width: 15%;
+	padding-left: 5px;
+	padding-right: 5px;
+	word-wrap: break-word;
+	text-align: center;
+	
+}
+
+.hdCol4 {
+	width: 15%;
+	padding-left: 5px;
+	padding-right: 5px;
+	word-wrap: break-word;
+	text-align: center;
+}
+
+.hdCol5 {
+	width: 15%;
+	padding-left: 5px;
+	padding-right: 5px;
+	word-wrap: break-word;
+	text-align: center;
+}
+
+.hdCol6 {
+	width: 20%;
+	padding-left: 5px;
+	padding-right: 5px;
+	word-wrap: break-word;
+	text-align: center;
+	
+}
+
+.rdCol1 {
+	width: 20%;
+	padding-left: 5px;
+	padding-right: 5px;
+	color: black;
+	text-align: center;
+}
+
+.rdCol2 {
+	width: 15%;
+	padding-left: 5px;
+	padding-right: 5px;
+	color: black;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+}
+
+.rdCol3 {
+	width: 15%;
+	padding-left: 5px;
+	padding-right: 5px;
+	color: black;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+}
+
+.rdCol4 {
+	width: 15%;
+	padding-left: 5px;
+	padding-right: 5px;
+	color: black;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+}
+
+.rdCol5 {
+	width: 15%;
+	padding-left: 5px;
+	padding-right: 5px;
+	color: black;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+}
+
+.rdCol6 {
+	width: 17%;
+	padding-left: 5px;
+	color: black;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	text-align: center;
+}
+
+.tableWrapper {
+	background-color: #f5fafe;
+}
+
+.tableRow {
+	
+}
+
+.tableRowWrapper {
+	margin-top: 2px;
+}
+
+.oddRow {
+	background-color: #e7f2f8;
+}
+
+.evenRow {
+	background-color: #ffffff;
+}
+
+.dataTableCol1Content {
+	float: left;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.dataTableCol6Content {
+	float: right;
+}
+
+.actionButton {
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	margin-left: 3px;
+	cursor: pointer;
+	width: 80px;
+	text-align: center;
+}
+/*after sharing Anoop start*/
+.extractingButton {
+	background-color: #e77e22;
+	color: white;
+}
+.validateButton {
+		background-color: #1773a2;
+	color: white;
+	 border-radius: 6px 6px 6px 6px !important;
+    font-size: 10pt !important;
+    font-weight: ;
+    height: 27px;
+      width: 62px;
+    padding: 3px !important;
+    margin: 0 !important;
+    padding: .3em 1em;
+     border: 0px solid #1773a2;
+    font-family: "Arial",Helvetica,sans-serif;
+}
+
+.queuedButton {
+	background-color: #e84c3d;
+	color: white;
+}
+
+.mailButton {
+	background-image: url('../images/mailIcon.png');
+	width: 16px;
+	height: 12px;
+	margin-top: 5px;
+	margin-left: 5px;
+	cursor: pointer;
+	margin-right: 10px;
+}
+
+.deleteTrash {
+	background-image: url('../images/trash-2-16.png');
+	width: 16px;
+	height: 16px;
+	margin-top: 5px;
+	margin-left: 5px;
+	cursor: pointer;
+	margin-right: 10px;
+}
+
+.rowExpandCollapse {
+	cursor: pointer;
+	
+}
+
+.addButton {
+	background-image: url('../images/addIcon.png');
+	width: 16px;
+	height: 17px;
+	margin-top: 3px;
+	margin-left: 5px;
+	cursor: pointer;
+	margin-right: 77px;
+}
+
+.extractButton {
+	background-color: #1773a2;
+	color: white;
+	 border-radius: 6px 6px 6px 6px !important;
+    font-size: 10pt !important;
+    font-weight: ;
+    height: 25px;
+    width: 62px;
+    padding: 3px !important;
+    margin: 0 !important;
+    padding: .3em 1em;
+     border: 0px solid #1773a2;
+    font-family: "Arial",Helvetica,sans-serif;
+    
+}
+
+.submissionIDCol {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.newNotification {
+	background-color: green;
+	color: white;
+	padding-left: 4px;
+	padding-right: 4px;
+	font-weight: bold;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	font-size: 7px;
+	margin-top: 2px;
+	margin-left: 2px;
+	border-radius: 3px;
+}
+
+.noNotification {
+	display: none;
+}
+
+.submissionIDcheckBoxCol {
+	padding-top: 4px;
+	padding-bottom: 2px;
+}
+
+.tableSubRow {
+	background-color: #e7f2f8;
+	margin-top: 2px;
+}
+
+.documentListing {
+	float: left;
+	border-bottom: 1px solid #c2d3db;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: #3d3d3f;
+	font-weight: bold;
+}
+
+.documentName_Wraper {
+	width: 30%;
+	padding-left: 41px;
+	padding-right: 10px;
+}
+
+.documentClassification_Wraper {
+	width: 70%;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.documentListContent_wrapper {
+	border-bottom: 1px solid #c2d3db;
+	padding-bottom: 10px;
+}
+
+.documentListContent {
+	float: left;
+	width: 20%;
+	padding-left: 41px;
+	padding-right: 10px;
+	text-align: center;
+}
+
+.documentClassificationContent {
+	float: left;
+	width: 70%;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.documentIcon {
+	float: left;
+	width: 24px;
+	height: 24px;
+	margin-right:5px;
+	margin-top:-3px;
+}
+
+.pdf {
+	background-image: url('../images/acrobat_icon.png');
+}
+
+.xls {
+	background-image: url('../images/excel_icon.png');
+}
+
+.xlsx {
+	background-image: url('../images/excel_icon.png');
+}
+
+.doc {
+	background-image: url('../images/word_icon.png');
+}
+
+.docx {
+	background-image: url('../images/word_icon.png');
+}
+
+.jpeg{
+	background-image: url('../images/image_icon_small.png');
+}
+
+.jpg{
+	background-image: url('../images/image_icon_small.png');
+}
+.png{
+	background-image: url('../images/image_icon_small.png');
+}
+.tiff{
+	background-image: url('../images/image_icon_small.png');
+}
+.tif{
+	background-image: url('../images/image_icon_small.png');
+}
+.unknown{
+	background-image: url('../images/unknown_icon_small.png');
+}
+.documentName {
+	float: left;
+	cursor: pointer;
+	font-size: 12px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: #424545;
+	text-align: center;
+	
+}
+
+.documentRows {
+	margin-top: 5px;
+}
+
+.documentClasifcation_selectBox {
+	width: 25%;
+	height: 25px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	border: 1px solid #d9dfe1;
+	color: black;
+}
+
+.account_outputWrapper {
+	background-color: #e7f2f8;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.accountWrapper {
+	width: 50%;
+	float: left;
+}
+
+.oputputWrapper {
+	width: 50%;
+	float: left;
+}
+
+.accountNumberTextBoxDiv {
+	float: left;
+	width: 40%;
+}
+
+.accountNumberText {
+	float: left;
+	padding-left: 41px;
+	padding-right: 10px;
+	padding-top: 5px;
+	color: #424545;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.outputTextboxDiv {
+	float: left;
+	width: 40%;
+}
+
+.outputText {
+	float: left;
+	padding-right: 10px;
+	padding-top: 5px;
+	color: #424545;
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.textBoxsubRow {
+	width: 100%;
+}
+
+.dropRight {
+	margin-top: 2px;
+	width: 24px;
+	height: 24px;
+	background-image: url('../images/right_arrow.png');
+}
+
+.dropDown {
+	margin-top: 2px;
+	width: 24px;
+	height: 24px;
+	background-image: url('../images/dropdown_arrow.png');
+}
+
+.redLabel {
+	color: red;
+}
+
+.blackLabel {
+	color: black;
+}
+
+.tableScrollWrapper {
+	height: 360px;
+	overflow-x: hidden;
+}
+
+.cmn_btn {
+	font-style: normal;
+	background-color: #1773a2;
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 9px;
+	color: white;
+	width: 50px;
+	cursor: pointer;
+	text-align: center;
+	padding: 5px;
+	border-radius: 6px 6px 6px 6px !important;
+	font-family: "Arial",Helvetica,sans-serif;
+	font-size: 10pt;
+}
+
+.drop_panel {
+	width: 100%;
+	height: 120px;
+	margin-top: 21px;
+	color: #353535;
+	border-color: #c9d9e1;
+	padding-top: 14px;
+	font-size: 15px;
+	font-style: italic;
+	border-style: dashed;
+	border-width: 2px;
+	text-align: center;
+}
+
+.no_padding {
+	padding: 0;
+}
+
+.warning_msg {
+	color: #d63200;
+	background-color: transparent;
+	border: none;
+	font-size: 12px;
+	float: right;
+}
+
+.scroll {
+	overflow: auto;
+}
+
+.scroll::-webkit-scrollbar {
+	width: 5px;
+	overflow-x: hidden;
+	border-radius: 10px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+.myEyeWrapper {
+	
+}
+
+.eyeIcon {
+	float: right;
+	/*width: 30px;*/
+	height: 30px;
+	/*background-image: url('../images/eyeIcon.png');*/
+	cursor: pointer;
+	/* text-decoration: underline; */
+	color:black;
+}
+
+.validationHyperLink{
+	text-decoration: underline;
+	color:black;
+}
+
+.submisionsortArrow {
+	margin-left: 5px;
+	margin-top: -3px;;
+}
+
+.noRecordsFound {
+	color: #4c4a4a;
+    font-size: 14px;
+    padding-top: 15px;
+    padding-bottom: 3px;
+    text-align: center;
+}
+
+.getWorkItemWrapper {
+	float: right;
+	cursor: pointer;
+	margin-left: 5px;
+}
+
+.button-disabled {
+	pointer-events: none;
+}
+
+.button-disabled-extract{
+	pointer-events: none;
+	background-color:grey;
+}
+
